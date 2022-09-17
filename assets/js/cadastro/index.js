@@ -50,12 +50,14 @@ export async function Cadastrar() {
                         nomeEquipe: txtNomeEquipe.value,
                         senha: txtSenha.value,
                         fotoCard: imgRef,
+                        comprovante: '',
                         tipoPagmento: '',
                         comprovantePagamento: '',
                         status: 'Pendente',
                     }
 
-                    uploadImagem(ref, file, imgRef, metadata)
+                    let ref = `images/${imgRef}`
+                    uploadImagem(file, ref, metadata)
                     subscribeToExperienceMtb(subscription, ID);
                     alert("Cadastro Feito com Sucesso!!!")
                     limparDados()
@@ -79,7 +81,8 @@ export async function Cadastrar() {
                         comprovantePagamento: '',
                         status: 'Pendente',
                     }
-                    uploadImagem(storageRef, file, metadata)
+                    let ref = `images/${imgRef}`
+                    uploadImagem(file, ref, metadata)
                     subscribeToExperienceMtb(subscription, ID);
                     alert("Cadastro Feito com Sucesso!!!")
                     limparDados()
