@@ -42,13 +42,12 @@ export async function Cadastrar() {
                 txtDocumento.focus();
             }
             else {
-                if (imgRef != null) {
-                    fotoCard1 = imgRef
-                    let ref = `images/${imgRef}`
-                    uploadImagem(file, ref, metadata)
-                }
                 if (txtModalidade.value == "Racing") {
-
+                    if (imgRef != null) {
+                        fotoCard1 = imgRef
+                        let ref = `images/${imgRef}`
+                        uploadImagem(file, ref, metadata)
+                    }
                     const subscription = {
                         pais: txtPais.value,
                         nome: txtNome.value,
@@ -90,7 +89,7 @@ export async function Cadastrar() {
                         modalidadeChallenge: txtModalidadeChallenge.value,
                         nomeEquipe: txtNomeEquipe.value,
                         senha: txtSenha.value,
-                        fotoCard: imgRef,
+                        fotoCard: fotoCard1,
                         comprovante: '',
                         tipoPagmento: '',
                         comprovantePagamento: '',

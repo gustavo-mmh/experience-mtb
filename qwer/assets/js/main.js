@@ -125,7 +125,11 @@ docs.forEach(item => {
         txtComprovante.classList.add('disabled')
     }
 })
-getUrlImage(storage, img, cardFoto)
+if (img != "") {
+    getUrlImage(storage, img, cardFoto)
+} else {
+    cardFoto.src = './assets/images/fotocard.png'
+}
 btnLogout.addEventListener('click', () => {
     localStorage.clear()
     window.location.href = '../index.html'

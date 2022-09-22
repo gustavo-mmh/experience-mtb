@@ -33,6 +33,7 @@ export async function getCollection(documento) {
     return docsData;
 }
 export async function updateCollection(documento, subscription) {
+    debugger
     const experienceMTBRef = doc(db, "experience-mtb", documento);
 
     // const docsData = querySnapshot.docs.map(doc => doc.data());

@@ -4,13 +4,13 @@ export function VerificaModalidade() {
     if (txtModalidade.value == "Racing") {
         divRacing.style.display = "block";
         divChallenge.style.display = "none";
-        txtModalidadeChallenge.removeAttribute("required");
-        txtModalidadeRacing.setAttributeNode(required);
+        txtModalidadeChallenge.required = false;
+        txtModalidadeRacing.required = true;
     } else {
         divChallenge.style.display = "block";
         divRacing.style.display = "none";
-        txtModalidadeRacing.removeAttribute("required");
-        txtModalidadeChallenge.setAttributeNode(required);
+        txtModalidadeRacing.required = false;
+        txtModalidadeChallenge.required = true;
     }
 }
 
@@ -25,22 +25,22 @@ export function validatePassword(form, element, element2) {
 export function bloqueio(divElement, element) {
     if (divElement.style.display == "none") {
         divElement.style.display = "block";
-        element.setAttributeNode(required);
+        element.required = true;
     } else {
         divElement.style.display = "none";
         element.value = '';
-        element.removeAttribute("required");
+        element.required = false;
     }
 }
 export function bloqueioSenha(divElement, element, element2) {
     if (divElement.style.display == "none") {
         divElement.style.display = "block";
-        element.setAttributeNode(required);
-        element2.setAttributeNode(required);
+        element.required = true;
+        element2.required = true;
     } else {
         divElement.style.display = "none";
-        element.removeAttribute("required");
-        element2.removeAttribute("required");
+        element.required = false;
+        element2.required = false;
         element.value = '';
         element2.value = '';
     }

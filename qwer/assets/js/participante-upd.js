@@ -25,7 +25,9 @@ export function updateParticipante() {
                 deleteImage(ref2)
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
-                // window.location.reload()
+                setTimeout(function () {
+                    window.location.reload(1);
+                }, 4000);
             } else if (txtFotoCard.value == '' && txtSenha.value != '') {
                 const subscription = {
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
@@ -51,7 +53,9 @@ export function updateParticipante() {
                 deleteImage(ref2)
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
-                // window.location.reload()
+                setTimeout(function () {
+                    window.location.reload(1);
+                }, 4000);
             } else {
                 const subscription = {
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
@@ -61,7 +65,9 @@ export function updateParticipante() {
                 }
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
-                window.location.reload()
+                setTimeout(function () {
+                    window.location.reload(1);
+                }, 4000);
             }
         }
         else {
@@ -80,7 +86,9 @@ export function updateParticipante() {
                 deleteImage(ref2)
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
-                window.location.reload()
+                setTimeout(function () {
+                    window.location.reload(1);
+                }, 4000);
             } else if (txtFotoCard.value == '' && txtSenha.value != '') {
                 const subscription = {
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
@@ -106,7 +114,9 @@ export function updateParticipante() {
                 deleteImage(ref2)
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
-                window.location.reload()
+                setTimeout(function () {
+                    window.location.reload(1);
+                }, 4000);
             } else {
                 const subscription = {
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
@@ -116,7 +126,9 @@ export function updateParticipante() {
                 }
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
-                window.location.reload()
+                setTimeout(function () {
+                    window.location.reload(1);
+                }, 4000);
             }
         }
 

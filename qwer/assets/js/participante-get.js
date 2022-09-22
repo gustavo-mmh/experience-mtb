@@ -1,8 +1,8 @@
 import { getStorage } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js";
 import app from "../../../assets/js/firebase/app.js";
-import { bloqueio, bloqueioSenha, validatePassword, VerificaModalidade } from "../../../assets/js/validaForm.js";
+import { bloqueio, bloqueioSenha, calculaIdade, filtraCategoria, validatePassword, VerificaModalidade } from "../../../assets/js/validaForm.js";
 import { getCollection } from "../../../assets/js/firebase/experience-mtb.js";
-import { checkboxFoto, checkboxSenha, divFoto, divSenha, formUpdate, imgThumbnail, txtCidade, txtConfirmaSenha, txtDataNascimento, txtDocumento, txtEmail, txtFotoCard, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtNome, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta, txtWhatsApp } from '../../../assets/js/ui.js';
+import { cardFoto, checkboxFoto, checkboxSenha, divChallenge, divFoto, divRacing, divSenha, formUpdate, imgThumbnail, txtCidade, txtConfirmaSenha, txtDataNascimento, txtDocumento, txtEmail, txtFotoCard, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtNome, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta, txtWhatsApp } from '../../../assets/js/ui.js';
 import { getUrlImage } from "../../../assets/js/cadastro/storage/urlImg.js";
 export let img
 export async function getParticipante() {
@@ -21,6 +21,8 @@ export async function getParticipante() {
     txtConfirmaSenha.addEventListener('keyup', () => {
         validatePassword(formUpdate, txtConfirmaSenha, txtSenha)
     })
+    let idade = calculaIdade(txtDataNascimento.value)
+    filtraCategoria(idade)
     let documento = JSON.parse(localStorage.getItem('documentoLogado'))
     const storage = getStorage(app);
 
@@ -35,13 +37,21 @@ export async function getParticipante() {
         txtWhatsApp.value = item.whatsapp
         txtModalidade.value = item.modalidade
         if (item.modalidade == "Racing") {
+            divRacing.hidden = false
             txtModalidadeRacing.value = item.modalidadeRacing
+            divChallenge.hidden = true
         } else {
+            divChallenge.hidden = false
             txtModalidadeChallenge.value = item.modalidadeChallenge
+            divRacing.hidden = true
         }
         txtNomeEquipe.value = item.nomeEquipe
         txtTamanhoCamiseta.value = item.tamanhoCamiseta
         img = item.fotoCard
     })
-    getUrlImage(storage, img, imgThumbnail)
+    if (img != "") {
+        getUrlImage(storage, img, imgThumbnail)
+    } else {
+        cardFoto.src = './assets/images/fotocard.png'
+    }
 }
