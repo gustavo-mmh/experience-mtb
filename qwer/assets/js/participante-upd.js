@@ -38,7 +38,9 @@ export function updateParticipante() {
                 }
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
-                window.location.reload()
+                setTimeout(function () {
+                    window.location.reload(1);
+                }, 4000);
             } else if (txtSenha.value == '' && txtFotoCard.value != '') {
                 const subscription = {
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
