@@ -23,13 +23,6 @@ body {
   /* animation: backgroundTransition 8s ease-in-out infinite; */
   position: relative;
 }
-.logo-escrita {
-  width: 60%;
-}
-.novos-desafios {
-  position: relative;
-  top: 40%;
-}
 .infos {
   background-color: rgba(97, 19, 32, 0.79);
   padding: 4%;
@@ -400,14 +393,18 @@ h2 {
   -webkit-text-fill-color: transparent;
 }
 /* // `sm` applies to x-small devices (portrait phones, less than 576px) */
-@media (max-width: 575.98px) {
-}
 
 /* // `md` applies to small devices (landscape phones, less than 768px) */
-@media (max-width: 767.98px) {
+@media (max-width: 575.97px) {
+  .logo-escrita {
+    width: 60%;
+  }
   .header-wrapper {
     background: url(../images/bg-mob.png) no-repeat center;
     background-size: cover;
+  }
+  .header-logo {
+    padding: 2rem;
   }
   .social-media {
     display: flex;
@@ -447,11 +444,66 @@ h2 {
     width: 230px;
   }
 }
+@media (min-width: 575.98px) and (max-width: 767.97px) {
+  .logo-escrita {
+    width: 50%;
+  }
+  .header-wrapper {
+    background: url(../images/bg-mob.png) no-repeat center;
+    background-size: cover;
+  }
+  .header-logo {
+    padding: 2rem;
+  }
+  .social-media {
+    display: flex;
+    flex-direction: column;
+  }
+  .link_button {
+    font-size: 18px;
+    margin: 7px;
+    padding: 0.5rem 2rem;
+  }
+  .container {
+    margin-top: 0;
+  }
 
+  .card-container {
+    flex-direction: column;
+  }
+
+  .container .card-container:nth-child(1),
+  .container .card-container:nth-child(3) {
+    flex-direction: column-reverse;
+  }
+
+  .card {
+    height: 250px;
+    width: 250px;
+  }
+
+  .card-text {
+    width: 90%;
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .card:hover > .card-wrapper::before {
+    height: 230px;
+    width: 230px;
+  }
+}
 /* // `lg` applies to medium devices (tablets, less than 992px) */
 @media (min-width: 767.99px) {
   .header-wrapper {
     background: url("../images/bg.png") no-repeat center;
     background-size: cover;
+  }
+  .logo-escrita {
+    width: 60%;
+  }
+  .novos-desafios {
+    position: relative;
+    top: 40%;
   }
 }
