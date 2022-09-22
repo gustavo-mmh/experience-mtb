@@ -15,12 +15,13 @@
 <body>
     <header>
         <div class="cabecalho container-fluid py-5 text-center">
-            <h2 class="pb-2 border-bottom"><a class="text-light text-decoration-none" href="index.html"> Experience
-                    MTB</a></h2>
+            <h2 class="pb-2 border-bottom"><a class="text-light text-decoration-none" href="index.html"> <img
+                        src="../assets/images/favicon.png" alt="logo" class="logo-qwer"></a></h2>
             <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
             </div>
         </div>
-        <div class="b-example-divider">
+        <div class="b-example-divider text-center">
+            <img src="../assets/images/favicon.png" alt="logo" sizes="45">
             <button id="btnLogout" type="button" class="m-1 btn btn-outline-danger float-end">Log out</button>
         </div>
     </header>
@@ -118,12 +119,23 @@
                                     *Modalidade Racing:</label>
                                 <select id="txtModalidadeRacing" class="form-select" name="racing"
                                     aria-label="Selecione uma Modalidade">
-                                    <option selected>Elite</option>
-                                    <option>Sub 30</option>
-                                    <option>Master A</option>
-                                    <option>Master B</option>
-                                    <option>Master C</option>
-                                    <option>Master D</option>
+                                    <option value="" selected>Selecione uma Categoria</option>
+                                    <optgroup label="Categoria Promocional">
+                                        <option value="Promocional">Promocional</option>
+                                    </optgroup>
+                                    <optgroup label="Categoria Elite">
+                                        <option value="Elite">Elite (18+)</option>
+                                    </optgroup>
+                                    <optgroup label="Categoria Por Idade">
+                                        <option value="Sub.30">Sub. 30 (até 29 anos)</option>
+                                        <option value="Master A1">Master A1 (30 à 34 anos)</option>
+                                        <option value="Master A2">Master A2 (35 à 39 anos)</option>
+                                        <option value="Master B1">Master B1 (40 à 44 anos)</option>
+                                        <option value="Master B2">Master B2 (45 à 49 anos)</option>
+                                        <option value="Master C1">Master C1 (50 à 54 anos)</option>
+                                        <option value="Master C2">Master C2 (55 à 59 anos)</option>
+                                        <option value="Master D">Master D (60 anos+)</option>
+                                    </optgroup>
                                 </select>
                             </div>
                             <div id="challenge" class="mb-2 mt-3" style="display: none;">
@@ -131,9 +143,9 @@
                                     *Modalidade Challenge:</label>
                                 <select id="txtModalidadeChallenge" class="form-select" name="challenge"
                                     aria-label="Selecione uma Modalidade">
-                                    <option selected>Soft</option>
-                                    <option>Light</option>
-                                    <option>Hard</option>
+                                    <option value="Soft">Soft (Suave)</option>
+                                    <option value="Light">Light (Leve)</option>
+                                    <option value="Hard">Hard (Duro)</option>
                                 </select>
                             </div>
                             <div class="mb-2">

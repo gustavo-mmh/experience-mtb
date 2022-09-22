@@ -1,15 +1,15 @@
 // Import the functions you need from the SDKs you need
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-analytics.js";
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyC4Z0TBcUAtxhjoUIg-ycVUBwxepyF7qSE",
-    authDomain: "experience-mtb.firebaseapp.com",
-    projectId: "experience-mtb",
-    storageBucket: "experience-mtb.appspot.com",
-    messagingSenderId: "1028643705742",
-    appId: "1:1028643705742:web:409304d4f3efa30420cadf",
-    measurementId: "G-MVER66E9X2",
+    apiKey: "AIzaSyAN3IFMINVWw6965cJdLI4VSz1G-rZQY7s",
+    authDomain: "experience-mtb-6574d.firebaseapp.com",
+    projectId: "experience-mtb-6574d",
+    storageBucket: "experience-mtb-6574d.appspot.com",
+    messagingSenderId: "234905696198",
+    appId: "1:234905696198:web:507cabef5feab4f2a224c7",
+    measurementId: "G-H6KM6MYNDX"
 };
 
 // Initialize Firebase

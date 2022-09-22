@@ -1,5 +1,5 @@
-import { collection, doc, getDoc, getDocs, getFirestore, setDoc, query, where, updateDoc } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js';
-import { getStorage, ref, uploadBytesResumable, deleteObject } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-storage.js";
+import { collection, doc, getDoc, getDocs, getFirestore, setDoc, query, where, updateDoc } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
+import { getStorage, ref, uploadBytesResumable, deleteObject } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js";
 import app from './app.js';
 const db = getFirestore(app)
 const expereinceMTBCollection = collection(db, 'experience-mtb')

@@ -14,8 +14,24 @@
 
 <body>
   <header class="header-wrapper">
-    <img title="Logo" class="img-fluid" src="assets/images/logo.png">
-
+    <div class="infos container-fluid d-none d-md-block">
+      <div class="row">
+        <div class="col-lg-6 col-md-6">
+          <img src="assets/images/logo-escrita.png" class="img-fluid logo-escrita" alt="">
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <img src="assets/images/novos-desafios.png" class="img-fluid novos-desafios" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid d-xs-flex d-sm-flex d-md-none flex-column mb-2 text-center">
+      <div class="p-2 p-sm-5">
+        <img src="assets/images/novos-desafios.png" class="img-fluid novos-desafios" alt="">
+      </div>
+      <div class="p-2 p-sm-5">
+        <img src="assets/images/logo-escrita.png" class="img-fluid logo-escrita" alt="">
+      </div>
+    </div>
     <div class="social-media">
       <button type="button" class="link_button" data-bs-toggle="modal"
         data-bs-target="#cadastroModal">Inscreva-se</button>
@@ -85,7 +101,7 @@
                     <i class=" fa fa-whatsapp fa-fw" aria-hidden="true"></i>
                     *WhatsApp:</label>
                   <input type="tel" id="txtWhatsApp" class="form-control" required="required" maxlength="15"
-                    name="txtWhatsApp" pattern="[0-9]+$" placeholder="Digite seu WhatsApp" />
+                    name="txtWhatsApp" pattern="[0-9/+/ /]+$" placeholder="Digite seu WhatsApp" />
                 </div>
                 <div class="mb-2 mt-3">
                   <label for="txtTamanhoCamiseta" class="form-label">
@@ -105,31 +121,43 @@
                     *Modalidade:</label>
                   <select required id="txtModalidade" class="form-select" name="modalidade"
                     aria-label="Selecione uma Modalidade">
-                    <option value="Racing" selected>Racing</option>
-                    <option value="Challenge">Challenge</option>
+                    <option value="Racing" selected>Racing (Competição)</option>
+                    <option value="Challenge">Challenge (Desafio)</option>
                   </select>
                 </div>
                 <div id="racing" class="mb-2 mt-3">
                   <label for="txtModalidadeRacing" class="form-label">
-                    *Modalidade Racing:</label>
+                    *Modalidade Racing (Competição):</label>
                   <select id="txtModalidadeRacing" class="form-select" name="racing"
-                    aria-label="Selecione uma Modalidade">
-                    <option selected>Elite</option>
-                    <option>Sub 30</option>
-                    <option>Master A</option>
-                    <option>Master B</option>
-                    <option>Master C</option>
-                    <option>Master D</option>
+                    aria-label="Selecione uma Modalidade" required>
+                    <option value="" selected>Selecione uma Categoria</option>
+                    <optgroup label="Categoria Promocional">
+                      <option value="Promocional">Promocional</option>
+                    </optgroup>
+                    <optgroup label="Categoria Elite">
+                      <option value="Elite">Elite (18+)</option>
+                    </optgroup>
+                    <optgroup label="Categoria Por Idade">
+                      <option value="Sub.30">Sub. 30 (até 29 anos)</option>
+                      <option value="Master A1">Master A1 (30 à 34 anos)</option>
+                      <option value="Master A2">Master A2 (35 à 39 anos)</option>
+                      <option value="Master B1">Master B1 (40 à 44 anos)</option>
+                      <option value="Master B2">Master B2 (45 à 49 anos)</option>
+                      <option value="Master C1">Master C1 (50 à 54 anos)</option>
+                      <option value="Master C2">Master C2 (55 à 59 anos)</option>
+                      <option value="Master D">Master D (60 anos+)</option>
+                    </optgroup>
                   </select>
                 </div>
                 <div id="challenge" class="mb-2 mt-3" style="display: none;">
                   <label for="txtModalidadeChallenge" class="form-label">
-                    *Modalidade Challenge:</label>
+                    *Modalidade Challenge (Desafio):</label>
                   <select id="txtModalidadeChallenge" class="form-select" name="challenge"
                     aria-label="Selecione uma Modalidade">
-                    <option selected>Soft</option>
-                    <option>Light</option>
-                    <option>Hard</option>
+                    <option value="" selected>Selecione uma Opção</option>
+                    <option value="Soft">Soft (Suave)</option>
+                    <option value="Light">Light (Leve)</option>
+                    <option value="Hard">Hard (Duro)</option>
                   </select>
                 </div>
                 <div class="mb-2">
@@ -238,22 +266,21 @@
   <div class="alert alert-secondary py-2 text-center">
     <h2 class="text-dark">Informações</h2>
     <p><b>Local:</b> Santana do Livramento</p>
-    <p><b>datas:</b> 09, 10 e 11 de Dezembro de 2022</p>
+    <p><b>Datas:</b> 09, 10 e 11 de Dezembro de 2022</p>
   </div>
 
   <div class="container py-2">
     <h2 class="text-dark">Sobre</h2>
     <div class="card-container">
       <div class="card-text">
-        Experience Challenge & Racing MTB é um evento esportivo na
-        modalidade de ciclismo de Mountain Bike que busca a
-        aproximação do meio no formato de competição e desafio
-        integrando diferentes níveis de atletas e esportistas.
+        Experiência de viver o mountain bike de uma forma
+        diferente com atividades únicas, evento para fazer
+        novas amizades, divertir-se e se emocionar.
       </div>
       <div class="card m-2">
         <div class="card-wrapper">
-          <h2>Experience Challenge & Racing MTB</h2>
-          <p>O que é?</p>
+          <h2>Experience</h2>
+          <p>(Experiência)</p>
         </div>
       </div>
     </div>
@@ -262,29 +289,41 @@
       <div class="card m-2">
         <div class="card-wrapper">
           <h2>Challenge</h2>
-          <p>O que é Challenge?</p>
+          <p>(Desafio)</p>
         </div>
       </div>
       <div class="card-text">
-        Challenge é a modalidade em que o ciclista somente terá que completar
-        os km propostos no seu ritmo, desafiando a si mesmo, onde ao completar
-        o trajeto receberá a honrosa medalha finisher e o certificado atleta
-        Experience.
+        Desafio que envolve determinação para vencer os
+        limites mente, corpo e proporcionar todos experiência
+        modalidade de pura determinação diversão.
       </div>
     </div>
 
     <div class="card-container">
       <div class="card-text">
-        Racing é a outra modalidade de nosso evento em que o ciclista
-        competirá dentro de categorias concorrer ao pódio do 1º ao 5º
-        lugar e ainda levar a medalha finisher e o certificado atleta
-        Experience.
+        Adrenalina de competir com superação na busca de
+        resultados por um lugar no pódio dentro de cada categoria.
       </div>
       <div class="card m-2">
         <div class="card-wrapper">
           <h2>Racing</h2>
-          <p>O que é Racing?</p>
+          <p>(Competição)</p>
         </div>
+      </div>
+    </div>
+
+    <div class="card-container">
+      <div class="card m-2">
+        <div class="card-wrapper">
+          <h2>MTB 2022</h2>
+          <p>(Mountain Bike 2022)</p>
+        </div>
+      </div>
+      <div class="card-text">
+        Para este ano estamos preparando um grande evento
+        combinado em 3 dias de festa na vibe do <color style="color:#f35a02">to live mtb</color>
+        (para viver o mountain bike), onde desafio ou competir
+        é o ciclista que escolhe
       </div>
     </div>
   </div>

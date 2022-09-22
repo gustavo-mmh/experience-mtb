@@ -1,4 +1,4 @@
-import { btnCadastro, checkboxTermos, divChallenge, divRacing, formCadastro, required, txtConfirmaSenha, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtSenha } from "./ui.js";
+import { btnCadastro, checkboxTermos, divChallenge, divRacing, formCadastro, required, txtConfirmaSenha, txtDataNascimento, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtSenha } from "./ui.js";
 
 export function VerificaModalidade() {
     if (txtModalidade.value == "Racing") {
@@ -52,5 +52,113 @@ export function bloqueioCadastro() {
     } else {
         btnCadastro.disabled = true;
         // btnCadastro.classList.add('disabled');
+    }
+}
+export function calculaIdade(dataNasc) {
+    var dataAtual = new Date();
+    var anoAtual = dataAtual.getFullYear();
+    var anoNascParts = dataNasc.split('-').reverse();
+    var diaNasc = anoNascParts[0];
+    var mesNasc = anoNascParts[1];
+    var anoNasc = anoNascParts[2];
+    var idade = anoAtual - anoNasc;
+    var mesAtual = dataAtual.getMonth() + 1;
+    //Se mes atual for menor que o nascimento, nao fez aniversario ainda;
+    if (mesAtual < mesNasc) {
+        idade--;
+    } else {
+        //Se estiver no mes do nascimento, verificar o dia
+        if (mesAtual == mesNasc) {
+            if (new Date().getDate() < diaNasc) {
+                //Se a data atual for menor que o dia de nascimento ele ainda nao fez aniversario
+                idade--;
+            }
+        }
+    }
+    return idade;
+}
+export function filtraCategoria(idade) {
+    if (idade < 18) {
+        txtModalidadeRacing.options[1].disabled = false
+        for (let i = 2; i <= 10; i++) {
+            txtModalidadeRacing.options[i].disabled = true
+        }
+    } else if (idade >= 18 && idade < 30) {
+        txtModalidadeRacing.options[1].disabled = false
+        txtModalidadeRacing.options[2].disabled = false
+        for (let i = 4; i <= 10; i++) {
+            txtModalidadeRacing.options[i].disabled = true
+            txtModalidadeRacing.options[i].hidden = true
+            txtModalidadeRacing.options[3].disabled = false
+            txtModalidadeRacing.options[3].hidden = false
+        }
+    }
+    else if (idade >= 30 && idade < 35) {
+        txtModalidadeRacing.options[1].disabled = false
+        txtModalidadeRacing.options[2].disabled = false
+        for (let i = 3; i <= 10; i++) {
+            txtModalidadeRacing.options[i].disabled = true
+            txtModalidadeRacing.options[i].hidden = true
+            txtModalidadeRacing.options[4].disabled = false
+            txtModalidadeRacing.options[4].hidden = false
+        }
+    }
+    else if (idade >= 35 && idade < 40) {
+        txtModalidadeRacing.options[1].disabled = false
+        txtModalidadeRacing.options[2].disabled = false
+        for (let i = 3; i <= 10; i++) {
+            txtModalidadeRacing.options[i].disabled = true
+            txtModalidadeRacing.options[i].hidden = true
+            txtModalidadeRacing.options[5].disabled = false
+            txtModalidadeRacing.options[5].hidden = false
+        }
+    }
+    else if (idade >= 40 && idade < 44) {
+        txtModalidadeRacing.options[1].disabled = false
+        txtModalidadeRacing.options[2].disabled = false
+        for (let i = 3; i <= 10; i++) {
+            txtModalidadeRacing.options[i].disabled = true
+            txtModalidadeRacing.options[i].hidden = true
+            txtModalidadeRacing.options[6].disabled = false
+            txtModalidadeRacing.options[6].hidden = false
+        }
+    }
+    else if (idade >= 45 && idade < 50) {
+        txtModalidadeRacing.options[1].disabled = false
+        txtModalidadeRacing.options[2].disabled = false
+        for (let i = 3; i <= 10; i++) {
+            txtModalidadeRacing.options[i].disabled = true
+            txtModalidadeRacing.options[i].hidden = true
+            txtModalidadeRacing.options[7].disabled = false
+            txtModalidadeRacing.options[7].hidden = false
+        }
+    }
+    else if (idade >= 50 && idade <= 54) {
+        txtModalidadeRacing.options[1].disabled = false
+        txtModalidadeRacing.options[2].disabled = false
+        for (let i = 3; i <= 10; i++) {
+            txtModalidadeRacing.options[i].disabled = true
+            txtModalidadeRacing.options[i].hidden = true
+            txtModalidadeRacing.options[8].disabled = false
+            txtModalidadeRacing.options[8].hidden = false
+        }
+    }
+    else if (idade >= 55 && idade <= 59) {
+        txtModalidadeRacing.options[1].disabled = false
+        txtModalidadeRacing.options[2].disabled = false
+        for (let i = 3; i <= 10; i++) {
+            txtModalidadeRacing.options[i].disabled = true
+            txtModalidadeRacing.options[i].hidden = true
+            txtModalidadeRacing.options[9].disabled = false
+            txtModalidadeRacing.options[9].hidden = false
+        }
+    } else {
+        txtModalidadeRacing.options[1].disabled = false
+        txtModalidadeRacing.options[2].disabled = false
+        for (let i = 3; i <= 10; i++) {
+            txtModalidadeRacing.options[i].disabled = true
+            txtModalidadeRacing.options[i].hidden = true
+            txtModalidadeRacing.options[10].disabled = false
+        }
     }
 }

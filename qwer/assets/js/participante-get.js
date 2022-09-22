@@ -1,4 +1,4 @@
-import { getStorage } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-storage.js";
+import { getStorage } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js";
 import app from "../../../assets/js/firebase/app.js";
 import { bloqueio, bloqueioSenha, validatePassword, VerificaModalidade } from "../../../assets/js/validaForm.js";
 import { getCollection } from "../../../assets/js/firebase/experience-mtb.js";

@@ -1,4 +1,4 @@
-import { getDownloadURL, ref } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-storage.js";
+import { getDownloadURL, ref } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js";
 export function getUrlImage(storage, img, fotoCard) {
     const starsRef = ref(storage, `images/${img}`);
     // Get the download URL
