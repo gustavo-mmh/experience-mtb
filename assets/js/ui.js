@@ -3,6 +3,7 @@ export const formComprovante = document.querySelector('#formComprovante');
 export const formCadastro = document.querySelector('#formCadastro');
 export const formUpdate = document.querySelector('#formUpdate');
 export const formLogin = document.querySelector('#formLogin');
+export const txtFormadePagamento = document.querySelector('#txtFormadePagamento');
 export const txtNome = document.querySelector('#txtNome');
 export const txtComprovante = document.querySelector('#txtComprovante');
 export const txtDocumento = document.querySelector('#txtDocumento');
@@ -10,6 +11,7 @@ export const txtEmail = document.querySelector('#txtEmail');
 export const txtWhatsApp = document.querySelector('#txtWhatsApp');
 export const txtDataNascimento = document.querySelector('#txtDataNascimento');
 export const txtPais = document.querySelector('#txtPais');
+export const txtCategoria = document.querySelector('#txtCategoria');
 export const txtCidade = document.querySelector('#txtCidade');
 export const txtModalidade = document.querySelector('#txtModalidade');
 export const txtModalidadeRacing = document.querySelector('#txtModalidadeRacing');
@@ -43,6 +45,7 @@ export const checkboxSenha = document.querySelector('#checkboxSenha');
 export const checkboxTermos = document.querySelector('#checkboxTermos');
 export const checkboxFoto = document.querySelector('#checkboxFoto');
 
+export const btnCopiar = document.querySelector('#copiarQR');
 export const btnCadastro = document.querySelector('#btnCadastrar');
 export const btnLogin = document.querySelector('#btnLogin')
 export const btnLogout = document.querySelector('#btnLogout')
@@ -59,19 +62,45 @@ export const divPagamento = document.querySelector('#pagamento')
 export const divLoginError = document.querySelector('#divLoginError')
 export const lblLoginErrorMessage = document.querySelector('#lblLoginErrorMessage')
 
-export const errorHandler = () => {
-    // btnLogin.classList.remove('loading');
-    // btnLogin.classList.remove('success');
-    // btnLogin.classList.add('error');
-    statusLogin.innerHTML = "Error :(";
+export let BtnComIcone = (tipo, classeBtn, idBtn, faIcon, classeIcon, txtBtn, idDiv) => {
+    let btn = document.createElement('button')
+    let iconCheck = document.createElement('i');
+    btn.type = tipo
+    btn.classList.add('btn')
+    btn.classList.add(classeBtn)
+    btn.id = idBtn
+    iconCheck.classList.add(faIcon)
+    iconCheck.classList.add(classeIcon)
+    iconCheck.classList.add('fa-fw')
+    let txt = document.createTextNode(txtBtn);
+    btn.appendChild(iconCheck);
+    btn.appendChild(txt);
+    document.querySelector(idDiv).appendChild(btn)
 }
-export const successHandler = () => {
-    // btnLogin.classList.remove('loading');
-    // btnLogin.classList.remove('error');
-    // btnLogin.classList.add('success');
-    statusLogin.innerHTML = "SUUUUUChEEESSOO";
+
+export let LinkComIcone = (idLink, faIcon, classeIcon, btnClassLink, txtLink, titleLink, targetLink, hrefLink, divLink) => {
+    let a = document.createElement('a');
+    let icon = document.createElement('i');
+    icon.classList.add(faIcon)
+    icon.classList.add(classeIcon)
+    icon.classList.add('fa-fw')
+    let link = document.createTextNode(txtLink);
+    a.appendChild(icon);
+    a.appendChild(link);
+    a.id = idLink;
+    a.title = titleLink;
+    a.target = targetLink
+    a.href = hrefLink
+    a.classList.add('btn')
+    a.classList.add(btnClassLink)
+    divLink.appendChild(a);
 }
 export function limparDados() {
+    txtPais.selectedIndex = 0
+    txtCategoria.selectedIndex = 0
+    txtModalidade.selectedIndex = 0
+    txtModalidadeRacing.selectedIndex = 0
+    txtModalidadeChallenge.selectedIndex = 0
     txtNome.value = ''
     txtDocumento.value = ''
     txtDataNascimento.value = ''
@@ -84,4 +113,11 @@ export function limparDados() {
     txtFotoCard.value = ''
     checkboxTermos.checked = false
     formCadastro.classList.remove('was-validated')
+}
+export function copiarTexto() {
+    let textoCopiado = document.getElementById("codigoQR");
+    textoCopiado.select();
+    textoCopiado.setSelectionRange(0, 99999)
+    document.execCommand("copy");
+    alert("Texto Copiado");
 }

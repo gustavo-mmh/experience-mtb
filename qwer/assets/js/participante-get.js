@@ -1,9 +1,9 @@
 import { getStorage } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js";
-import app from "../../../assets/js/firebase/app.js";
-import { bloqueio, bloqueioSenha, calculaIdade, filtraCategoria, validatePassword, VerificaModalidade } from "../../../assets/js/validaForm.js";
-import { getCollection } from "../../../assets/js/firebase/experience-mtb.js";
-import { cardFoto, checkboxFoto, checkboxSenha, divChallenge, divFoto, divRacing, divSenha, formUpdate, imgThumbnail, txtCidade, txtConfirmaSenha, txtDataNascimento, txtDocumento, txtEmail, txtFotoCard, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtNome, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta, txtWhatsApp } from '../../../assets/js/ui.js';
 import { getUrlImage } from "../../../assets/js/cadastro/storage/urlImg.js";
+import app from "../../../assets/js/firebase/app.js";
+import { getCollection } from "../../../assets/js/firebase/experience-mtb.js";
+import { checkboxFoto, checkboxSenha, divChallenge, divFoto, divRacing, divSenha, formUpdate, imgThumbnail, txtCategoria, txtCidade, txtConfirmaSenha, txtDataNascimento, txtDocumento, txtEmail, txtFotoCard, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtNome, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta, txtWhatsApp } from '../../../assets/js/ui.js';
+import { bloqueio, bloqueioSenha, calculaIdade, filtraCategoria, filtraCategoriaSexo, validatePassword, VerificaModalidade } from "../../../assets/js/validaForm.js";
 export let img
 export async function getParticipante() {
     txtModalidade.addEventListener('change', () => {
@@ -21,12 +21,11 @@ export async function getParticipante() {
     txtConfirmaSenha.addEventListener('keyup', () => {
         validatePassword(formUpdate, txtConfirmaSenha, txtSenha)
     })
-    let idade = calculaIdade(txtDataNascimento.value)
-    filtraCategoria(idade)
     let documento = JSON.parse(localStorage.getItem('documentoLogado'))
+    let pais = JSON.parse(localStorage.getItem('paislogado'))
     const storage = getStorage(app);
 
-    let docs = await getCollection(documento)
+    let docs = await getCollection(documento, pais)
     docs.forEach(item => {
         txtPais.value = item.pais
         txtNome.value = item.nome
@@ -35,6 +34,14 @@ export async function getParticipante() {
         txtEmail.value = item.email
         txtCidade.value = item.cidade
         txtWhatsApp.value = item.whatsapp
+        txtCategoria.value = item.categoria
+        if (txtDataNascimento != null) {
+            let idade = calculaIdade(txtDataNascimento.value)
+            console.log(idade)
+            filtraCategoria(idade)
+            let cat = txtCategoria.value
+            filtraCategoriaSexo(cat)
+        }
         txtModalidade.value = item.modalidade
         if (item.modalidade == "Racing") {
             divRacing.hidden = false
@@ -52,6 +59,6 @@ export async function getParticipante() {
     if (img != "") {
         getUrlImage(storage, img, imgThumbnail)
     } else {
-        cardFoto.src = './assets/images/fotocard.png'
+        imgThumbnail.src = './assets/images/fotocard.png'
     }
 }

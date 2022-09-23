@@ -53,10 +53,12 @@
                                 <label for="txtPais" class="form-label">
                                     <i class=" fa fa-globe fa-fw" aria-hidden="true"></i>
                                     *País:</label>
-                                <select id="txtPais" class="form-select" required="" readonly="" disabled="" name="pais"
+                                <select id="txtPais" class="form-select" disabled readonly="" name="pais"
                                     aria-label="Selecione um País">
-                                    <option selected>Brasil</option>
+                                    <option value="" selected>Selecione um País</option>
+                                    <option>Brasil</option>
                                     <option>Uruguai</option>
+                                    <option>Argentina</option>
                                 </select>
                             </div>
                             <div class="mb-2">
@@ -104,11 +106,23 @@
                                 <span class="error" aria-live="polite"></span>
                             </div>
                             <div class="mb-2 mt-3">
+                                <label for="txtCategoria" class="form-label">
+                                    <i class="fa-solid fa-venus-mars"></i>
+                                    *Categoria:</label>
+                                <select disabled readonly="" id="txtCategoria" class="form-select" name="Categoria"
+                                    aria-label="Selecione uma Categoria">
+                                    <option value="" selected>Selecione uma Categoria</option>
+                                    <option>Masculina</option>
+                                    <option>Femenina</option>
+                                </select>
+                            </div>
+                            <div class="mb-2 mt-3">
                                 <label for="txtModalidade" class="form-label">
                                     <i class="fa-solid fa-person-biking fa-fw" aria-hidden="true"></i>
                                     *Modalidade:</label>
                                 <select required id="txtModalidade" class="form-select" name="modalidade"
                                     aria-label="Selecione uma Modalidade">
+                                    <option value="" selected>Selecione uma Modalidade</option>
                                     <option value="Racing" selected>Racing</option>
                                     <option value="Challenge">Challenge</option>
                                 </select>
@@ -121,11 +135,13 @@
                                     <option value="" selected>Selecione uma Categoria</option>
                                     <optgroup label="Categoria Promocional">
                                         <option value="Promocional">Promocional</option>
+                                        <option value="Dama Promocional">Dama Promocional</option>
                                     </optgroup>
                                     <optgroup label="Categoria Elite">
                                         <option value="Elite">Elite (18+)</option>
+                                        <option value="Dama Elite">Dama Elite (18+)</option>
                                     </optgroup>
-                                    <optgroup label="Categoria Por Idade">
+                                    <optgroup id="catId" label="Categoria Por Idade">
                                         <option value="Sub.30">Sub. 30 (até 29 anos)</option>
                                         <option value="Master A1">Master A1 (30 à 34 anos)</option>
                                         <option value="Master A2">Master A2 (35 à 39 anos)</option>
@@ -142,9 +158,9 @@
                                     *Modalidade Challenge:</label>
                                 <select id="txtModalidadeChallenge" class="form-select" name="challenge"
                                     aria-label="Selecione uma Modalidade">
-                                    <option value="Soft">Soft (Suave)</option>
-                                    <option value="Light">Light (Leve)</option>
-                                    <option value="Hard">Hard (Duro)</option>
+                                    <option value="Soft">Soft - 10Km (Suave)</option>
+                                    <option value="Light">Light - 21Km (Leve)</option>
+                                    <option value="Hard">Hard 42Km (Duro)</option>
                                 </select>
                             </div>
                             <div class="mb-2">
@@ -172,8 +188,10 @@
                                 <label>
                                     <input type="checkbox" id="checkboxFoto" checked="" name="meucheckbox"> Desja mudar
                                     a Foto?
-                                    <p class="text-muted">
-                                        Desmarque esta opção caso não queira alterar a foto.
+                                    <p class="text-danger">
+                                        (Desmarque esta opção caso não queira alterar a foto. <br>
+                                        Caso Atualize a inscrição sem foto e com esta opção marcada
+                                        a sua foto será apagada)
                                     </p>
                                 </label>
                             </div>

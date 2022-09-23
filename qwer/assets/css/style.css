@@ -2,6 +2,13 @@
   background: #842029;
   color: #fff;
 }
+#formComprovante {
+  justify-content: center;
+}
+#pagamento {
+  display: flex;
+  justify-content: center;
+}
 .logo-qwer {
   width: 30%;
 }

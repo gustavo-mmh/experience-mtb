@@ -1,6 +1,6 @@
 import { getExperienceMtbdocsID, subscribeToExperienceMtb, uploadImagem } from "../firebase/experience-mtb.js";
-import { checkboxTermos, formCadastro, limparDados, txtCidade, txtConfirmaSenha, txtDataNascimento, txtDocumento, txtEmail, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtNome, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta, txtWhatsApp } from '../ui.js';
-import { bloqueioCadastro, calculaIdade, filtraCategoria, validatePassword, VerificaModalidade } from "../validaForm.js";
+import { checkboxTermos, formCadastro, limparDados, txtCategoria, txtCidade, txtConfirmaSenha, txtDataNascimento, txtDocumento, txtEmail, txtFotoCard, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtNome, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta, txtWhatsApp } from '../ui.js';
+import { bloqueioCadastro, calculaIdade, filtraCategoria, filtraCategoriaSexo, validatePassword, VerificaModalidade } from "../validaForm.js";
 import { file, getImgRef, imgRef, metadata } from "./storage/getImg.js";
 // import { file, getimg, metadata, newName, storageRef } from "./storage/index.js";
 let fotoCard1 = ''
@@ -22,10 +22,11 @@ export async function Cadastrar() {
         let idade = calculaIdade(txtDataNascimento.value)
         filtraCategoria(idade)
     })
-
-
-
-    getImgRef(txtFotoCard)
+    txtCategoria.addEventListener('change', () => {
+        let cat = txtCategoria.value
+        filtraCategoriaSexo(cat)
+    })
+    // getImgRef(txtFotoCard)
     formCadastro.addEventListener('submit', async (event) => {
         event.preventDefault();
         if (!formCadastro.checkValidity()) {
@@ -56,14 +57,13 @@ export async function Cadastrar() {
                         email: txtEmail.value,
                         cidade: txtCidade.value,
                         whatsapp: txtWhatsApp.value,
+                        categoria: txtCategoria.value,
                         tamanhoCamiseta: txtTamanhoCamiseta.value,
                         modalidade: txtModalidade.value,
                         modalidadeRacing: txtModalidadeRacing.value,
                         nomeEquipe: txtNomeEquipe.value,
                         senha: txtSenha.value,
                         fotoCard: fotoCard1,
-                        comprovante: '',
-                        tipoPagmento: '',
                         comprovantePagamento: '',
                         status: 'Pendente',
                     }
@@ -84,14 +84,13 @@ export async function Cadastrar() {
                         email: txtEmail.value,
                         cidade: txtCidade.value,
                         whatsapp: txtWhatsApp.value,
+                        categoria: txtCategoria.value,
                         tamanhoCamiseta: txtTamanhoCamiseta.value,
                         modalidade: txtModalidade.value,
                         modalidadeChallenge: txtModalidadeChallenge.value,
                         nomeEquipe: txtNomeEquipe.value,
                         senha: txtSenha.value,
                         fotoCard: fotoCard1,
-                        comprovante: '',
-                        tipoPagmento: '',
                         comprovantePagamento: '',
                         status: 'Pendente',
                     }

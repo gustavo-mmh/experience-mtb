@@ -6,11 +6,12 @@ export async function login() {
         // Previne a submissão do formulário:
         let documentoValue = loginDocumento.value
         let senhaValue = loginPassword.value
-        let id = loginPais.value + documentoValue
+        let pais = loginPais.value
+        let id = pais + documentoValue
         let docs = await getExperienceMtbdocsID()
 
         if (docs.includes(id) == true) {
-            let docsID = await getCollection(documentoValue)
+            let docsID = await getCollection(documentoValue, pais)
             let documentoValid = {
                 pais: '',
                 documento: '',
@@ -34,6 +35,7 @@ export async function login() {
                 let token = mathRandom + mathRandom
                 localStorage.setItem('token', token,)
                 localStorage.setItem('documentoLogado', JSON.stringify(documentoValue))
+                localStorage.setItem('paislogado', JSON.stringify(pais))
             } else {
                 loginDocumento.setAttribute('style', 'border-color: red')
                 loginPassword.setAttribute('style', 'border-color: red')

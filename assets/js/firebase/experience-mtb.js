@@ -26,14 +26,14 @@ export async function getExperienceMtbdocsID() {
     const docsID = experienceMtbSnapshot.docs.map(doc => doc.id);
     return docsID;
 }
-export async function getCollection(documento) {
-    const documentoQuery = query(expereinceMTBCollection, where("documento", "==", documento));
+export async function getCollection(documento, pais) {
+
+    const documentoQuery = query(expereinceMTBCollection, where("documento", "==", documento), where("pais", "==", pais));
     const querySnapshot = await getDocs(documentoQuery);
     const docsData = querySnapshot.docs.map(doc => doc.data());
     return docsData;
 }
 export async function updateCollection(documento, subscription) {
-    debugger
     const experienceMTBRef = doc(db, "experience-mtb", documento);
 
     // const docsData = querySnapshot.docs.map(doc => doc.data());
