@@ -27,7 +27,13 @@ export function VerificaFormaPagamento2(element, element2) {
     if (txtFormadePagamento.value == "Banco") {
         element.hidden = false;
         element2.hidden = true;
+    } else if (txtFormadePagamento.value == "Mercadopago") {
+        element.hidden = false;
+        element2.hidden = true;
     } else if (txtFormadePagamento.value == "Pix") {
+        element2.hidden = false;
+        element.hidden = true;
+    } else if (txtFormadePagamento.value == "Midinero") {
         element2.hidden = false;
         element.hidden = true;
     } else {
@@ -53,6 +59,8 @@ export function BotoesPorNacionalidade(pais) {
         BtnComIcone(tipoBtnPix, ClassBtnPix, idBtnPix, faPixIcon, pixIcon, txtLinkPix, idDiv)
         txtFormadePagamento.options[1].disabled = true
         txtFormadePagamento.options[1].hidden = true
+        txtFormadePagamento.options[2].disabled = true
+        txtFormadePagamento.options[2].hidden = true
 
     }
     else if (pais == 'Uruguai') {
@@ -62,10 +70,18 @@ export function BotoesPorNacionalidade(pais) {
         let targetLinkPagamento = "_blank";
         let hrefLinkPagamento = "https://mpago.la/1ZdEfJx";
         LinkComIcone(idLinkPagamento, faIconPagamento, classeIconLinkPagamento, btnClassLinkPagamento, txtLinkPagamento, titleLinkPagamento, targetLinkPagamento, hrefLinkPagamento, divPagamento)
-        txtFormadePagamento.options[2].disabled = true
-        txtFormadePagamento.options[2].hidden = true
+        let tipoBtnPix = "button";
+        let ClassBtnPix = 'btn-outline-primary';
+        let idBtnPix = "BtnMidinero";
+        let faPixIcon = "fa";
+        let pixIcon = "fa-cash";
+        let txtLinkPix = "Pagamento por Mi dinero";
+        let idDiv = "#pagamento";
+        BtnComIcone(tipoBtnPix, ClassBtnPix, idBtnPix, faPixIcon, pixIcon, txtLinkPix, idDiv)
         txtFormadePagamento.options[3].disabled = true
         txtFormadePagamento.options[3].hidden = true
+        txtFormadePagamento.options[4].disabled = true
+        txtFormadePagamento.options[4].hidden = true
     } else {
         let btnClassLinkPagamento = 'btn-outline-info';
         let txtLinkPagamento = "Pagamento por Mercadopago";
@@ -79,6 +95,8 @@ export function BotoesPorNacionalidade(pais) {
         txtFormadePagamento.options[3].hidden = true
         txtFormadePagamento.options[4].disabled = true
         txtFormadePagamento.options[4].hidden = true
+        txtFormadePagamento.options[5].disabled = true
+        txtFormadePagamento.options[5].hidden = true
     }
 }
 

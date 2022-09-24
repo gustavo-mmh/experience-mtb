@@ -16,7 +16,7 @@ export function updateParticipante() {
                 if (imgRef != null) {
                     fotoCard1 = imgRef
                     let ref = `images/${imgRef}`
-                    uploadImagem(file, ref, metadata)
+                    uploadImagem(file, ref, metadata, '')
                 }
                 const subscription = {
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
@@ -50,7 +50,7 @@ export function updateParticipante() {
                 if (imgRef != null) {
                     fotoCard1 = imgRef
                     let ref = `images/${imgRef}`
-                    uploadImagem(file, ref, metadata)
+                    uploadImagem(file, ref, metadata, '')
                 }
                 const subscription = {
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
@@ -86,7 +86,7 @@ export function updateParticipante() {
                 if (imgRef != null) {
                     fotoCard1 = imgRef
                     let ref = `images/${imgRef}`
-                    uploadImagem(file, ref, metadata)
+                    uploadImagem(file, ref, metadata, '')
                 }
                 const subscription = {
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
@@ -120,7 +120,7 @@ export function updateParticipante() {
                 if (imgRef != null) {
                     fotoCard1 = imgRef
                     let ref = `images/${imgRef}`
-                    uploadImagem(file, ref, metadata)
+                    uploadImagem(file, ref, metadata, '')
                 }
                 const subscription = {
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
@@ -133,6 +133,7 @@ export function updateParticipante() {
                 deleteImage(ref2)
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
+
                 setTimeout(function () {
                     window.location.href = "index.html";
                 }, 5000);
@@ -163,7 +164,7 @@ export async function createComprovante(id) {
         if (imgRef != null) {
             fotoCard2 = imgRef
             let ref = `comprovantes/${imgRef}`
-            uploadImagem(file, ref, metadata)
+            uploadImagem(file, ref, metadata, '')
         }
         let ref = `comprovantes/${imgRef}`
         let subscription = {
@@ -188,7 +189,7 @@ export async function updateComprovante(id, img) {
             comprovantePagamento: imgRef,
             status: "Em Analise"
         }
-        uploadImagem(file, ref, metadata)
+        uploadImagem(file, ref, metadata, '')
         deleteImage(ref2)
         updateCollection(id, subscription)
         alert('Comprovante Enviado com sucesso')

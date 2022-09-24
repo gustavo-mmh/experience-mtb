@@ -2,6 +2,10 @@
   background: #f7f7f7;
   color: #fff;
 }
+.cabecalho-cad {
+  background: #3d001b;
+  color: #fff;
+}
 #formComprovante {
   justify-content: center;
 }

@@ -61,8 +61,9 @@
                           <p class="card-text"><span class="h6"> WhatsApp:</span> <span id="cardWhatsApp"></span></p>
                         </div>
                         <div class="col-lg-7 col-md-7 col-sm-12">
-                          <p class="card-text"><span class="h6">Data de Nascimento:</span> <span
-                              id="cardDataNascimento"></span></p>
+                          <p class="card-text"><span class="h6">Data de Nascimento:</span>
+                            <span id="cardDataNascimento"></span>
+                          </p>
                         </div>
                       </div>
                       <div class="row">
@@ -89,8 +90,9 @@
                           </p>
                         </div>
                         <div class="col-lg-7 col-md-7 col-sm-12">
-                          <p class="card-text"><span class="h6">Tamanho da Camiseta:</span> <span
-                              id="cardTamanhoCamiseta"></span></p>
+                          <p class="card-text"><span class="h6">Tamanho da Camiseta:</span>
+                            <span id="cardTamanhoCamiseta"></span>
+                          </p>
                         </div>
                       </div>
                       <div class="d-flex">
@@ -111,15 +113,6 @@
                 <div class="row">
                   <form class="row" id="formComprovante">
                     <div class="mb-2">
-                      <label for="txtComprovante">
-                        <i class="fa fa-receipt fa-fw" aria-hidden="true"></i>
-                        Envie o Comprovante:
-                      </label>
-                      <div id="comprovante">
-                        <input type="file" accept="image/*" id="txtComprovante" class="form-control">
-                      </div>
-                    </div>
-                    <div class="mb-2">
                       <label for="txtFormaPagamento">
                         <i class="fa-solid fa-hand-holding-dollar"></i>
                         Forma de Pagamento:
@@ -128,11 +121,22 @@
                         aria-label="Selecione uma Forma de Pagamento">
                         <option value="" selected>Selecione uma Opção</option>
                         <option value="Mercadopago">Pagamento via Mercado Pago</option>
+                        <option value="Midinero">Pagamento via Mi dinero</option>
                         <option value="Banco">Pagamento via Banco</option>
                         <option value="Pix">Pagamento via Pix</option>
-                        <option value="Bicicletaria">Pagamento na Bicicleteria (Silva, Biciclo, Mafferbikes ou
+                        <option value="Bicicletaria">Pagamento na Bicicleteria (Silva, Biciclo,
+                          Mafferbikes ou
                           Italiano)</option>
                       </select>
+                    </div>
+                    <div class="mb-2">
+                      <label for="txtComprovante">
+                        <i class="fa fa-receipt fa-fw" aria-hidden="true"></i>
+                        Envie o Comprovante:
+                      </label>
+                      <div id="comprovante">
+                        <input type="file" accept="image/*" id="txtComprovante" class="form-control">
+                      </div>
                     </div>
                     <div class="row p-2">
                       <div class="form-group" id="envio">
@@ -176,6 +180,31 @@
         </div>
       </div>
     </div>
+    <div class="modal fade" id="modalMidinero" data-backdrop="static" data-keyboard="false" tabindex="-1"
+      aria-labelledby="modalMidinero" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Pagamento com Mi dinero</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body text-center" id="modalBody">
+            <p>
+              Mi Dinero
+            </p>
+            <p>
+              Nome: Eduardo Padilla Severo Junior
+            </p>
+            <p>
+              Cédula: 1080427171
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
 
 
     <!-- ---------- -->
@@ -189,7 +218,7 @@
     <footer class="d-flex flex-wrap align-items-center py-3 my-4 border-top">
       <div class="col-md-6 d-flex align-items-center">
         <a href="index.html" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-          <img src="../assets/images/favicon.png" title="Logo" class="bi" width="30" height="24">
+          <img src="../assets/images/logo_escuro.png" title="Logo" class="bi" width="30" height="24">
         </a>
 
         <span class="mb-3 mb-md-0 text-muted">© 2022. Todos os direitos reservados.</span>

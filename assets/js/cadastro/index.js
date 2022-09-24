@@ -1,11 +1,11 @@
 import { getExperienceMtbdocsID, subscribeToExperienceMtb, uploadImagem } from "../firebase/experience-mtb.js";
+import { login, loginCad } from "../login/index.js";
 import { checkboxTermos, formCadastro, limparDados, txtCategoria, txtCidade, txtConfirmaSenha, txtDataNascimento, txtDocumento, txtEmail, txtFotoCard, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtNome, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta, txtWhatsApp } from '../ui.js';
 import { bloqueioCadastro, calculaIdade, filtraCategoria, filtraCategoriaSexo, validatePassword, VerificaModalidade } from "../validaForm.js";
 import { file, getImgRef, imgRef, metadata } from "./storage/getImg.js";
 // import { file, getimg, metadata, newName, storageRef } from "./storage/index.js";
 let fotoCard1 = ''
 export async function Cadastrar() {
-
     txtModalidade.addEventListener('change', () => {
         VerificaModalidade()
     })
@@ -26,7 +26,7 @@ export async function Cadastrar() {
         let cat = txtCategoria.value
         filtraCategoriaSexo(cat)
     })
-     getImgRef(txtFotoCard)
+    getImgRef(txtFotoCard)
     formCadastro.addEventListener('submit', async (event) => {
         event.preventDefault();
         if (!formCadastro.checkValidity()) {
@@ -46,8 +46,6 @@ export async function Cadastrar() {
                 if (txtModalidade.value == "Racing") {
                     if (imgRef != null) {
                         fotoCard1 = imgRef
-                        let ref = `images/${imgRef}`
-                        uploadImagem(file, ref, metadata)
                     }
                     const subscription = {
                         pais: txtPais.value,
@@ -69,12 +67,18 @@ export async function Cadastrar() {
                     }
                     subscribeToExperienceMtb(subscription, ID);
                     alert("Cadastro Feito com Sucesso!!!")
+                    if (imgRef != null) {
+                        fotoCard1 = imgRef
+                        let ref = `images/${imgRef}`
+                        // let redirec = loginCad(txtDocumento, txtSenha, txtPais)
+                        uploadImagem(file, ref, metadata, '')
+                    } else {
+                        // loginCad(txtDocumento, txtSenha, txtPais)
+                    }
                     limparDados()
                 } else {
                     if (imgRef != null) {
                         fotoCard1 = imgRef
-                        let ref = `images/${imgRef}`
-                        uploadImagem(file, ref, metadata)
                     }
                     const subscription = {
                         pais: txtPais.value,
@@ -96,6 +100,15 @@ export async function Cadastrar() {
                     }
                     subscribeToExperienceMtb(subscription, ID);
                     alert("Cadastro Feito com Sucesso!!!")
+                    if (imgRef != null) {
+                        fotoCard1 = imgRef
+                        let ref = `images/${imgRef}`
+                        // let redirec = loginCad(txtDocumento, txtSenha, txtPais)
+                        uploadImagem(file, ref, metadata, '')
+                    } else {
+                        // debugger
+                        // loginCad(txtDocumento, txtSenha, txtPais)
+                    }
                     limparDados()
                 }
             }

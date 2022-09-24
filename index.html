@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="assets/images/logo_escuro.png" type="image/x-icon">
   <!--[if IE]><link rel="shortcut icon" href="../images/favicon.ico"><![endif]-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" />
@@ -12,6 +12,11 @@
 </head>
 
 <body>
+  <div id="load" class="load" hidden>
+    <div class="spinner-border spinner-border-xl text-success" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
   <header class="header-wrapper">
     <div class="infos container-fluid d-none d-md-flex">
       <div class="row">
@@ -42,13 +47,16 @@
     <div class="modal-dialog modal-fullscreen">
       <div class="modal-content">
         <div class="modal-header">
+          <img src="assets/images/icone_branco.png" class="img-fluid icone_logo" alt="">
           <h5 class="modal-title" id="cadastroModalLabel">Formulário de Inscrição</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <div class="row">
+
             <div class="col-lg-2 col-md-1 col-sm-0"></div>
             <div class="col-lg-8 col-md-10 col-sm-12">
+
               <!-- Começa o Formulário -->
               <form id="formCadastro" class="needs-validation" method="post">
                 <div class="mb-2 mt-3">
@@ -139,6 +147,7 @@
                 </div>
                 <div id="racing" class="mb-2 mt-3">
                   <label for="txtModalidadeRacing" class="form-label">
+                    <i class="fa-solid fa-flag-checkered fa-fw" aria-hidden="true"></i>
                     *Categorias Racing (Competição):</label>
                   <select id="txtModalidadeRacing" class="form-select" name="racing"
                     aria-label="Selecione uma Modalidade" required>
@@ -165,6 +174,7 @@
                 </div>
                 <div id="challenge" class="mb-2 mt-3" hidden>
                   <label for="txtModalidadeChallenge" class="form-label">
+                    <img src="assets/images/challenge.png" class="img-fluid icone_logo" alt="">
                     *Categorias Challenge (Desafio):</label>
                   <select id="txtModalidadeChallenge" class="form-select" name="challenge"
                     aria-label="Selecione uma Modalidade">
@@ -187,7 +197,7 @@
                     Foto para o Card:
                   </label>
                   <p>(Anexo de sua foto favorita para receber seu card promocional do Experience
-                    2022.)</p>
+                    2022)</p>
                   <div class="input-group mb-3">
                     <input type="file" accept="image/*" id="txtFotoCard" class="form-control" name="txtFotoCard">
                   </div>
@@ -229,8 +239,6 @@
             <div class="col-lg-2 col-md-1 col-sm-0"></div>
 
           </div>
-        </div>
-        <div class="modal-footer">
         </div>
       </div>
     </div>
@@ -294,7 +302,7 @@
         diferente com atividades únicas, evento para fazer
         novas amizades, divertir-se e se emocionar.
       </div>
-      <div class="card m-2">
+      <div class="card m-2 card-exp">
         <div class="card-wrapper">
           <h2>Experience</h2>
           <p>(Experiência)</p>
@@ -303,7 +311,7 @@
     </div>
 
     <div class="card-container">
-      <div class="card m-2">
+      <div class="card m-2 card-chl">
         <div class="card-wrapper">
           <h2>Challenge</h2>
           <p>(Desafio)</p>
@@ -312,7 +320,7 @@
       <div class="card-text">
         Desafio que envolve determinação para vencer os
         limites mente, corpo e proporcionar todos experiência
-        modalidade de pura determinação diversão.
+        modalidade de pura determinação e diversão.
       </div>
     </div>
 
@@ -321,7 +329,7 @@
         Adrenalina de competir com superação na busca de
         resultados por um lugar no pódio dentro de cada categoria.
       </div>
-      <div class="card m-2">
+      <div class="card m-2 card-rcg">
         <div class="card-wrapper">
           <h2>Racing</h2>
           <p>(Competição)</p>
@@ -330,7 +338,7 @@
     </div>
 
     <div class="card-container">
-      <div class="card m-2">
+      <div class="card m-2 card-mtb">
         <div class="card-wrapper">
           <h2>MTB 2022</h2>
           <p>(Mountain Bike 2022)</p>

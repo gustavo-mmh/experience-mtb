@@ -1,10 +1,12 @@
 import { collection, doc, getDoc, getDocs, getFirestore, setDoc, query, where, updateDoc } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
 import { getStorage, ref, uploadBytesResumable, deleteObject } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js";
+import { formCadastro, loginDocumento } from '../ui.js';
 import app from './app.js';
 const db = getFirestore(app)
 const expereinceMTBCollection = collection(db, 'experience-mtb')
 
 export async function subscribeToExperienceMtb(subscription, ID) {
+    debugger
     // const docRef = await addDoc(expereinceMTBCollection, subscription) // ID Aleatório
     const docRef = await setDoc(doc(expereinceMTBCollection, ID), subscription);
     return docRef;
@@ -43,7 +45,7 @@ export async function updateCollection(documento, subscription) {
 
 }
 // -----------------------------
-export function uploadImagem(file, imgRef, metadata) {
+export function uploadImagem(file, imgRef, metadata, redirec) {
 
     const storage = getStorage(app);
     const storageRef = ref(storage, `${imgRef}`);
@@ -73,19 +75,14 @@ export function uploadImagem(file, imgRef, metadata) {
                 case 'storage/canceled':
                     // User canceled the upload
                     break;
-
                 // ...
-
                 case 'storage/unknown':
                     // Unknown error occurred, inspect error.serverResponse
                     break;
             }
         },
         () => {
-            // // Upload completed successfully, now we can get the download URL
-            // getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            //     console.log('File available at', downloadURL);
-            // });
+            redirec
         }
     );
 
