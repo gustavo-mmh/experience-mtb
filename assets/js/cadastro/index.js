@@ -26,7 +26,7 @@ export async function Cadastrar() {
         let cat = txtCategoria.value
         filtraCategoriaSexo(cat)
     })
-    // getImgRef(txtFotoCard)
+     getImgRef(txtFotoCard)
     formCadastro.addEventListener('submit', async (event) => {
         event.preventDefault();
         if (!formCadastro.checkValidity()) {

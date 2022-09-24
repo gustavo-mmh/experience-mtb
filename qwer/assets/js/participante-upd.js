@@ -4,7 +4,8 @@ import { checkboxFoto, checkboxSenha, formComprovante, formUpdate, txtComprovant
 import { img } from "./participante-get.js";
 export function updateParticipante() {
     let doc = localStorage.getItem('documentoLogado').replace(/\"|\"|\-/g, '');
-    const ID = txtPais.value + doc;
+    let pais = localStorage.getItem('paislogado').replace(/\"|\"|\-/g, '');
+    const ID = pais + doc;
     getImgRef(txtFotoCard)
     let fotoCard1 = ''
     formUpdate.addEventListener('submit', async (event) => {
@@ -30,8 +31,8 @@ export function updateParticipante() {
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
                 setTimeout(function () {
-                    window.location.reload(1);
-                }, 4000);
+                    window.location.href = "index.html";
+                }, 5000);
             } else if (checkboxFoto.checked == false && checkboxSenha.checked) {
                 const subscription = {
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
@@ -43,8 +44,8 @@ export function updateParticipante() {
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
                 setTimeout(function () {
-                    window.location.reload(1);
-                }, 4000);
+                    window.location.href = "index.html";
+                }, 5000);
             } else if (checkboxSenha.checked == false && checkboxFoto.checked) {
                 if (imgRef != null) {
                     fotoCard1 = imgRef
@@ -63,8 +64,8 @@ export function updateParticipante() {
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
                 setTimeout(function () {
-                    window.location.reload(1);
-                }, 4000);
+                    window.location.href = "index.html";
+                }, 5000);
             } else {
                 const subscription = {
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
@@ -75,8 +76,8 @@ export function updateParticipante() {
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
                 setTimeout(function () {
-                    window.location.reload(1);
-                }, 4000);
+                    window.location.href = "index.html";
+                }, 5000);
             }
         }
         // -----------------------CHLANGER--------------------------------
@@ -100,8 +101,8 @@ export function updateParticipante() {
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
                 setTimeout(function () {
-                    window.location.reload(1);
-                }, 4000);
+                    window.location.href = "index.html";
+                }, 5000);
             } else if (checkboxFoto.checked == false && checkboxSenha.checked) {
                 const subscription = {
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
@@ -113,8 +114,8 @@ export function updateParticipante() {
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
                 setTimeout(function () {
-                    window.location.reload(1);
-                }, 4000);
+                    window.location.href = "index.html";
+                }, 5000);
             } else if (checkboxSenha.checked == false && checkboxFoto.checked) {
                 if (imgRef != null) {
                     fotoCard1 = imgRef
@@ -133,8 +134,8 @@ export function updateParticipante() {
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
                 setTimeout(function () {
-                    window.location.reload(1);
-                }, 4000);
+                    window.location.href = "index.html";
+                }, 5000);
             } else {
                 const subscription = {
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
@@ -145,8 +146,8 @@ export function updateParticipante() {
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
                 setTimeout(function () {
-                    window.location.reload(1);
-                }, 4000);
+                    window.location.href = "index.html";
+                }, 5000);
             }
         }
 
@@ -154,19 +155,19 @@ export function updateParticipante() {
 }
 
 export async function createComprovante(id) {
-    let fotoCard1 = ''
+    let fotoCard2 = ''
     getImgRef(txtComprovante)
     formComprovante.addEventListener('submit', async (event) => {
         event.preventDefault();
         let pagamento = txtFormadePagamento.value
         if (imgRef != null) {
-            fotoCard1 = imgRef
-            let ref = `images/${imgRef}`
+            fotoCard2 = imgRef
+            let ref = `comprovantes/${imgRef}`
             uploadImagem(file, ref, metadata)
         }
         let ref = `comprovantes/${imgRef}`
         let subscription = {
-            comprovantePagamento: fotoCard1,
+            comprovantePagamento: fotoCard2,
             formaDePagamento: pagamento,
             status: "Em Analise",
         }
@@ -174,7 +175,7 @@ export async function createComprovante(id) {
         alert('Comprovante Enviado com sucesso')
         setTimeout(function () {
             window.location.reload(1);
-        }, 4000);
+        }, 5000);
     })
 }
 export async function updateComprovante(id, img) {
@@ -193,6 +194,6 @@ export async function updateComprovante(id, img) {
         alert('Comprovante Enviado com sucesso')
         setTimeout(function () {
             window.location.reload(1);
-        }, 4000);
+        }, 5000);
     })
 }

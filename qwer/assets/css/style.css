@@ -1,5 +1,5 @@
 .cabecalho {
-  background: #842029;
+  background: #f7f7f7;
   color: #fff;
 }
 #formComprovante {
@@ -10,7 +10,7 @@
   justify-content: center;
 }
 .logo-qwer {
-  width: 30%;
+  width: 10%;
 }
 .fotoCard {
   max-width: 150px;
