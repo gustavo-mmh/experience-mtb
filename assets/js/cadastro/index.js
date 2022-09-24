@@ -68,7 +68,6 @@ export async function Cadastrar() {
                     subscribeToExperienceMtb(subscription, ID);
                     alert("Cadastro Feito com Sucesso!!!")
                     if (imgRef != null) {
-                        fotoCard1 = imgRef
                         let ref = `images/${imgRef}`
                         // let redirec = loginCad(txtDocumento, txtSenha, txtPais)
                         uploadImagem(file, ref, metadata, '')
@@ -101,7 +100,6 @@ export async function Cadastrar() {
                     subscribeToExperienceMtb(subscription, ID);
                     alert("Cadastro Feito com Sucesso!!!")
                     if (imgRef != null) {
-                        fotoCard1 = imgRef
                         let ref = `images/${imgRef}`
                         // let redirec = loginCad(txtDocumento, txtSenha, txtPais)
                         uploadImagem(file, ref, metadata, '')
