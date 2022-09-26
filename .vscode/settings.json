@@ -1,3 +1,4 @@
 {
-  "atlascode.enableHttpsTunnel": false
+  "atlascode.enableHttpsTunnel": false,
+  "liveshare.accessibility.accessibilityFeaturesEnabled": true
 }

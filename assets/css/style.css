@@ -24,7 +24,7 @@ body {
 
 .header-wrapper {
   height: 100vh;
-  min-height: 34rem;
+  min-height: 43rem;
   background: url("../images/bg_desktop.jpg") no-repeat center;
   background-size: cover;
   display: flex;
@@ -38,6 +38,7 @@ body {
 .infos {
   background-color: rgba(97, 19, 32, 0.79);
   padding: 4%;
+  justify-content: space-evenly;
 }
 h1 {
   text-transform: uppercase;
@@ -281,7 +282,7 @@ h2 {
   height: auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -457,8 +458,8 @@ h2 {
     flex-direction: column;
   }
 
-  .container .card-container:nth-child(1),
-  .container .card-container:nth-child(3) {
+  .container .card-container:nth-child(2),
+  .container .card-container:nth-child(4) {
     flex-direction: column-reverse;
   }
 
@@ -469,7 +470,7 @@ h2 {
 
   .card-text {
     width: 90%;
-    margin-top: 2rem;
+    margin: 1rem;
     text-align: center;
   }
 
@@ -506,8 +507,8 @@ h2 {
     flex-direction: column;
   }
 
-  .container .card-container:nth-child(1),
-  .container .card-container:nth-child(3) {
+  .container .card-container:nth-child(2),
+  .container .card-container:nth-child(4) {
     flex-direction: column-reverse;
   }
 
@@ -518,7 +519,7 @@ h2 {
 
   .card-text {
     width: 90%;
-    margin-top: 2rem;
+    margin: 1rem;
     text-align: center;
   }
 

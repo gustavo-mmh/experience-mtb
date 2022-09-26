@@ -49,7 +49,7 @@ docs.forEach(item => {
     img = item.fotoCard
     dataInscricao = item.dataInscricao
     dataFimEditar = item.dataFimEdit
-    if (item.status == 'Pago') {
+    if (item.status == 'Confirmado') {
         cardStatus.classList.add('text-success');
         cardStatus.innerHTML = item.status
         formComprovante.style.display = "none";
@@ -160,7 +160,6 @@ docs.forEach(item => {
         createComprovante(ID)
     }
 })
-console.log(dataFimEditar);
 var partesData = dataFimEditar.split("/");
 var data = new Date(partesData[2], partesData[1] - 1, partesData[0]);
 var dataLimite = new Date(("2022, 11, 27"));

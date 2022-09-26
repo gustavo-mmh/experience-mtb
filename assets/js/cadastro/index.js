@@ -1,6 +1,6 @@
 import { getExperienceMtbdocsID, subscribeToExperienceMtb, uploadImagemCad } from "../firebase/experience-mtb.js";
 import { loginCad } from "../login/index.js";
-import { addDaysToDate, checkboxTermos, formatDate, formCadastro, limparDados, loading, txtCategoria, txtCidade, txtConfirmaSenha, txtDataNascimento, txtDocumento, txtEmail, txtFotoCard, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtNome, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta, txtWhatsApp } from '../ui.js';
+import { addDaysToDate, checkboxTermos, dataAtualFormatada, formatDate, formCadastro, limparDados, loading, txtCategoria, txtCidade, txtConfirmaSenha, txtDataNascimento, txtDocumento, txtEmail, txtFotoCard, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtNome, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta, txtWhatsApp } from '../ui.js';
 import { bloqueioCadastro, calculaIdade, filtraCategoria, filtraCategoriaSexo, validatePassword, VerificaModalidade } from "../validaForm.js";
 import { file, getImgRef, imgRef, metadata } from "./storage/getImg.js";
 // import { file, getimg, metadata, newName, storageRef } from "./storage/index.js";
@@ -9,6 +9,7 @@ let tmpDate = new Date()
 let hoje = formatDate(tmpDate, 'dd/mm/aaaa')
 let dia10 = addDaysToDate(tmpDate, 10)
 let dataFim = formatDate(dia10, 'dd/mm/aaaa')
+let datainsc = dataAtualFormatada(tmpDate)
 export async function Cadastrar() {
 
     txtModalidade.addEventListener('change', () => {
@@ -72,6 +73,7 @@ export async function Cadastrar() {
                         status: 'Pendente',
                         dataInscricao: hoje,
                         dataFimEdit: dataFim,
+                        momentoInscricao: datainsc,
                     }
                     subscribeToExperienceMtb(subscription, ID);
                     loading.hidden = false
@@ -115,6 +117,7 @@ export async function Cadastrar() {
                         dataInscricao: 'Pendente',
                         dataInscricao: hoje,
                         dataFimEdit: dataFim,
+                        momentoInscricao: datainsc,
                     }
                     subscribeToExperienceMtb(subscription, ID);
                     loading.hidden = false

@@ -138,10 +138,20 @@ export function addDaysToDate(date, days) {
 }
 export function formatDate(date, format) {
     const map = {
-        mm: date.getMonth() + 1,
-        dd: date.getDate(),
-        aaaa: date.getFullYear()
+        dd: date.getDate().toString().padStart(2, '0'),
+        mm: (date.getMonth() + 1).toString().padStart(2, '0'),
+        aaaa: date.getFullYear(),
     }
 
     return format.replace(/mm|dd|aaaa/gi, matched => map[matched])
+}
+export function dataAtualFormatada(variavel) {
+    let data = variavel,
+        dia = data.getDate().toString().padStart(2, '0'),
+        mes = (data.getMonth() + 1).toString().padStart(2, '0'),
+        ano = data.getFullYear(),
+        h = data.getHours(),
+        m = data.getMinutes(),
+        s = data.getSeconds().toString().padStart(2, '0');
+    return `${dia}/${mes}/${ano} - ${h}:${m}:${s}`;
 }

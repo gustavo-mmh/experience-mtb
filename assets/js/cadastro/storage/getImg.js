@@ -1,4 +1,3 @@
-//Upload de imagens
 export let imgRef
 export let metadata
 export let file
