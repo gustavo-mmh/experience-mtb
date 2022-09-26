@@ -1,4 +1,4 @@
-import { btnCadastro, BtnComIcone, checkboxTermos, divChallenge, divPagamento, divRacing, formCadastro, LinkComIcone, required, txtCategoria, txtConfirmaSenha, txtDataNascimento, txtFormadePagamento, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtPais, txtSenha } from "./ui.js";
+import { btnCadastro, BtnComIcone, checkboxTermos, divChallenge, divPagamento, divRacing, formCadastro, LinkComIcone, Paragrafo, required, txtCategoria, txtConfirmaSenha, txtDataNascimento, txtFormadePagamento, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtPais, txtSenha } from "./ui.js";
 let idLinkPagamento = 'btnLimkPagamento';
 let faIconPagamento = 'fa';
 let classeIconLinkPagamento = 'fa-credit-card';
@@ -23,40 +23,49 @@ export function VerificaFormaPagamento(element) {
         element.hidden = true;
     }
 }
-export function VerificaFormaPagamento2(element, element2) {
+export function VerificaFormaPagamento2(element, element2, element3) {
     if (txtFormadePagamento.value == "Banco") {
         element.hidden = false;
         element2.hidden = true;
+        element3.hidden = true;
     } else if (txtFormadePagamento.value == "Mercadopago") {
         element.hidden = false;
         element2.hidden = true;
+        element3.hidden = true;
     } else if (txtFormadePagamento.value == "Pix") {
         element2.hidden = false;
         element.hidden = true;
+        element3.hidden = true;
     } else if (txtFormadePagamento.value == "Midinero") {
         element2.hidden = false;
         element.hidden = true;
+        element3.hidden = true;
     } else {
+        element3.hidden = false;
         element.hidden = true;
         element2.hidden = true;
+
     }
 }
 export function BotoesPorNacionalidade(pais) {
     if (pais == "Brasil") {
-        let btnClassLinkPagamento = 'btn-outline-success';
-        let txtLinkPagamento = "Pagamento por Banco";
-        let titleLinkPagamento = "Pagamento por Banco";
-        let targetLinkPagamento = "_blank";
-        let hrefLinkPagamento = "https://www.mercadopago.com.br/checkout/v1/payment/redirect/?source=link&preference-id=379326377-71379965-32e5-4d24-b651-a4195dfbad30&router-request-id=7fd022fb-d59b-4d8e-8727-f87b600cb28d";
-        LinkComIcone(idLinkPagamento, faIconPagamento, classeIconLinkPagamento, btnClassLinkPagamento, txtLinkPagamento, titleLinkPagamento, targetLinkPagamento, hrefLinkPagamento, divPagamento)
+        // let btnClassLinkPagamento = 'btn-outline-success';
+        // let txtLinkPagamento = "Pagamento Via Cartão de Crédito";
+        // let titleLinkPagamento = "Pagamento Via Cartão de Crédito";
+        // let targetLinkPagamento = "_blank";
+        // let hrefLinkPagamento = "https://www.mercadopago.com.br/checkout/v1/payment/redirect/?source=link&preference-id=379326377-71379965-32e5-4d24-b651-a4195dfbad30&router-request-id=7fd022fb-d59b-4d8e-8727-f87b600cb28d";
+        // LinkComIcone(idLinkPagamento, faIconPagamento, classeIconLinkPagamento, btnClassLinkPagamento, txtLinkPagamento, titleLinkPagamento, targetLinkPagamento, hrefLinkPagamento, divPagamento)
         let tipoBtnPix = "button";
         let ClassBtnPix = 'btn-outline-success';
         let idBtnPix = "BtnPix";
         let faPixIcon = "fa-brands";
         let pixIcon = "fa-pix";
-        let txtLinkPix = "Pagamento por Pix";
+        let txtLinkPix = "Pagar com Pix";
         let idDiv = "#pagamento";
         BtnComIcone(tipoBtnPix, ClassBtnPix, idBtnPix, faPixIcon, pixIcon, txtLinkPix, idDiv)
+        let idP = "pBicicletaria";
+        let txtP = "Pagamento com dinheiro em uma das Bicicletarias parceiras. Após efetuar o pagamento, enviar o comprovante aqui.";
+        Paragrafo(idP, txtP, divPagamento)
         txtFormadePagamento.options[1].disabled = true
         txtFormadePagamento.options[1].hidden = true
         txtFormadePagamento.options[2].disabled = true
@@ -64,24 +73,28 @@ export function BotoesPorNacionalidade(pais) {
 
     }
     else if (pais == 'Uruguai') {
-        let btnClassLinkPagamento = 'btn-outline-primary';
-        let txtLinkPagamento = "Pagamento por Mercadopago";
-        let titleLinkPagamento = "Pagamento por Mercadopago";
-        let targetLinkPagamento = "_blank";
-        let hrefLinkPagamento = "https://mpago.la/1ZdEfJx";
-        LinkComIcone(idLinkPagamento, faIconPagamento, classeIconLinkPagamento, btnClassLinkPagamento, txtLinkPagamento, titleLinkPagamento, targetLinkPagamento, hrefLinkPagamento, divPagamento)
+        // let btnClassLinkPagamento = 'btn-outline-primary';
+        // let txtLinkPagamento = "Pagamento Via Cartão de Crédito";
+        // let titleLinkPagamento = "Pagamento Via Cartão de Crédito";
+        // let targetLinkPagamento = "_blank";
+        // let hrefLinkPagamento = "https://mpago.la/1ZdEfJx";
+        // LinkComIcone(idLinkPagamento, faIconPagamento, classeIconLinkPagamento, btnClassLinkPagamento, txtLinkPagamento, titleLinkPagamento, targetLinkPagamento, hrefLinkPagamento, divPagamento)
         let tipoBtnPix = "button";
         let ClassBtnPix = 'btn-outline-primary';
         let idBtnPix = "BtnMidinero";
         let faPixIcon = "fa";
-        let pixIcon = "fa-cash";
+        let pixIcon = "fa-credit-card";
         let txtLinkPix = "Pagamento por Mi dinero";
         let idDiv = "#pagamento";
         BtnComIcone(tipoBtnPix, ClassBtnPix, idBtnPix, faPixIcon, pixIcon, txtLinkPix, idDiv)
+        let idP = "pBicicletaria";
+        let txtP = "Pagamento com dinheiro em uma das Bicicletarias parceiras. Após efetuar o pagamento, enviar o comprovante aqui.";
+        Paragrafo(idP, txtP, divPagamento)
         txtFormadePagamento.options[3].disabled = true
         txtFormadePagamento.options[3].hidden = true
         txtFormadePagamento.options[4].disabled = true
         txtFormadePagamento.options[4].hidden = true
+
     } else {
         let btnClassLinkPagamento = 'btn-outline-info';
         let txtLinkPagamento = "Pagamento por Mercadopago";
@@ -165,7 +178,7 @@ export function calculaIdade(dataNasc) {
     return idade;
 }
 export function filtraCategoriaSexo(cat) {
-    if (cat == "Masculina") {
+    if (cat == "Masculino") {
         txtModalidadeRacing.options[2].disabled = true
         txtModalidadeRacing.options[2].hidden = true
         txtModalidadeRacing.options[4].disabled = true

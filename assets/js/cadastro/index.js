@@ -1,11 +1,16 @@
-import { getExperienceMtbdocsID, subscribeToExperienceMtb, uploadImagem } from "../firebase/experience-mtb.js";
-import { login, loginCad } from "../login/index.js";
-import { checkboxTermos, formCadastro, limparDados, txtCategoria, txtCidade, txtConfirmaSenha, txtDataNascimento, txtDocumento, txtEmail, txtFotoCard, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtNome, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta, txtWhatsApp } from '../ui.js';
+import { getExperienceMtbdocsID, subscribeToExperienceMtb, uploadImagemCad } from "../firebase/experience-mtb.js";
+import { loginCad } from "../login/index.js";
+import { addDaysToDate, checkboxTermos, formatDate, formCadastro, limparDados, loading, txtCategoria, txtCidade, txtConfirmaSenha, txtDataNascimento, txtDocumento, txtEmail, txtFotoCard, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtNome, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta, txtWhatsApp } from '../ui.js';
 import { bloqueioCadastro, calculaIdade, filtraCategoria, filtraCategoriaSexo, validatePassword, VerificaModalidade } from "../validaForm.js";
 import { file, getImgRef, imgRef, metadata } from "./storage/getImg.js";
 // import { file, getimg, metadata, newName, storageRef } from "./storage/index.js";
 let fotoCard1 = ''
+let tmpDate = new Date()
+let hoje = formatDate(tmpDate, 'dd/mm/aaaa')
+let dia10 = addDaysToDate(tmpDate, 10)
+let dataFim = formatDate(dia10, 'dd/mm/aaaa')
 export async function Cadastrar() {
+
     txtModalidade.addEventListener('change', () => {
         VerificaModalidade()
     })
@@ -21,6 +26,7 @@ export async function Cadastrar() {
     txtDataNascimento.addEventListener('change', () => {
         let idade = calculaIdade(txtDataNascimento.value)
         filtraCategoria(idade)
+        txtModalidadeRacing.selectedIndex = 0
     })
     txtCategoria.addEventListener('change', () => {
         let cat = txtCategoria.value
@@ -64,17 +70,27 @@ export async function Cadastrar() {
                         fotoCard: fotoCard1,
                         comprovantePagamento: '',
                         status: 'Pendente',
+                        dataInscricao: hoje,
+                        dataFimEdit: dataFim,
                     }
                     subscribeToExperienceMtb(subscription, ID);
-                    alert("Cadastro Feito com Sucesso!!!")
+                    loading.hidden = false
                     if (imgRef != null) {
                         let ref = `images/${imgRef}`
-                        // let redirec = loginCad(txtDocumento, txtSenha, txtPais)
-                        uploadImagem(file, ref, metadata, '')
+                        let pais = txtPais.value
+                        let doc = txtDocumento.value
+                        let psw = txtSenha.value
+                        uploadImagemCad(file, ref, metadata, doc, psw, pais)
+                        limparDados()
                     } else {
-                        // loginCad(txtDocumento, txtSenha, txtPais)
+                        let pais = txtPais.value
+                        let doc = txtDocumento.value
+                        let psw = txtSenha.value
+                        loginCad(doc, psw, pais)
+                        limparDados()
                     }
-                    limparDados()
+                    alert("Cadastro Feito com Sucesso!!!")
+
                 } else {
                     if (imgRef != null) {
                         fotoCard1 = imgRef
@@ -96,18 +112,27 @@ export async function Cadastrar() {
                         fotoCard: fotoCard1,
                         comprovantePagamento: '',
                         status: 'Pendente',
+                        dataInscricao: 'Pendente',
+                        dataInscricao: hoje,
+                        dataFimEdit: dataFim,
                     }
                     subscribeToExperienceMtb(subscription, ID);
-                    alert("Cadastro Feito com Sucesso!!!")
+                    loading.hidden = false
                     if (imgRef != null) {
                         let ref = `images/${imgRef}`
-                        // let redirec = loginCad(txtDocumento, txtSenha, txtPais)
-                        uploadImagem(file, ref, metadata, '')
+                        let pais = txtPais.value
+                        let doc = txtDocumento.value
+                        let psw = txtSenha.value
+                        uploadImagemCad(file, ref, metadata, doc, psw, pais)
+                        limparDados()
                     } else {
-                        // debugger
-                        // loginCad(txtDocumento, txtSenha, txtPais)
+                        let pais = txtPais.value
+                        let doc = txtDocumento.value
+                        let psw = txtSenha.value
+                        loginCad(doc, psw, pais)
+                        limparDados()
                     }
-                    limparDados()
+                    alert("Cadastro Feito com Sucesso!!!")
                 }
             }
 

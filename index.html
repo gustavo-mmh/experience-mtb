@@ -6,6 +6,7 @@
   <link rel="shortcut icon" href="assets/images/logo_escuro.png" type="image/x-icon">
   <!--[if IE]><link rel="shortcut icon" href="../images/favicon.ico"><![endif]-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <title>Experience Challenge & Racing MTB</title>
@@ -32,7 +33,7 @@
       <div class="header-logo">
         <img src="assets/images/novos-desafios.png" class="img-fluid novos-desafios" alt="">
       </div>
-      <div>
+      <div class="mb-5">
         <img src="assets/images/logo-escrita.png" class="img-fluid logo-escrita" alt="">
       </div>
     </div>
@@ -130,8 +131,8 @@
                   <select required id="txtCategoria" class="form-select" name="Categoria"
                     aria-label="Selecione uma Opção">
                     <option value="" selected>Selecione uma Opção</option>
-                    <option>Masculina</option>
-                    <option>Feminina</option>
+                    <option>Masculino</option>
+                    <option>Feminino</option>
                   </select>
                 </div>
                 <div class="mb-2 mt-3">
@@ -141,11 +142,11 @@
                   <select required id="txtModalidade" class="form-select" name="modalidade"
                     aria-label="Selecione uma Modalidade">
                     <option value="" selected>Selecione uma Modalidade</option>
-                    <option value="Racing" selected>Racing (Competição)</option>
+                    <option value="Racing">Racing (Competição)</option>
                     <option value="Challenge">Challenge (Desafio)</option>
                   </select>
                 </div>
-                <div id="racing" class="mb-2 mt-3">
+                <div id="racing" class="mb-2 mt-3" hidden>
                   <label for="txtModalidadeRacing" class="form-label">
                     <i class="fa-solid fa-flag-checkered fa-fw" aria-hidden="true"></i>
                     *Categorias Racing (Competição):</label>
@@ -174,7 +175,7 @@
                 </div>
                 <div id="challenge" class="mb-2 mt-3" hidden>
                   <label for="txtModalidadeChallenge" class="form-label">
-                    <img src="assets/images/challenge.png" class="img-fluid icone_logo" alt="">
+                    <img src="assets/images/challenge.png" class="img-fluid icone_chl" alt="">
                     *Categorias Challenge (Desafio):</label>
                   <select id="txtModalidadeChallenge" class="form-select" name="challenge"
                     aria-label="Selecione uma Modalidade">
@@ -259,7 +260,8 @@
                 <i class=" fa fa-globe fa-fw" aria-hidden="true"></i>
                 País:</label>
               <select id="loginPais" class="form-select" required name="pais" aria-label="Selecione um País">
-                <option selected>Brasil</option>
+                <option value="">Selecione Um Pais</option>
+                <option>Brasil</option>
                 <option>Uruguai</option>
                 <option>Argentina</option>
               </select>
@@ -288,10 +290,13 @@
     </div>
   </div>
   <!-- End Modal Login -->
-  <div class="alert alert-secondary py-2 text-center">
-    <h2 class="text-dark">Informações</h2>
+  <div class="alert alert-bordo py-2 text-center">
+    <h2 class="text-light">Informações</h2>
     <p><b>Local:</b> Santana do Livramento</p>
     <p><b>Datas:</b> 09, 10 e 11 de Dezembro de 2022</p>
+    <a class="btn btn-outline-light"
+      href="https://www.canva.com/design/DAFNFvzEX44/tezBCW6_hgqRDjGaERhIJg/view?utm_content=DAFNFvzEX44&utm_campaign=designshare&utm_medium=link&utm_source=homepage_design_menu"
+      target="_blank" rel="noopener noreferrer">Saiba Mais</a>
   </div>
 
   <div class="container py-2">

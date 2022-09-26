@@ -39,17 +39,20 @@ export const cardNomeEquipe = document.querySelector('#cardNomeEquipe');
 export const cardTamanhoCamiseta = document.querySelector('#cardTamanhoCamiseta');
 export const cardFoto = document.querySelector('#cardFoto');
 export const cardStatus = document.querySelector('#cardStatus');
+export const loading = document.querySelector("#load");
 
 
 export const checkboxSenha = document.querySelector('#checkboxSenha');
 export const checkboxTermos = document.querySelector('#checkboxTermos');
 export const checkboxFoto = document.querySelector('#checkboxFoto');
 
+export const btnEditar = document.querySelector('#btnEditInsc');
 export const btnCopiar = document.querySelector('#copiarQR');
 export const btnCadastro = document.querySelector('#btnCadastrar');
 export const btnLogin = document.querySelector('#btnLogin')
 export const btnLogout = document.querySelector('#btnLogout')
 
+export const divEditarInsc = document.querySelector('#editarInsc');
 export const divComprovante = document.querySelector('#comprovante');
 export const divFoto = document.querySelector('#divFoto');
 export const divSenha = document.querySelector('#Senha');
@@ -76,6 +79,12 @@ export let BtnComIcone = (tipo, classeBtn, idBtn, faIcon, classeIcon, txtBtn, id
     btn.appendChild(iconCheck);
     btn.appendChild(txt);
     document.querySelector(idDiv).appendChild(btn)
+}
+export let Paragrafo = (idP, txtP, divP) => {
+    let p = document.createElement('p')
+    p.id = idP;
+    p.innerHTML = txtP
+    divP.appendChild(p)
 }
 
 export let LinkComIcone = (idLink, faIcon, classeIcon, btnClassLink, txtLink, titleLink, targetLink, hrefLink, divLink) => {
@@ -120,4 +129,19 @@ export function copiarTexto() {
     textoCopiado.setSelectionRange(0, 99999)
     document.execCommand("copy");
     alert("Texto Copiado");
+}
+
+export function addDaysToDate(date, days) {
+    var res = new Date(date);
+    res.setDate(res.getDate() + days);
+    return res;
+}
+export function formatDate(date, format) {
+    const map = {
+        mm: date.getMonth() + 1,
+        dd: date.getDate(),
+        aaaa: date.getFullYear()
+    }
+
+    return format.replace(/mm|dd|aaaa/gi, matched => map[matched])
 }

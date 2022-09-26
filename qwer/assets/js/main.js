@@ -2,16 +2,27 @@ import { getStorage } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-s
 import { getUrlImage } from "../../../assets/js/cadastro/storage/urlImg.js";
 import app from "../../../assets/js/firebase/app.js";
 import { getCollection } from '../../../assets/js/firebase/experience-mtb.js';
-import { BtnComIcone, btnCopiar, btnLogout, cardCategoria, cardCidade, cardDataNascimento, cardDocumento, cardEmail, cardFoto, cardModalidade, cardNome, cardNomeEquipe, cardPais, cardStatus, cardTamanhoCamiseta, cardWhatsApp, copiarTexto, formComprovante, txtComprovante, txtFormadePagamento } from '../../../assets/js/ui.js';
+import { addDaysToDate, BtnComIcone, btnCopiar, btnEditar, btnLogout, cardCategoria, cardCidade, cardDataNascimento, cardDocumento, cardEmail, cardFoto, cardModalidade, cardNome, cardNomeEquipe, cardPais, cardStatus, cardTamanhoCamiseta, cardWhatsApp, copiarTexto, divEditarInsc, formatDate, formComprovante, loading, txtComprovante, txtFormadePagamento } from '../../../assets/js/ui.js';
 import { BotoesPorNacionalidade, VerificaFormaPagamento, VerificaFormaPagamento2 } from "../../../assets/js/validaForm.js";
 import { createComprovante, updateComprovante } from "./participante-upd.js";
-if (localStorage.getItem('token') == null) {
+if (sessionStorage.getItem('token') == null) {
     alert('Você precisa estar logado para acessar essa página')
     window.location.href = '../index.html'
 }
-let documento = JSON.parse(localStorage.getItem('documentoLogado'))
-let pais = JSON.parse(localStorage.getItem('paislogado'))
+btnLogout.addEventListener('click', () => {
+    sessionStorage.clear()
+    window.location.href = '../index.html'
+})
+loading.hidden = false
+setTimeout(function () {
+    loading.hidden = true
+}, 2000);
+let documento = JSON.parse(sessionStorage.getItem('documentoLogado'))
+let pais = JSON.parse(sessionStorage.getItem('paislogado'))
 const storage = getStorage(app);
+let dataInscricao
+let dataFimEditar
+let hoje = new Date()
 let img
 let doc
 let itemPais
@@ -23,7 +34,8 @@ docs.forEach(item => {
     cardDocumento.innerHTML = doc
     cardEmail.innerHTML = item.email
     cardWhatsApp.innerHTML = item.whatsapp
-    cardDataNascimento.innerHTML = item.dataNascimento
+    let data_brasileira = item.dataNascimento.split('-').reverse().join('/');
+    cardDataNascimento.innerHTML = data_brasileira
     cardPais.innerHTML = itemPais
     cardCidade.innerHTML = item.cidade
     cardModalidade.innerHTML = item.modalidade
@@ -35,7 +47,8 @@ docs.forEach(item => {
     cardNomeEquipe.innerHTML = item.nomeEquipe
     cardTamanhoCamiseta.innerHTML = item.tamanhoCamiseta
     img = item.fotoCard
-
+    dataInscricao = item.dataInscricao
+    dataFimEditar = item.dataFimEdit
     if (item.status == 'Pago') {
         cardStatus.classList.add('text-success');
         cardStatus.innerHTML = item.status
@@ -52,6 +65,8 @@ docs.forEach(item => {
             btnLimkPagamento.hidden = true
             let btnPix = document.querySelector("#BtnPix")
             btnPix.hidden = true
+            let p = document.querySelector("#pBicicletaria")
+            p.hidden = true
             btnPix.addEventListener('click', () => {
                 $("#modalPix").modal("show");
             });
@@ -59,14 +74,21 @@ docs.forEach(item => {
                 copiarTexto()
             })
             txtFormadePagamento.addEventListener('change', () => {
-                VerificaFormaPagamento2(btnLimkPagamento, btnPix)
+                VerificaFormaPagamento2(btnLimkPagamento, btnPix, p)
             })
         } else if (itemPais == 'Uruguai') {
             BotoesPorNacionalidade(itemPais)
             let btnLimkPagamento = document.querySelector("#btnLimkPagamento")
             btnLimkPagamento.hidden = true
+            let btnMidinero = document.querySelector("#BtnMidinero")
+            btnMidinero.hidden = true
+            let p = document.querySelector("#pBicicletaria")
+            p.hidden = true
+            btnMidinero.addEventListener('click', () => {
+                $("#modalMidinero").modal("show");
+            });
             txtFormadePagamento.addEventListener('change', () => {
-                VerificaFormaPagamento(btnLimkPagamento)
+                VerificaFormaPagamento2(btnLimkPagamento, btnMidinero, p)
             })
 
         } else {
@@ -80,9 +102,7 @@ docs.forEach(item => {
         }
         let ID = itemPais + doc
         let img2 = item.comprovantePagamento;
-        setTimeout(function () {
-            updateComprovante(ID, img2)
-        }, 5000);
+        updateComprovante(ID, img2)
     }
     else {
         cardStatus.classList.add('text-danger');
@@ -90,10 +110,12 @@ docs.forEach(item => {
         BtnComIcone("submit", 'btn-outline-secondary', "btnCadastrar", 'fa', 'fa-check', "Enviar", '#envio')
         if (itemPais == 'Brasil') {
             BotoesPorNacionalidade(itemPais)
-            let btnLimkPagamento = document.querySelector("#btnLimkPagamento")
+            let btnLimkPagamento = document.querySelector("#btnPagamentoBr")
             btnLimkPagamento.hidden = true
             let btnPix = document.querySelector("#BtnPix")
             btnPix.hidden = true
+            let p = document.querySelector("#pBicicletaria")
+            p.hidden = true
             btnPix.addEventListener('click', () => {
                 $("#modalPix").modal("show");
             });
@@ -101,21 +123,22 @@ docs.forEach(item => {
                 copiarTexto()
             })
             txtFormadePagamento.addEventListener('change', () => {
-                VerificaFormaPagamento2(btnLimkPagamento, btnPix)
+                VerificaFormaPagamento2(btnLimkPagamento, btnPix, p)
             })
         } else if (itemPais == 'Uruguai') {
             BotoesPorNacionalidade(itemPais)
-            let btnLimkPagamento = document.querySelector("#btnLimkPagamento")
+            let btnLimkPagamento = document.querySelector("#btnPagamentoUy")
             btnLimkPagamento.hidden = true
             let btnMidinero = document.querySelector("#BtnMidinero")
             btnMidinero.hidden = true
+            let p = document.querySelector("#pBicicletaria")
+            p.hidden = true
             btnMidinero.addEventListener('click', () => {
                 $("#modalMidinero").modal("show");
             });
             txtFormadePagamento.addEventListener('change', () => {
-                VerificaFormaPagamento2(btnLimkPagamento, btnMidinero)
+                VerificaFormaPagamento2(btnLimkPagamento, btnMidinero, p)
             })
-
         } else {
             BotoesPorNacionalidade(itemPais)
             let btnLimkPagamento = document.querySelector("#btnLimkPagamento")
@@ -129,12 +152,16 @@ docs.forEach(item => {
         createComprovante(ID)
     }
 })
+console.log(dataFimEditar);
+var partesData = dataFimEditar.split("/");
+var data = new Date(partesData[2], partesData[1] - 1, partesData[0]);
+var dataLimite = new Date(("2022, 11, 27"));
+if (data < new Date() || new Date() > dataLimite) {
+    divEditarInsc.style = 'display:none !important'
+    btnEditar.classList.add('disabled')
+}
 if (img != "") {
     getUrlImage(storage, img, cardFoto)
 } else {
     cardFoto.src = './assets/images/fotocard.png'
 }
-btnLogout.addEventListener('click', () => {
-    localStorage.clear()
-    window.location.href = '../index.html'
-})

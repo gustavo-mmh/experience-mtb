@@ -14,6 +14,11 @@
 </head>
 
 <body>
+  <div id="load" class="load" hidden>
+    <div class="spinner-border spinner-border-xl text-success" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
   <header>
     <div class="cabecalho container-fluid py-2 text-center bg-light-gradient">
       <h2 class="pb-2 border-bottom"><a class="text-light text-decoration-none" href="index.html"> <img
@@ -101,16 +106,17 @@
 
                       </div>
                     </div>
-                    <div class="d-flex flex-row-reverse">
+                    <div id="editarInsc" class="d-flex flex-row-reverse">
                       <div class="p-2">
-                        <a href="cadastro-upd.html" class="btn btn-outline-primary"><i class="fa fa-edit"
-                            aria-hidden="true"></i>
+                        <a id="btnEditInsc" href="cadastro-upd.html" class="btn btn-outline-primary"><i
+                            class="fa fa-edit" aria-hidden="true"></i>
                           Editar Dados</a>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="row">
+                  <div id="downloadCard"></div>
                   <form class="row" id="formComprovante">
                     <div class="mb-2">
                       <label for="txtFormaPagamento">
@@ -120,9 +126,9 @@
                       <select id="txtFormadePagamento" class="form-select" required name="FormadePagamento"
                         aria-label="Selecione uma Forma de Pagamento">
                         <option value="" selected>Selecione uma Opção</option>
-                        <option value="Mercadopago">Pagamento via Mercado Pago</option>
+                        <option value="Mercadopago">Pagamento via Cartão de Crédito</option>
                         <option value="Midinero">Pagamento via Mi dinero</option>
-                        <option value="Banco">Pagamento via Banco</option>
+                        <option value="Banco">Pagamento via Cartão de Crédito</option>
                         <option value="Pix">Pagamento via Pix</option>
                         <option value="Bicicletaria">Pagamento na Bicicleteria (Silva, Biciclo,
                           Mafferbikes ou
@@ -140,13 +146,22 @@
                     </div>
                     <div class="row p-2">
                       <div class="form-group" id="envio">
-                        <div class="p-2" id="pagamento"></div>
                         <button type="reset" class="btn btn-outline-warning">
                           <i class="fa fa-eraser" aria-hidden="true"></i>
                           Limpar</button>
                       </div>
-
                   </form>
+                </div>
+                <div class="p-2" id="pagamento"></div>
+                <div id="btnPagamentoBr" hidden class="text-center p-1">
+                  <script src="https://www.mercadopago.com.br/integrations/v1/web-payment-checkout.js"
+                    data-preference-id="379326377-e539835a-6b56-457c-9315-34769d218659" data-source="button">
+                    </script>
+                </div>
+                <div id="btnPagamentoUy" hidden class="text-center p-1">
+                  <script src="https://www.mercadopago.com.uy/integrations/v1/web-payment-checkout.js"
+                    data-preference-id="673979847-66c5c939-5ae9-415d-820c-984222c48a15" data-source="button">
+                    </script>
                 </div>
               </div>
             </div>
@@ -164,9 +179,9 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="staticBackdropLabel">Pagamento com Pix</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
-            </button>
+            </button> -->
           </div>
           <div class="modal-body" id="modalBody">
             <img src="assets/images/qrcode.jpg" alt="QRcode" class="img-fluid">
@@ -180,15 +195,16 @@
         </div>
       </div>
     </div>
+    <!-- -------------------------- -->
     <div class="modal fade" id="modalMidinero" data-backdrop="static" data-keyboard="false" tabindex="-1"
       aria-labelledby="modalMidinero" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="staticBackdropLabel">Pagamento com Mi dinero</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
-            </button>
+            </button> -->
           </div>
           <div class="modal-body text-center" id="modalBody">
             <p>
@@ -200,17 +216,11 @@
             <p>
               Cédula: 1080427171
             </p>
-
           </div>
         </div>
       </div>
     </div>
-
-
     <!-- ---------- -->
-
-
-
   </div>
   </div>
   <div class="b-example-divider"></div>

@@ -1,3 +1,14 @@
+.load {
+  background: #fff;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .cabecalho {
   background: #f7f7f7;
   color: #fff;
