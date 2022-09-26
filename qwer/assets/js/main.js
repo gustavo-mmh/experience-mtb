@@ -61,8 +61,10 @@ docs.forEach(item => {
         BtnComIcone("submit", 'btn-outline-secondary', "btnCadastrar", 'fa', 'fa-check', "Enviar", '#envio')
         if (itemPais == 'Brasil') {
             BotoesPorNacionalidade(itemPais)
-            let btnLimkPagamento = document.querySelector("#btnLimkPagamento")
+            let btnLimkPagamento = document.querySelector("#btnPagamentoBr")
+            let btnUy = document.querySelector("#btnPagamentoUy")
             btnLimkPagamento.hidden = true
+            btnUy.hidden = true
             let btnPix = document.querySelector("#BtnPix")
             btnPix.hidden = true
             let p = document.querySelector("#pBicicletaria")
@@ -78,8 +80,10 @@ docs.forEach(item => {
             })
         } else if (itemPais == 'Uruguai') {
             BotoesPorNacionalidade(itemPais)
-            let btnLimkPagamento = document.querySelector("#btnLimkPagamento")
+            let btnLimkPagamento = document.querySelector("#btnPagamentoUy")
+            let btnBr = document.querySelector("#btnPagamentoBr")
             btnLimkPagamento.hidden = true
+            btnBr.hidden = true
             let btnMidinero = document.querySelector("#BtnMidinero")
             btnMidinero.hidden = true
             let p = document.querySelector("#pBicicletaria")
@@ -95,6 +99,10 @@ docs.forEach(item => {
             BotoesPorNacionalidade(itemPais)
             let btnLimkPagamento = document.querySelector("#btnLimkPagamento")
             btnLimkPagamento.hidden = true
+            let btnBr = document.querySelector("#btnPagamentoBr")
+            let btnUy = document.querySelector("#btnPagamentoUy")
+            btnBr.hidden = true
+            btnUy.hidden = true
             txtFormadePagamento.value
             txtFormadePagamento.addEventListener('change', () => {
                 VerificaFormaPagamento(btnLimkPagamento)

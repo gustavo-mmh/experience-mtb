@@ -68,14 +68,16 @@ export async function loginCad(loginDocumento, loginPassword, loginPais) {
         let documentoValid = {
             pais: '',
             documento: '',
-            senha: ''
+            senha: '',
+            dataFimEdit: ''
         }
         docsID.forEach(item => {
             if (documentoValue == item.documento && senhaValue == item.senha) {
                 documentoValid = {
                     pais: item.pais,
                     documento: item.documento,
-                    senha: item.senha
+                    senha: item.senha,
+                    dataFimEdit: item.dataFimEdit
                 }
             }
         })
@@ -86,6 +88,7 @@ export async function loginCad(loginDocumento, loginPassword, loginPais) {
             sessionStorage.setItem('token', token,)
             sessionStorage.setItem('documentoLogado', JSON.stringify(documentoValue))
             sessionStorage.setItem('paislogado', JSON.stringify(pais))
+            sessionStorage.setItem('dataFimEdit', JSON.stringify(documentoValid.dataFimEdit))
             setTimeout(function () {
                 window.location.href = './qwer/'
             }, 2000);
