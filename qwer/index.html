@@ -111,12 +111,19 @@
                         <a id="btnEditInsc" href="cadastro-upd.html" class="btn btn-outline-primary"><i
                             class="fa fa-edit" aria-hidden="true"></i>
                           Editar Dados</a>
+                        <p class="text-muted text-center" id="txtDataLimite"></p>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <div id="downloadCard"></div>
+                  <div>
+                    <p id="txtDesconto" class="text-bg-warning text-center"></p>
+                    <p class="text-bg-danger text-center">O pagamento só será confirmado após envio do comprovante.
+                      <br> O prazo de confirmação é de 3 dias úteis
+                    </p>
+                  </div>
                   <form class="row" id="formComprovante">
                     <div class="mb-2">
                       <label for="txtFormaPagamento">
@@ -152,7 +159,7 @@
                       </div>
                   </form>
                 </div>
-                <div class="p-2" id="pagamento"></div>
+                <div class="text-center p-2" id="pagamento"></div>
                 <div id="btnPagamentoBr" hidden class="text-center p-1">
                   <script src="https://www.mercadopago.com.br/integrations/v1/web-payment-checkout.js"
                     data-preference-id="379326377-e539835a-6b56-457c-9315-34769d218659" data-source="button">
@@ -189,7 +196,12 @@
               value="00020101021126820014br.gov.bcb.pix0114477893600001880242Inscrição lote promocional Experience 20225204000053039865406130.005802BR5913YELLOW SPORTS6008BRASILIA621005061Exp2263048B4C"
               readonly />
             <div class="text-center">
-              <button id="copiarQR" type="button" class="btn btn-outline-dark">Copiar</button>
+              <button id="copiarQR" type="button" class="btn btn-primary">Copiar</button>
+              <div class="p-1">
+                <p><b>Yellow Sports</b></p>
+                <span><b>Chave Pix</b></span>
+                <p><b>CNPJ: </b>47.789.360/0001-88</p>
+              </div>
             </div>
           </div>
         </div>
@@ -207,6 +219,7 @@
             </button> -->
           </div>
           <div class="modal-body text-center" id="modalBody">
+            <p>Pagamento Mi Dinero é via sistema agências RED PAGO Uruguai ou transferência bancária.</p>
             <p>
               Mi Dinero
             </p>

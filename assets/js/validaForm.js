@@ -64,8 +64,9 @@ export function BotoesPorNacionalidade(pais) {
         let idDiv = "#pagamento";
         BtnComIcone(tipoBtnPix, ClassBtnPix, idBtnPix, faPixIcon, pixIcon, txtLinkPix, idDiv)
         let idP = "pBicicletaria";
-        let txtP = "Pagamento com dinheiro em uma das Bicicletarias parceiras. Após efetuar o pagamento, enviar o comprovante aqui.";
-        Paragrafo(idP, txtP, divPagamento)
+        let txtP = `Pagamento com dinheiro em uma das Bicicletarias parceiras. <br> Após efetuar o pagamento, enviar o comprovante aqui.`;
+        let classP = "text-bg-warning";
+        Paragrafo(idP, classP, txtP, divPagamento)
         txtFormadePagamento.options[1].disabled = true
         txtFormadePagamento.options[1].hidden = true
         txtFormadePagamento.options[2].disabled = true
@@ -88,8 +89,9 @@ export function BotoesPorNacionalidade(pais) {
         let idDiv = "#pagamento";
         BtnComIcone(tipoBtnPix, ClassBtnPix, idBtnPix, faPixIcon, pixIcon, txtLinkPix, idDiv)
         let idP = "pBicicletaria";
-        let txtP = "Pagamento com dinheiro em uma das Bicicletarias parceiras. Após efetuar o pagamento, enviar o comprovante aqui.";
-        Paragrafo(idP, txtP, divPagamento)
+        let txtP = `Pagamento com dinheiro em uma das Bicicletarias parceiras. <br> Após efetuar o pagamento, enviar o comprovante aqui.`;
+        let classP = "text-bg-warning";
+        Paragrafo(idP, classP, txtP, divPagamento)
         txtFormadePagamento.options[3].disabled = true
         txtFormadePagamento.options[3].hidden = true
         txtFormadePagamento.options[4].disabled = true
@@ -240,7 +242,7 @@ export function filtraCategoria(idade) {
             txtModalidadeRacing.options[7].hidden = false
         }
     }
-    else if (idade >= 40 && idade < 44) {
+    else if (idade >= 40 && idade < 45) {
         txtModalidadeRacing.options[1].disabled = false
         txtModalidadeRacing.options[2].disabled = false
         for (let i = 5; i <= 12; i++) {

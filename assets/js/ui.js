@@ -80,9 +80,10 @@ export let BtnComIcone = (tipo, classeBtn, idBtn, faIcon, classeIcon, txtBtn, id
     btn.appendChild(txt);
     document.querySelector(idDiv).appendChild(btn)
 }
-export let Paragrafo = (idP, txtP, divP) => {
+export let Paragrafo = (idP, classP, txtP, divP) => {
     let p = document.createElement('p')
     p.id = idP;
+    p.classList.add(classP)
     p.innerHTML = txtP
     divP.appendChild(p)
 }

@@ -24,7 +24,6 @@ body {
 
 .header-wrapper {
   height: 100vh;
-  min-height: 43rem;
   background: url("../images/bg_desktop.jpg") no-repeat center;
   background-size: cover;
   display: flex;
@@ -437,6 +436,7 @@ h2 {
   .header-wrapper {
     background: url("../images/bg_mob.png") no-repeat center;
     background-size: cover;
+    min-height: 44rem;
   }
   .header-logo {
     padding: 2rem;
@@ -486,6 +486,7 @@ h2 {
   .header-wrapper {
     background: url("../images/bg_mob.png") no-repeat center;
     background-size: cover;
+    min-height: 44rem;
   }
   .header-logo {
     padding: 2rem;

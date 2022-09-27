@@ -22,7 +22,6 @@ let pais = JSON.parse(sessionStorage.getItem('paislogado'))
 const storage = getStorage(app);
 let dataInscricao
 let dataFimEditar
-let hoje = new Date()
 let img
 let doc
 let itemPais
@@ -49,6 +48,7 @@ docs.forEach(item => {
     img = item.fotoCard
     dataInscricao = item.dataInscricao
     dataFimEditar = item.dataFimEdit
+    document.querySelector("#txtDataLimite").innerHTML = `Você tem até ${dataFimEditar} <br/> para editar as informações`
     if (item.status == 'Confirmado') {
         cardStatus.classList.add('text-success');
         cardStatus.innerHTML = item.status
@@ -60,6 +60,7 @@ docs.forEach(item => {
         cardStatus.innerHTML = item.status
         BtnComIcone("submit", 'btn-outline-secondary', "btnCadastrar", 'fa', 'fa-check', "Enviar", '#envio')
         if (itemPais == 'Brasil') {
+            document.querySelector("#txtDesconto").innerHTML = `<b>1° Lote "Promocional"</b> (de 26.09 à 06.10) R$130,00`
             BotoesPorNacionalidade(itemPais)
             let btnLimkPagamento = document.querySelector("#btnPagamentoBr")
             let btnUy = document.querySelector("#btnPagamentoUy")
@@ -79,6 +80,7 @@ docs.forEach(item => {
                 VerificaFormaPagamento2(btnLimkPagamento, btnPix, p)
             })
         } else if (itemPais == 'Uruguai') {
+            document.querySelector("#txtDesconto").innerHTML = `<b>1° Lote "Promocional"</b> (de 26.09 à 06.10) $1300,00`
             BotoesPorNacionalidade(itemPais)
             let btnLimkPagamento = document.querySelector("#btnPagamentoUy")
             let btnBr = document.querySelector("#btnPagamentoBr")
@@ -117,6 +119,7 @@ docs.forEach(item => {
         cardStatus.innerHTML = item.status;
         BtnComIcone("submit", 'btn-outline-secondary', "btnCadastrar", 'fa', 'fa-check', "Enviar", '#envio')
         if (itemPais == 'Brasil') {
+            document.querySelector("#txtDesconto").innerHTML = `<b>1° Lote "Promocional"</b> (de 26.09 à 06.10) R$130,00`
             BotoesPorNacionalidade(itemPais)
             let btnLimkPagamento = document.querySelector("#btnPagamentoBr")
             btnLimkPagamento.hidden = true
@@ -134,6 +137,7 @@ docs.forEach(item => {
                 VerificaFormaPagamento2(btnLimkPagamento, btnPix, p)
             })
         } else if (itemPais == 'Uruguai') {
+            document.querySelector("#txtDesconto").innerHTML = `<b>1° Lote "Promocional"</b> (de 26.09 à 06.10) $1300,00`
             BotoesPorNacionalidade(itemPais)
             let btnLimkPagamento = document.querySelector("#btnPagamentoUy")
             btnLimkPagamento.hidden = true
@@ -162,7 +166,7 @@ docs.forEach(item => {
 })
 var partesData = dataFimEditar.split("/");
 var data = new Date(partesData[2], partesData[1] - 1, partesData[0]);
-var dataLimite = new Date(("2022, 11, 27"));
+var dataLimite = new Date(("2022, 11, 21"));
 if (data < new Date() || new Date() > dataLimite) {
     divEditarInsc.style = 'display:none !important'
     btnEditar.classList.add('disabled')
