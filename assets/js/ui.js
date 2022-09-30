@@ -8,6 +8,7 @@ export const txtNome = document.querySelector('#txtNome');
 export const txtComprovante = document.querySelector('#txtComprovante');
 export const txtDocumento = document.querySelector('#txtDocumento');
 export const txtEmail = document.querySelector('#txtEmail');
+export const txtdddWhatsApp = document.querySelector('#dddWhatsApp');
 export const txtWhatsApp = document.querySelector('#txtWhatsApp');
 export const txtDataNascimento = document.querySelector('#txtDataNascimento');
 export const txtPais = document.querySelector('#txtPais');

@@ -53,6 +53,7 @@ docs.forEach(item => {
         cardStatus.classList.add('text-success');
         cardStatus.innerHTML = item.status
         formComprovante.style.display = "none";
+        document.querySelector("#txtMsgComprovante").style.display = "none";
         txtComprovante.classList.add('disabled')
     }
     else if (item.status == 'Em Analise') {

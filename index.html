@@ -108,9 +108,18 @@
                 <div class="mb-2">
                   <label for="txtWhatsApp" class="form-label">
                     <i class=" fa fa-whatsapp fa-fw" aria-hidden="true"></i>
+
                     *WhatsApp:</label>
-                  <input type="tel" id="txtWhatsApp" class="form-control" required="required" maxlength="15"
-                    name="txtWhatsApp" pattern="[0-9/+/ /]+$" placeholder="Digite seu WhatsApp" />
+                  <div class="input-group">
+                    <select id="dddWhatsApp" class="input-group-text" aria-label="Selecione um DDD">
+                      <option value="">DDD</option>
+                      <option value="+55">BR +55</option>
+                      <option value="+598">UY +598</option>
+                      <option value="+549">AR +549</option>
+                    </select>
+                    <input type="tel" id="txtWhatsApp" class="form-control" required="required" maxlength="15"
+                      name="txtWhatsApp" pattern="[0-9/+/ /]+$" placeholder="Digite seu WhatsApp" />
+                  </div>
                 </div>
                 <div class="mb-2 mt-3">
                   <label for="txtTamanhoCamiseta" class="form-label">
