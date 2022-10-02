@@ -17,13 +17,21 @@ export async function Cadastrar() {
         txtWhatsApp.value = ''
         if (txt == '+55') {
             paisWpp(mascaraBR)
+            let whatsappArrumado = txt + txtWhatsApp.value
+            return whatsappArrumado
         } else if (txt == '+598') {
             paisWpp(mascaraUY)
+            let whatsappArrumado = txt + txtWhatsApp.value
+            return whatsappArrumado
         } else if (txt == '+549') {
             paisWpp(mascaraAR)
+            let whatsappArrumado = txt + txtWhatsApp.value
+            return whatsappArrumado
         } else {
             console.log('aqui')
             removeHandler()
+            let whatsappArrumado = txt + txtWhatsApp.value
+            return whatsappArrumado
         }
     })
     txtModalidade.addEventListener('change', (e) => {

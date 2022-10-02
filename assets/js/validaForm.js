@@ -55,7 +55,7 @@ export function mascaraAR(v) {
     return r;
 }
 export function removeHandler() {
-    txtWhatsApp.removeEventListener("keyup", mascara());
+    txtWhatsApp.removeEventListener("keyup", () => { mascara(txtWhatsApp, mascaraUY) });
 }
 export const paisWpp = (m) => {
     txtWhatsApp.addEventListener('keyup', () => { mascara(txtWhatsApp, m) })
@@ -265,9 +265,11 @@ export function filtraCategoriaSexo(cat) {
 export function filtraCategoria(idade) {
     if (idade < 18) {
         txtModalidadeRacing.options[1].disabled = false
-        for (let i = 3; i <= 12; i++) {
+        let i = 3
+        while (i <= 12) {
             txtModalidadeRacing.options[i].disabled = true
             txtModalidadeRacing.options[i].hidden = true
+            i++
         }
     } else if (idade >= 18 && idade < 30) {
         txtModalidadeRacing.options[1].disabled = false

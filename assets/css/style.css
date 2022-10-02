@@ -1,5 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap");
-
+:root {
+  --laranja: #de5d12;
+  --preto-azulado: #071b33;
+  --verde: #344f29;
+  --bordo: #842029;
+  --roxo: #2e1c2b;
+  --max-heigth-card: 100vh;
+  --height-card-sm: calc(250px + 13vw);
+  --height-card-md: calc(20em + 13vw);
+}
 body {
   margin: 0;
   padding: 0;
@@ -32,6 +41,7 @@ body {
   align-items: center;
   /* animation: backgroundTransition 8s ease-in-out infinite; */
   position: relative;
+  z-index: 0;
 }
 
 .infos {
@@ -78,23 +88,36 @@ h2 {
   font-size: 24px;
   margin: 7px;
   padding: 1rem 4rem;
-  border: 1px solid #ffffff;
   min-width: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: 0.5s cubic-bezier(0.55, 0.025, 0.675, 0.97);
 }
+.link_button::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 4px;
+  border-radius: 12px;
+  background: linear-gradient(
+    150deg,
+    rgb(139 195 74 / 70%),
+    rgb(222 93 18 / 70%)
+  );
+  background-size: 400%;
+  animation: backgroundTransition 8s ease-in-out infinite;
+}
 
 .link_button:hover {
-  color: #032400;
+  color: var(--verde);
   background-color: #ffffff;
 }
 #challange {
   display: none;
 }
 .modal-content {
-  background: #842029;
+  background: var(--bordo);
 }
 .btn-file {
   position: relative;
@@ -115,7 +138,7 @@ h2 {
   display: block;
 }
 .alert-bordo {
-  background: #842029;
+  background: var(--bordo);
   border: 0px;
 }
 
@@ -232,7 +255,7 @@ h2 {
 
 .menu-items ul li a {
   margin: 10px 0;
-  color: #2e1c2b;
+  color: var(--roxo);
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 4px;
@@ -243,7 +266,7 @@ h2 {
 
 #toggle:checked + .checkbox .trace:nth-child(1) {
   transform: rotate(45deg);
-  background-color: #2e1c2b;
+  background-color: var(--roxo);
   top: 47px;
 }
 
@@ -256,7 +279,7 @@ h2 {
 
 #toggle:checked + .checkbox .trace:nth-child(3) {
   transform: rotate(-45deg);
-  background-color: #2e1c2b;
+  background-color: var(--roxo);
   top: 48px;
 }
 
@@ -288,24 +311,43 @@ h2 {
 .card-container {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   width: 90%;
+  height: 400px;
+  border-radius: 14px;
 }
-
+.bg-exp {
+  background: var(--laranja);
+}
+.bg-chl {
+  background: var(--preto-azulado);
+}
+.bg-rcg {
+  background: var(--verde);
+}
+.bg-mtb {
+  background: var(--roxo);
+}
+.invert-color {
+  filter: invert(1);
+}
 .card-rcg {
-  background-image: url("../images/card_rcg.jpg");
+  background: url("../images/card_rcg.jpg") no-repeat;
+  background-size: cover;
 }
 .card-exp {
-  background-image: url("../images/card_exp.jpg");
+  background: url("../images/card_exp.jpg") no-repeat center;
+  background-size: cover !important;
 }
 .card-mtb {
-  background-image: url("../images/card_mtb.jpg");
+  background: url("../images/card_mtb.jpg") no-repeat center;
+  /* background-size: cover !important; */
 }
 .card-chl {
   background-image: url("../images/card_chl.jpg");
 }
 .card {
-  height: 18.75em;
+  height: 100.3%;
   width: 25em;
   margin: 0 0 0 0;
   background-position: center;
@@ -319,12 +361,25 @@ h2 {
   cursor: pointer;
   transition: 0.3s;
 }
-
+.negrito {
+  font-weight: bold;
+}
+li.none {
+  list-style-type: none;
+}
 .card-text {
-  width: 40%;
+  width: 50%;
   font-family: sans-serif;
   letter-spacing: 1px;
-  color: rgb(109, 109, 109);
+  color: #fff;
+  font-size: 0.75em;
+  margin: 1em 0em 1em 0em;
+}
+.img-card-text {
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .card-wrapper {
@@ -367,10 +422,10 @@ h2 {
 .card:hover {
   filter: unset;
 }
-
 .card:hover > .card-wrapper::before {
-  height: 250px;
-  width: 350px;
+  --height-card-md: calc(12em + 13vw);
+  height: var(--height-card-md);
+  width: var(--height-card-md);
   opacity: 1;
 }
 
@@ -385,7 +440,7 @@ h2 {
 .footer {
   width: 100%;
   height: 100px;
-  background-color: #842029;
+  background-color: var(--bordo);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -400,7 +455,7 @@ h2 {
 .social {
   transform: scale(0.8);
   transition: 0.5s;
-  color: #dd5b12;
+  color: var(--laranja);
 }
 .social-fb:hover {
   background: linear-gradient(24deg, #6600ff 0%, #15a3fa 100%);
@@ -456,6 +511,7 @@ h2 {
 
   .card-container {
     flex-direction: column;
+    height: 100%;
   }
 
   .container .card-container:nth-child(2),
@@ -464,8 +520,8 @@ h2 {
   }
 
   .card {
-    height: 250px;
-    width: 250px;
+    height: var(--height-card-sm);
+    width: 100%;
   }
 
   .card-text {
@@ -475,8 +531,10 @@ h2 {
   }
 
   .card:hover > .card-wrapper::before {
-    height: 230px;
-    width: 230px;
+    --height-card-sm: calc(250px + 11vw);
+    --width-card-sm: calc(220px + 10vw);
+    height: var(--height-card-sm);
+    width: var(--width-card-sm);
   }
 }
 @media (min-width: 575.98px) and (max-width: 767.97px) {
@@ -506,6 +564,7 @@ h2 {
 
   .card-container {
     flex-direction: column;
+    height: 100%;
   }
 
   .container .card-container:nth-child(2),
@@ -514,22 +573,48 @@ h2 {
   }
 
   .card {
-    height: 250px;
-    width: 250px;
+    height: var(--height-card-sm);
+    width: 100%;
   }
 
   .card-text {
     width: 90%;
     margin: 1rem;
-    text-align: center;
+    text-align: justify;
   }
 
   .card:hover > .card-wrapper::before {
-    height: 230px;
-    width: 230px;
+    --height-card-sm: calc(250px + 10vw);
+    --heightB: var(--height-card-sm);
+    height: var(--heightB);
+    width: var(--heightB);
   }
 }
 /* // `lg` applies to medium devices (tablets, less than 992px) */
+@media ((min-width: 767.99px) and (max-width: 991px)) {
+  .card-container {
+    flex-direction: column;
+    height: 100%;
+  }
+  .container .card-container:nth-child(2),
+  .container .card-container:nth-child(4) {
+    flex-direction: column-reverse;
+  }
+  .card-text {
+    width: 100%;
+  }
+
+  .card {
+    width: 100.3%;
+    height: var(--height-card-md);
+  }
+
+  .card:hover > .card-wrapper::before {
+    --height-card-md: calc(20em + 13vw);
+    height: var(--height-card-md);
+    width: var(--height-card-md);
+  }
+}
 @media (min-width: 767.99px) {
   .header-wrapper {
     background: url("../images/bg_desktop.jpg") no-repeat center;
