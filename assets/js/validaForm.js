@@ -1,5 +1,5 @@
 import { btnCadastro, BtnComIcone, checkboxTermos, divChallenge, divPagamento, divRacing, LinkComIcone, Paragrafo, txtFormadePagamento, txtModalidadeChallenge, txtModalidadeRacing } from "./ui.js";
-let idLinkPagamento = 'btnLimkPagamento';
+let idLinkPagamento = 'btnLinkPagamento';
 let faIconPagamento = 'fa';
 let classeIconLinkPagamento = 'fa-credit-card';
 
@@ -108,12 +108,12 @@ export function VerificaFormaPagamento2(element, element2, element3) {
 }
 export function BotoesPorNacionalidade(pais) {
     if (pais == "Brasil") {
-        // let btnClassLinkPagamento = 'btn-outline-success';
-        // let txtLinkPagamento = "Pagamento Via Cartão de Crédito";
-        // let titleLinkPagamento = "Pagamento Via Cartão de Crédito";
-        // let targetLinkPagamento = "_blank";
-        // let hrefLinkPagamento = "https://www.mercadopago.com.br/checkout/v1/payment/redirect/?source=link&preference-id=379326377-71379965-32e5-4d24-b651-a4195dfbad30&router-request-id=7fd022fb-d59b-4d8e-8727-f87b600cb28d";
-        // LinkComIcone(idLinkPagamento, faIconPagamento, classeIconLinkPagamento, btnClassLinkPagamento, txtLinkPagamento, titleLinkPagamento, targetLinkPagamento, hrefLinkPagamento, divPagamento)
+        let btnClassLinkPagamento = 'btn-outline-success';
+        let txtLinkPagamento = "Pagamento Via Cartão de Crédito";
+        let titleLinkPagamento = "Pagamento Via Cartão de Crédito";
+        let targetLinkPagamento = "_blank";
+        let hrefLinkPagamento = "https://mpago.la/2pKTMDC";
+        LinkComIcone(idLinkPagamento, faIconPagamento, classeIconLinkPagamento, btnClassLinkPagamento, txtLinkPagamento, titleLinkPagamento, targetLinkPagamento, hrefLinkPagamento, divPagamento)
         let tipoBtnPix = "button";
         let ClassBtnPix = 'btn-outline-success';
         let idBtnPix = "BtnPix";
@@ -133,12 +133,12 @@ export function BotoesPorNacionalidade(pais) {
 
     }
     else if (pais == 'Uruguai') {
-        // let btnClassLinkPagamento = 'btn-outline-primary';
-        // let txtLinkPagamento = "Pagamento Via Cartão de Crédito";
-        // let titleLinkPagamento = "Pagamento Via Cartão de Crédito";
-        // let targetLinkPagamento = "_blank";
-        // let hrefLinkPagamento = "https://mpago.la/1ZdEfJx";
-        // LinkComIcone(idLinkPagamento, faIconPagamento, classeIconLinkPagamento, btnClassLinkPagamento, txtLinkPagamento, titleLinkPagamento, targetLinkPagamento, hrefLinkPagamento, divPagamento)
+        let btnClassLinkPagamento = 'btn-outline-primary';
+        let txtLinkPagamento = "Pagamento Via Cartão de Crédito";
+        let titleLinkPagamento = "Pagamento Via Cartão de Crédito";
+        let targetLinkPagamento = "_blank";
+        let hrefLinkPagamento = "https://mpago.la/2uzWQYJ";
+        LinkComIcone(idLinkPagamento, faIconPagamento, classeIconLinkPagamento, btnClassLinkPagamento, txtLinkPagamento, titleLinkPagamento, targetLinkPagamento, hrefLinkPagamento, divPagamento)
         let tipoBtnPix = "button";
         let ClassBtnPix = 'btn-outline-primary';
         let idBtnPix = "BtnMidinero";

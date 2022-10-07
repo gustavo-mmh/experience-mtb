@@ -61,12 +61,12 @@ docs.forEach(item => {
         cardStatus.innerHTML = item.status
         BtnComIcone("submit", 'btn-outline-secondary', "btnCadastrar", 'fa', 'fa-check', "Enviar", '#envio')
         if (itemPais == 'Brasil') {
-            document.querySelector("#txtDesconto").innerHTML = `<b>1° Lote "Promocional"</b> (de 26.09 à 06.10) R$130,00`
+            document.querySelector("#txtDesconto").innerHTML = `<b>2° Lote </b> (de 07.10 à 31.10) R$135,00`
             BotoesPorNacionalidade(itemPais)
-            let btnLimkPagamento = document.querySelector("#btnPagamentoBr")
-            let btnUy = document.querySelector("#btnPagamentoUy")
-            btnLimkPagamento.hidden = true
-            btnUy.hidden = true
+            let btnLinkPagamento = document.querySelector("#btnLinkPagamento")
+            // let btnUy = document.querySelector("#btnPagamentoUy")
+            btnLinkPagamento.hidden = true
+            // btnUy.hidden = true
             let btnPix = document.querySelector("#BtnPix")
             btnPix.hidden = true
             let p = document.querySelector("#pBicicletaria")
@@ -78,15 +78,15 @@ docs.forEach(item => {
                 copiarTexto()
             })
             txtFormadePagamento.addEventListener('change', () => {
-                VerificaFormaPagamento2(btnLimkPagamento, btnPix, p)
+                VerificaFormaPagamento2(btnLinkPagamento, btnPix, p)
             })
         } else if (itemPais == 'Uruguai') {
-            document.querySelector("#txtDesconto").innerHTML = `<b>1° Lote "Promocional"</b> (de 26.09 à 06.10) $1300,00`
+            document.querySelector("#txtDesconto").innerHTML = `<b>2° Lote </b> (de 07.10 à 21.10) $1350,00`
             BotoesPorNacionalidade(itemPais)
-            let btnLimkPagamento = document.querySelector("#btnPagamentoUy")
-            let btnBr = document.querySelector("#btnPagamentoBr")
-            btnLimkPagamento.hidden = true
-            btnBr.hidden = true
+            let btnLinkPagamento = document.querySelector("#btnLinkPagamento")
+            // let btnBr = document.querySelector("#btnPagamentoBr")
+            btnLinkPagamento.hidden = true
+            // btnBr.hidden = true
             let btnMidinero = document.querySelector("#BtnMidinero")
             btnMidinero.hidden = true
             let p = document.querySelector("#pBicicletaria")
@@ -95,20 +95,20 @@ docs.forEach(item => {
                 $("#modalMidinero").modal("show");
             });
             txtFormadePagamento.addEventListener('change', () => {
-                VerificaFormaPagamento2(btnLimkPagamento, btnMidinero, p)
+                VerificaFormaPagamento2(btnLinkPagamento, btnMidinero, p)
             })
 
         } else {
             BotoesPorNacionalidade(itemPais)
-            let btnLimkPagamento = document.querySelector("#btnLimkPagamento")
-            btnLimkPagamento.hidden = true
-            let btnBr = document.querySelector("#btnPagamentoBr")
-            let btnUy = document.querySelector("#btnPagamentoUy")
-            btnBr.hidden = true
-            btnUy.hidden = true
+            let btnLinkPagamento = document.querySelector("#btnLinkPagamento")
+            btnLinkPagamento.hidden = true
+            // let btnBr = document.querySelector("#btnPagamentoBr")
+            // let btnUy = document.querySelector("#btnPagamentoUy")
+            // btnBr.hidden = true
+            // btnUy.hidden = true
             txtFormadePagamento.value
             txtFormadePagamento.addEventListener('change', () => {
-                VerificaFormaPagamento(btnLimkPagamento)
+                VerificaFormaPagamento(btnLinkPagamento)
             })
         }
         let ID = itemPais + doc
@@ -120,10 +120,10 @@ docs.forEach(item => {
         cardStatus.innerHTML = item.status;
         BtnComIcone("submit", 'btn-outline-secondary', "btnCadastrar", 'fa', 'fa-check', "Enviar", '#envio')
         if (itemPais == 'Brasil') {
-            document.querySelector("#txtDesconto").innerHTML = `<b>1° Lote "Promocional"</b> (de 26.09 à 06.10) R$130,00`
+            document.querySelector("#txtDesconto").innerHTML = `<b>2° Lote </b> (de 07.10 à 21.10) R$135,00`
             BotoesPorNacionalidade(itemPais)
-            let btnLimkPagamento = document.querySelector("#btnPagamentoBr")
-            btnLimkPagamento.hidden = true
+            let btnLinkPagamento = document.querySelector("#btnLinkPagamento")
+            btnLinkPagamento.hidden = true
             let btnPix = document.querySelector("#BtnPix")
             btnPix.hidden = true
             let p = document.querySelector("#pBicicletaria")
@@ -135,13 +135,13 @@ docs.forEach(item => {
                 copiarTexto()
             })
             txtFormadePagamento.addEventListener('change', () => {
-                VerificaFormaPagamento2(btnLimkPagamento, btnPix, p)
+                VerificaFormaPagamento2(btnLinkPagamento, btnPix, p)
             })
         } else if (itemPais == 'Uruguai') {
-            document.querySelector("#txtDesconto").innerHTML = `<b>1° Lote "Promocional"</b> (de 26.09 à 06.10) $1300,00`
+            document.querySelector("#txtDesconto").innerHTML = `<b>2° Lote </b> (de 07.10 à 21.10) $1350,00`
             BotoesPorNacionalidade(itemPais)
-            let btnLimkPagamento = document.querySelector("#btnPagamentoUy")
-            btnLimkPagamento.hidden = true
+            let btnLinkPagamento = document.querySelector("#btnLinkPagamento")
+            btnLinkPagamento.hidden = true
             let btnMidinero = document.querySelector("#BtnMidinero")
             btnMidinero.hidden = true
             let p = document.querySelector("#pBicicletaria")
@@ -150,15 +150,15 @@ docs.forEach(item => {
                 $("#modalMidinero").modal("show");
             });
             txtFormadePagamento.addEventListener('change', () => {
-                VerificaFormaPagamento2(btnLimkPagamento, btnMidinero, p)
+                VerificaFormaPagamento2(btnLinkPagamento, btnMidinero, p)
             })
         } else {
             BotoesPorNacionalidade(itemPais)
-            let btnLimkPagamento = document.querySelector("#btnLimkPagamento")
-            btnLimkPagamento.hidden = true
+            let btnLinkPagamento = document.querySelector("#btnLinkPagamento")
+            btnLinkPagamento.hidden = true
             txtFormadePagamento.value
             txtFormadePagamento.addEventListener('change', () => {
-                VerificaFormaPagamento(btnLimkPagamento)
+                VerificaFormaPagamento(btnLinkPagamento)
             })
         }
         let ID = itemPais + doc
