@@ -1,7 +1,7 @@
 import { getExperienceMtbdocsID, subscribeToExperienceMtb, uploadImagemCad } from "../firebase/experience-mtb.js";
 import { loginCad } from "../login/index.js";
 import { addDaysToDate, checkboxTermos, dataAtualFormatada, formatDate, formCadastro, limparDados, loading, txtCategoria, txtCidade, txtConfirmaSenha, txtDataNascimento, txtdddWhatsApp, txtDocumento, txtEmail, txtFotoCard, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtNome, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta, txtWhatsApp } from '../ui.js';
-import { bloqueioCadastro, calculaIdade, filtraCategoria, filtraCategoriaSexo, mascaraAR, mascaraBR, mascaraUY, paisWpp, removeHandler, validatePassword, VerificaModalidade } from "../validaForm.js";
+import { bloqueioCadastro, calculaIdade, filtraCategoria, filtraCategoriaSexo, validatePassword, VerificaModalidade } from "../validaForm.js";
 import { file, getImgRef, imgRef, metadata } from "./storage/getImg.js";
 // import { file, getimg, metadata, newName, storageRef } from "./storage/index.js";
 let fotoCard1 = ''
@@ -16,22 +16,21 @@ export async function Cadastrar() {
         let txt = e.target.value
         txtWhatsApp.value = ''
         if (txt == '+55') {
-            paisWpp(mascaraBR)
-            let whatsappArrumado = txt + txtWhatsApp.value
-            return whatsappArrumado
+            txtWhatsApp.placeholder = 'DD XXXXX XXXX'
+            txtWhatsApp.maxlength = 13
+            return
         } else if (txt == '+598') {
-            paisWpp(mascaraUY)
-            let whatsappArrumado = txt + txtWhatsApp.value
-            return whatsappArrumado
+            txtWhatsApp.placeholder = 'XX XXX XXX'
+            txtWhatsApp.maxlength = 10
+            return
         } else if (txt == '+549') {
-            paisWpp(mascaraAR)
-            let whatsappArrumado = txt + txtWhatsApp.value
-            return whatsappArrumado
+            txtWhatsApp.placeholder = 'XX XXXX XXXX'
+            txtWhatsApp.maxlength = 12
+            // paisWpp(mascaraAR)
+            return
         } else {
-            console.log('aqui')
-            removeHandler()
-            let whatsappArrumado = txt + txtWhatsApp.value
-            return whatsappArrumado
+            txtWhatsApp.placeholder = 'Digite Seu WhatsApp'
+            return
         }
     })
     txtModalidade.addEventListener('change', (e) => {
@@ -84,7 +83,7 @@ export async function Cadastrar() {
                         dataNascimento: txtDataNascimento.value,
                         email: txtEmail.value,
                         cidade: txtCidade.value,
-                        whatsapp: txtWhatsApp.value,
+                        whatsapp: txtdddWhatsApp.value + txtWhatsApp.value,
                         categoria: txtCategoria.value,
                         tamanhoCamiseta: txtTamanhoCamiseta.value,
                         modalidade: txtModalidade.value,
@@ -116,7 +115,7 @@ export async function Cadastrar() {
                     }
                     alert("Cadastro Feito com Sucesso!!!")
 
-                } else {
+                } else if (txtModalidade.value == "Challenge") {
                     if (imgRef != null) {
                         fotoCard1 = imgRef
                     }
@@ -159,6 +158,10 @@ export async function Cadastrar() {
                         limparDados()
                     }
                     alert("Cadastro Feito com Sucesso!!!")
+                }
+                else {
+                    alert("Preencha o Formulário corretamente")
+
                 }
             }
 

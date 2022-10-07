@@ -61,9 +61,9 @@
                                 <select id="txtPais" class="form-select" disabled readonly="" name="pais"
                                     aria-label="Selecione um País">
                                     <option value="" selected>Selecione um País</option>
-                                    <option>Brasil</option>
-                                    <option>Uruguai</option>
-                                    <option>Argentina</option>
+                                    <option value="Brasil">Brasil</option>
+                                    <option value="Uruguai">Uruguai</option>
+                                    <option value="Argentina">Argentina</option>
                                 </select>
                             </div>
                             <div class="mb-2">
@@ -117,8 +117,8 @@
                                 <select disabled readonly="" id="txtCategoria" class="form-select" name="Categoria"
                                     aria-label="Selecione uma opção">
                                     <option value="" selected>Selecione uma Opção</option>
-                                    <option>Masculino</option>
-                                    <option>Feminino</option>
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Feminino">Feminino</option>
                                 </select>
                             </div>
                             <div class="mb-2 mt-3">
@@ -192,13 +192,13 @@
                                 </div>
                                 <select id="txtTamanhoCamiseta" class="form-select" required="" name="tamanhoCamiseta"
                                     aria-label="Selecione um tamanho">
-                                    <option>PP</option>
-                                    <option>P</option>
-                                    <option>M</option>
-                                    <option>G</option>
-                                    <option>GG</option>
-                                    <option>EG</option>
-                                    <option>EGG</option>
+                                    <option translate="no" value="PP">PP</option>
+                                    <option translate="no" value="P">P</option>
+                                    <option translate="no" value="M">M</option>
+                                    <option translate="no" value="G">G</option>
+                                    <option translate="no" value="GG">GG</option>
+                                    <option translate="no" value="EG">EG</option>
+                                    <option translate="no" value="EGG">EGG</option>
                                 </select>
                             </div>
 
@@ -226,11 +226,10 @@
                                     Foto para o Card:
                                 </label>
                                 <div class="input-group mb-3">
-                                    <input type="file" accept="image/*" id="txtFotoCard" class="form-control"
-                                        name="txtFotoCard">
+                                    <input type="file" accept="image/png,image/jpeg" id="txtFotoCard"
+                                        class="form-control" name="txtFotoCard">
                                 </div>
                             </div>
-
                             <div class="mb-2 text-center">
                                 <label>
                                     <input type="checkbox" id="checkboxSenha" checked="" name="meucheckbox"> Desja

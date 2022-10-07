@@ -2,7 +2,7 @@ import { getStorage } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-s
 import { getUrlImage } from "../../../assets/js/cadastro/storage/urlImg.js";
 import app from "../../../assets/js/firebase/app.js";
 import { getCollection } from '../../../assets/js/firebase/experience-mtb.js';
-import { addDaysToDate, BtnComIcone, btnCopiar, btnEditar, btnLogout, cardCategoria, cardCidade, cardDataNascimento, cardDocumento, cardEmail, cardFoto, cardModalidade, cardNome, cardNomeEquipe, cardPais, cardStatus, cardTamanhoCamiseta, cardWhatsApp, copiarTexto, divEditarInsc, formatDate, formComprovante, loading, txtComprovante, txtFormadePagamento } from '../../../assets/js/ui.js';
+import { BtnComIcone, btnCopiar, btnEditar, btnLogout, cardCategoria, cardCidade, cardDataNascimento, cardDocumento, cardEmail, cardFoto, cardModalidade, cardNome, cardNomeEquipe, cardPais, cardStatus, cardTamanhoCamiseta, cardWhatsApp, copiarTexto, divEditarInsc, formComprovante, loading, txtComprovante, txtFormadePagamento } from '../../../assets/js/ui.js';
 import { BotoesPorNacionalidade, VerificaFormaPagamento, VerificaFormaPagamento2 } from "../../../assets/js/validaForm.js";
 import { createComprovante, updateComprovante } from "./participante-upd.js";
 if (sessionStorage.getItem('token') == null) {

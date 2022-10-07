@@ -72,10 +72,10 @@
                     <i class=" fa fa-globe fa-fw" aria-hidden="true"></i>
                     *País:</label>
                   <select id="txtPais" class="form-select" required name="pais" aria-label="Selecione um País">
-                    <option value="" selected>Selecione um País</option>
-                    <option>Brasil</option>
-                    <option>Uruguai</option>
-                    <option>Argentina</option>
+                    <option translate="no" value="" selected>Selecione um País</option>
+                    <option translate="no" value="Brasil">Brasil</option>
+                    <option translate="no" value="Uruguai">Uruguai</option>
+                    <option translate="no" value="Argentina">Argentina</option>
                   </select>
                 </div>
                 <div class="mb-2">
@@ -118,14 +118,14 @@
 
                     *WhatsApp:</label>
                   <div class="input-group">
-                    <select id="dddWhatsApp" class="input-group-text" aria-label="Selecione um DDD">
-                      <option value="">DDD</option>
-                      <option value="+55">BR +55</option>
-                      <option value="+598">UY +598</option>
-                      <option value="+549">AR +549</option>
+                    <select required id="dddWhatsApp" class="input-group-text" aria-label="Selecione seu DDI">
+                      <option translate="no" value="">DDI</option>
+                      <option translate="no" value="+55">BR +55</option>
+                      <option translate="no" value="+598">UY +598</option>
+                      <option translate="no" value="+54">AR +54</option>
                     </select>
-                    <input type="tel" id="txtWhatsApp" class="form-control" required="required" maxlength="15"
-                      name="txtWhatsApp" pattern="[0-9/+/ /]+$" placeholder="Digite seu WhatsApp" />
+                    <input type="tel" id="txtWhatsApp" class="form-control" required="required" maxlength="13"
+                      name="txtWhatsApp" pattern="[0-9/ /]+$" placeholder="Digite Seu WhatsApp" />
                   </div>
                 </div>
                 <div class="mb-2 mt-3">
@@ -144,13 +144,13 @@
 
                   <select id="txtTamanhoCamiseta" class="form-select" required name="tamanhoCamiseta"
                     aria-label="Selecione um tamanho">
-                    <option>PP</option>
-                    <option>P</option>
-                    <option>M</option>
-                    <option>G</option>
-                    <option>GG</option>
-                    <option>EG</option>
-                    <option>EGG</option>
+                    <option translate="no" value="PP">PP</option>
+                    <option translate="no" value="P">P</option>
+                    <option translate="no" value="M">M</option>
+                    <option translate="no" value="G">G</option>
+                    <option translate="no" value="GG">GG</option>
+                    <option translate="no" value="EG">EG</option>
+                    <option translate="no" value="EGG">EGG</option>
                   </select>
                 </div>
                 <div class="mb-2 mt-3">
@@ -159,9 +159,9 @@
                     *Sexo:</label>
                   <select required id="txtCategoria" class="form-select" name="Categoria"
                     aria-label="Selecione uma Opção">
-                    <option value="" selected>Selecione uma Opção</option>
-                    <option>Masculino</option>
-                    <option>Feminino</option>
+                    <option translate="no" value="" selected>Selecione uma Opção</option>
+                    <option translate="no" value="Masculino">Masculino</option>
+                    <option translate="no" value="Feminino">Feminino</option>
                   </select>
                 </div>
                 <div class="mb-2 mt-3">
@@ -170,9 +170,9 @@
                     *Modalidade:</label>
                   <select required id="txtModalidade" class="form-select" name="modalidade"
                     aria-label="Selecione uma Modalidade">
-                    <option value="" selected>Selecione uma Modalidade</option>
-                    <option value="Racing">Racing (Competição)</option>
-                    <option value="Challenge">Challenge (Desafio)</option>
+                    <option translate="no" value="" selected>Selecione uma Modalidade</option>
+                    <option translate="no" value="Racing">Racing (Competição)</option>
+                    <option translate="no" value="Challenge">Challenge (Desafio)</option>
                   </select>
                 </div>
                 <div id="racing" class="mb-2 mt-3" hidden>
@@ -181,24 +181,24 @@
                     *Categorias Racing (Competição):</label>
                   <select id="txtModalidadeRacing" class="form-select" name="racing"
                     aria-label="Selecione uma Modalidade" required>
-                    <option value="" selected>Selecione uma Categoria</option>
+                    <option translate="no" value="" selected>Selecione uma Categoria</option>
                     <optgroup label="Categoria Promocional">
-                      <option value="Promocional">Promocional</option>
-                      <option value="Dama Promocional">Dama Promocional</option>
+                      <option translate="no" value="Promocional">Promocional</option>
+                      <option translate="no" value="Dama Promocional">Dama Promocional</option>
                     </optgroup>
                     <optgroup label="Categoria Elite">
-                      <option value="Elite">Elite (18+)</option>
-                      <option value="Dama Elite">Dama Elite (18+)</option>
+                      <option translate="no" value="Elite">Elite (18+)</option>
+                      <option translate="no" value="Dama Elite">Dama Elite (18+)</option>
                     </optgroup>
                     <optgroup id="catId" label="Categoria Por Idade">
-                      <option value="Sub.30">Sub. 30 (até 29 anos)</option>
-                      <option value="Master A1">Master A1 (30 à 34 anos)</option>
-                      <option value="Master A2">Master A2 (35 à 39 anos)</option>
-                      <option value="Master B1">Master B1 (40 à 44 anos)</option>
-                      <option value="Master B2">Master B2 (45 à 49 anos)</option>
-                      <option value="Master C1">Master C1 (50 à 54 anos)</option>
-                      <option value="Master C2">Master C2 (55 à 59 anos)</option>
-                      <option value="Master D">Master D (60 anos+)</option>
+                      <option translate="no" value="Sub.30">Sub. 30 (até 29 anos)</option>
+                      <option translate="no" value="Master A1">Master A1 (30 à 34 anos)</option>
+                      <option translate="no" value="Master A2">Master A2 (35 à 39 anos)</option>
+                      <option translate="no" value="Master B1">Master B1 (40 à 44 anos)</option>
+                      <option translate="no" value="Master B2">Master B2 (45 à 49 anos)</option>
+                      <option translate="no" value="Master C1">Master C1 (50 à 54 anos)</option>
+                      <option translate="no" value="Master C2">Master C2 (55 à 59 anos)</option>
+                      <option translate="no" value="Master D">Master D (60 anos+)</option>
                     </optgroup>
                   </select>
                 </div>
@@ -208,10 +208,10 @@
                     *Categorias Challenge (Desafio):</label>
                   <select id="txtModalidadeChallenge" class="form-select" name="challenge"
                     aria-label="Selecione uma Modalidade">
-                    <option value="" selected>Selecione uma Opção</option>
-                    <option value="Soft">Soft - 10Km (Suave)</option>
-                    <option value="Light">Light - 25Km (Leve)</option>
-                    <option value="Hard">Hard 45Km (Duro)</option>
+                    <option translate="no" value="" selected>Selecione uma Opção</option>
+                    <option translate="no" value="Soft">Soft - 10Km (Suave)</option>
+                    <option translate="no" value="Light">Light - 25Km (Leve)</option>
+                    <option translate="no" value="Hard">Hard 45Km (Duro)</option>
                   </select>
                 </div>
                 <div class="mb-2">
@@ -229,7 +229,8 @@
                   <p>(Anexo de sua foto favorita para receber seu card promocional do Experience
                     2022)</p>
                   <div class="input-group mb-3">
-                    <input type="file" accept="image/*" id="txtFotoCard" class="form-control" name="txtFotoCard">
+                    <input type="file" accept="image/png,image/jpeg" id="txtFotoCard" class="form-control"
+                      name="txtFotoCard">
                   </div>
                   <div class="mb-2">
                     <label for="txtSenha" class="form-label">
@@ -289,10 +290,10 @@
                 <i class=" fa fa-globe fa-fw" aria-hidden="true"></i>
                 País:</label>
               <select id="loginPais" class="form-select" required name="pais" aria-label="Selecione um País">
-                <option value="">Selecione Um Pais</option>
-                <option>Brasil</option>
-                <option>Uruguai</option>
-                <option>Argentina</option>
+                <option translate="no" value="">Selecione Um Pais</option>
+                <option translate="no" value="Brasil">Brasil</option>
+                <option translate="no" value="Uruguai">Uruguai</option>
+                <option translate="no" value="Argentina">Argentina</option>
               </select>
             </div>
             <div class="mb-3 mt-3">
@@ -334,9 +335,12 @@
     <div class="card-container bg-exp m-2">
       <div class="card-text px-1">
         <p class="px-lg-3 px-md-2 px-sm-2">
-          Experiência é viver o mountain bike de uma forma diferente com atividades únicas, um
-          grande evento para fazer novas amizades, se divertir e se emocionar. E para que essa
-          experiencia seja completa, a sua inscrição contempla um kit atletas cheia de
+          <b> EXPERIENCE</b> é viver o mountain bike de uma forma diferente com atividades únicas, um grande evento para
+          fazer
+          novas
+          amizades,
+          se divertir e se emocionar. E para que essa experiencia seja completa, a sua inscrição contempla um kit
+          atletas cheia de
           Experience.
         </p>
         <div class="container">
@@ -350,7 +354,8 @@
                 <li> Placa Identificação Atleta </li>
                 <li> Ingresso Atleta parque Thermal Amsterland </li>
                 <li> Camiseta Promocional Experience </li>
-                <li> Barra de Cereal Squeeze </li>
+                <li> Barra de Cereal </li>
+                <li> Squeeze </li>
                 <li> Isotônico </li>
                 <li> Gel Carboidrato </li>
                 <li> Precintos </li>
@@ -378,12 +383,12 @@
       </div>
       <div class="card-text px-1">
         <p class="p-1">
-          Desafio que envolve determinação para vencer os limites mente,
-          corpo e proporcionar para todos a experiência desta modalidade
-          de pura determinação e diversão. Para isso o Experience em 2022
-          apresenta o THREE CHALLENGE. Três modalidade de desafio de
-          quilometragens distintas, cada uma com sua característica para o
-          seu tipo de pedal.
+          <b> DESAFIO</b> que envolve determinação para vencer os limites mente, corpo e proporcionar para todos a
+          experiência
+          desta
+          modalidade de pura determinação e diversão. O Experience 2022 apresenta o THREE CHALLENGE. Três modalidade de
+          desafio
+          com quilometragens distintas, cada uma com sua característica e propósito para o seu tipo de pedal.
         </p>
         <div class="container">
           <div class="row">
@@ -393,9 +398,9 @@
             <div class="col-lg-8 col-md-12 col-sm-12">
               <ul class="list-unstyled">
                 <li class="none"> Three Challenge (Desafios)</li>
-                <li> Challenge Hard 45km (pedal forte) </li>
-                <li> Challenge Light 25km (pedal médio) </li>
-                <li> Challenge Soft 10km (estilo passeio) </li>
+                <li> Challenge <b>Hard</b> 45km (pedal forte) </li>
+                <li> Challenge <b>Light</b> 25km (pedal médio) </li>
+                <li> Challenge <b>Soft</b> 10km (estilo passeio) </li>
               </ul>
             </div>
           </div>
@@ -405,7 +410,7 @@
     <div class="card-container bg-rcg m-2">
       <div class="card-text px-1">
         <p class="px-lg-3 px-md-2 px-sm-2">
-          RACING CATEGORIAS é a adrenalina de competir com superação na
+          <b>RACING CATEGORIAS</b> é a adrenalina de competir com superação na
           busca de resultados por um lugar no pódio dentro de cada
           categoria para homens e mulheres superarem não só o seu adversário,
           mas sim a si mesmo.
@@ -419,9 +424,9 @@
                 <li> Elite 18+ </li>
                 <li> Sub. 30 até 29 anos</li>
                 <li> Promocional</li>
-                <li> Master B1 de 40 à 44 anos</li>
-                <li> Master A2 de 35 à 39 anos</li>
                 <li> Master A1 de 30 à 34 anos</li>
+                <li> Master A2 de 35 à 39 anos</li>
+                <li> Master B1 de 40 à 44 anos</li>
                 <li> Master B2 de 45 à 49 anos</li>
                 <li> Master C1 de 50 à 54 anos</li>
                 <li> Master C2 de 55 à 59 anos</li>
@@ -460,13 +465,10 @@
       </div>
       <div class="card-text px-1">
         <p class="p-1">
-          Para este ano estamos preparando um grande evento combinado
-          em 3 dias de festa na vibe do <color style="color:#f35a02">TO LIVE MTB</color>
-          (para viver o Mountain Bike), onde desafio ou competir é o ciclista que
-          escolhe. Nestes três dias vamos viver cada um com atividades
-          distintas. Entretenimento, diversão, festa, alegria e vibração
-          são os ingredientes que compões nosso MTB 2022. Entre os
-          3 dias:
+          EM 2022 estamos preparando um grande evento combinado em 3 dias de festa na vibe do
+          <color style="color:#f35a02">TO LIVE MTB</color> (para viver o Mountain Bike), onde desafio ou competir é o
+          ciclista que escolhe. Nestes três dias vamos viver cada um com atividades distintas. Entretenimento, diversão,
+          festa, alegria e vibração são os ingredientes que compões nosso MTB 2022. Entre os 3 dias:
         </p>
         <div class="container">
           <div class="row">
@@ -476,15 +478,15 @@
             <div class="col-lg-8 col-md-12 col-sm-12">
               <ul class="list-unstyled">
                 <li class="none negrito"> 09.12 (Festa)</li>
-                <li>Experience Let's Go | 19h às 23hs</li>
+                <li>Experience Let's Go | 19h às 23h</li>
               </ul>
               <ul class="list-unstyled">
                 <li class="none negrito">10.12 (Diversão e Entretenimento)</li>
-                <li>Experience Challenge Day | 13h às 19hs</li>
+                <li>Experience Challenge Day | 13h às 19h</li>
               </ul>
               <ul class="list-unstyled">
                 <li class="none negrito">11.12 (Dia de competir e se desafiar)</li>
-                <li>Experience Challenge & Racing Day 7h às 14hs</li>
+                <li>Experience Challenge & Racing Day | 7h às 14h</li>
               </ul>
             </div>
           </div>

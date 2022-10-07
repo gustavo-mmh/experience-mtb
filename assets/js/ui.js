@@ -1,3 +1,4 @@
+export const canvas = document.getElementById('myCanvas');
 export const required = document.createAttribute("required");
 export const formComprovante = document.querySelector('#formComprovante');
 export const formCadastro = document.querySelector('#formCadastro');
@@ -156,4 +157,11 @@ export function dataAtualFormatada(variavel) {
         m = data.getMinutes(),
         s = data.getSeconds().toString().padStart(2, '0');
     return `${dia}/${mes}/${ano} - ${h}:${m}:${s}`;
+}
+export function download() {
+    var download = document.getElementById("download");
+    var image = document.getElementById("myCanvas").toDataURL("image/png")
+        .replace("image/png", "image/octet-stream");
+    download.setAttribute("href", image);
+    //download.setAttribute("download","archive.png");
 }
