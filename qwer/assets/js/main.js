@@ -61,7 +61,7 @@ docs.forEach(item => {
         cardStatus.innerHTML = item.status
         BtnComIcone("submit", 'btn-outline-secondary', "btnCadastrar", 'fa', 'fa-check', "Enviar", '#envio')
         if (itemPais == 'Brasil') {
-            document.querySelector("#txtDesconto").innerHTML = `<b>2° Lote </b> (de 07.10 à 31.10) R$135,00`
+            document.querySelector("#txtDesconto").innerHTML = `<b>Lote Sprint </b> (de 07.10 à 31.10) R$135,00`
             BotoesPorNacionalidade(itemPais)
             let btnLinkPagamento = document.querySelector("#btnLinkPagamento")
             // let btnUy = document.querySelector("#btnPagamentoUy")
@@ -81,7 +81,7 @@ docs.forEach(item => {
                 VerificaFormaPagamento2(btnLinkPagamento, btnPix, p)
             })
         } else if (itemPais == 'Uruguai') {
-            document.querySelector("#txtDesconto").innerHTML = `<b>2° Lote </b> (de 07.10 à 21.10) $1350,00`
+            document.querySelector("#txtDesconto").innerHTML = `<b>Lote Sprint </b> (de 07.10 à 21.10) $1350,00`
             BotoesPorNacionalidade(itemPais)
             let btnLinkPagamento = document.querySelector("#btnLinkPagamento")
             // let btnBr = document.querySelector("#btnPagamentoBr")
@@ -120,7 +120,7 @@ docs.forEach(item => {
         cardStatus.innerHTML = item.status;
         BtnComIcone("submit", 'btn-outline-secondary', "btnCadastrar", 'fa', 'fa-check', "Enviar", '#envio')
         if (itemPais == 'Brasil') {
-            document.querySelector("#txtDesconto").innerHTML = `<b>2° Lote </b> (de 07.10 à 21.10) R$135,00`
+            document.querySelector("#txtDesconto").innerHTML = `<b>Lote Sprint </b> (de 07.10 à 21.10) R$135,00`
             BotoesPorNacionalidade(itemPais)
             let btnLinkPagamento = document.querySelector("#btnLinkPagamento")
             btnLinkPagamento.hidden = true
@@ -138,7 +138,7 @@ docs.forEach(item => {
                 VerificaFormaPagamento2(btnLinkPagamento, btnPix, p)
             })
         } else if (itemPais == 'Uruguai') {
-            document.querySelector("#txtDesconto").innerHTML = `<b>2° Lote </b> (de 07.10 à 21.10) $1350,00`
+            document.querySelector("#txtDesconto").innerHTML = `<b>Lote Sprint </b> (de 07.10 à 21.10) $1350,00`
             BotoesPorNacionalidade(itemPais)
             let btnLinkPagamento = document.querySelector("#btnLinkPagamento")
             btnLinkPagamento.hidden = true

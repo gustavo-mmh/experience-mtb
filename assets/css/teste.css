@@ -1,0 +1,13 @@
+:root {
+  --laranja: #de5d12;
+  --preto-azulado: #071b33;
+  --verde: #344f29;
+  --bordo: #842029;
+  --roxo: #2e1c2b;
+  --max-heigth-card: 100vh;
+  --height-card-sm: calc(250px + 13vw);
+  --height-card-md: calc(20em + 13vw);
+}
+.mycanvas {
+  background: linear-gradient(var(--roxo), var(--laranja), var(--bordo));
+}

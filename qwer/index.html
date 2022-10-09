@@ -193,16 +193,22 @@
           </div>
           <div class="modal-body" id="modalBody">
             <img src="assets/images/qrcode.jpg" alt="QRcode" class="img-fluid">
-            <input type="text" class="form-control" name="texto" id="codigoQR"
-              value="00020101021126820014br.gov.bcb.pix0114477893600001880242Inscrição lote promocional Experience 20225204000053039865406130.005802BR5913YELLOW SPORTS6008BRASILIA621005061Exp2263048B4C"
-              readonly />
+            <div class="input-group">
+              <input type="text" class="form-control" name="texto" id="codigoQR"
+                value="00020101021126670014br.gov.bcb.pix0114477893600001880227Lote Sprint Experience 20225204000053039865406135.005802BR5913YELLOW SPORTS6008BRASILIA621405102loteExp226304CAEE"
+                readonly />
+              <button title="Copiar" id="copiarQR" type="button" class="btn btn-outline-success "><i class="fa fa-copy"
+                  aria-hidden="true"></i>
+              </button>
+            </div>
             <div class="text-center">
-              <button id="copiarQR" type="button" class="btn btn-primary">Copiar</button>
-              <div class="p-1">
-                <p><b>Yellow Sports</b></p>
-                <span><b>Chave Pix</b></span>
-                <p><b>CNPJ: </b>47.789.360/0001-88</p>
-              </div>
+              Ou, Copie o código
+            </div>
+
+            <div class="text-center mt-3">
+              <p><b>Yellow Sports</b></p>
+              <span><b>Chave Pix</b></span>
+              <p><b>CNPJ: </b>47.789.360/0001-88</p>
             </div>
           </div>
         </div>

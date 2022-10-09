@@ -113,7 +113,7 @@ export async function Cadastrar() {
                         loginCad(doc, psw, pais)
                         limparDados()
                     }
-                    alert("Cadastro Feito com Sucesso!!!")
+                    // alert("Cadastro Feito com Sucesso!!!")
 
                 } else if (txtModalidade.value == "Challenge") {
                     if (imgRef != null) {
@@ -157,7 +157,7 @@ export async function Cadastrar() {
                         loginCad(doc, psw, pais)
                         limparDados()
                     }
-                    alert("Cadastro Feito com Sucesso!!!")
+                    // alert("Cadastro Feito com Sucesso!!!")
                 }
                 else {
                     alert("Preencha o Formulário corretamente")
