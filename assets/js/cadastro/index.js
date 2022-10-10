@@ -4,6 +4,7 @@ import { addDaysToDate, checkboxTermos, dataAtualFormatada, formatDate, formCada
 import { bloqueioCadastro, calculaIdade, filtraCategoria, filtraCategoriaSexo, validatePassword, VerificaModalidade } from "../validaForm.js";
 import { file, getImgRef, imgRef, metadata } from "./storage/getImg.js";
 // import { file, getimg, metadata, newName, storageRef } from "./storage/index.js";
+
 let fotoCard1 = ''
 let tmpDate = new Date()
 let hoje = formatDate(tmpDate, 'dd/mm/aaaa')
@@ -72,11 +73,12 @@ export async function Cadastrar() {
                 txtDocumento.focus();
             }
             else {
+                let msgWpp = `https://api.whatsapp.com/send?phone=${txtdddWhatsApp.value}${txtWhatsApp.value}&text=Ol%C3%A1%20${txtNome.value}%2C%20obrigado%20pela%20inscri%C3%A7%C3%A3o`
                 if (txtModalidade.value == "Racing") {
                     if (imgRef != null) {
                         fotoCard1 = imgRef
                     }
-                    let msgWpp = `https://api.whatsapp.com/send?phone=${txtdddWhatsApp.value}${txtWhatsApp.value}&text=Ol%C3%A1%20${txtNome.value}%2C%20obrigado%20pela%20inscri%C3%A7%C3%A3o`
+
                     const subscription = {
                         pais: txtPais.value,
                         nome: txtNome.value,
@@ -97,7 +99,7 @@ export async function Cadastrar() {
                         dataInscricao: hoje,
                         dataFimEdit: dataFim,
                         momentoInscricao: datainsc,
-                        LinkMsgWpp: msgWPP
+                        LinkMsgWpp: msgWpp
                     }
                     subscribeToExperienceMtb(subscription, ID);
                     loading.hidden = false
@@ -142,6 +144,7 @@ export async function Cadastrar() {
                         dataInscricao: hoje,
                         dataFimEdit: dataFim,
                         momentoInscricao: datainsc,
+                        LinkMsgWpp: msgWpp
                     }
                     subscribeToExperienceMtb(subscription, ID);
                     loading.hidden = false
