@@ -1,12 +1,14 @@
 import { getDownloadURL, ref } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js";
+export let urlImg
 export function getUrlImage(storage, img, fotoCard) {
-    const starsRef = ref(storage, `images/${img}`);
+    let starsRef = ref(storage, `images/${img}`);
     // Get the download URL
-    getDownloadURL(starsRef)
-        .then((url) => {
-            // Insert url into an <img> tag to "download"
-            fotoCard.setAttribute('src', url);
-        })
+    getDownloadURL(starsRef).then((url) => {
+        // Insert url into an <img> tag to "download"
+        fotoCard.setAttribute('src', url);
+        urlImg = url
+        console.log('url', urlImg)
+    })
         .catch((error) => {
             // A full list of error codes is available at
             // https://firebase.google.com/docs/storage/web/handle-errors

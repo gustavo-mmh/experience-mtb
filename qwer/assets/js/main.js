@@ -2,8 +2,9 @@ import { getStorage } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-s
 import { getUrlImage } from "../../../assets/js/cadastro/storage/urlImg.js";
 import app from "../../../assets/js/firebase/app.js";
 import { getCollection } from '../../../assets/js/firebase/experience-mtb.js';
-import { BtnComIcone, btnCopiar, btnEditar, btnLogout, cardCategoria, cardCidade, cardDataNascimento, cardDocumento, cardEmail, cardFoto, cardModalidade, cardNome, cardNomeEquipe, cardPais, cardStatus, cardTamanhoCamiseta, cardWhatsApp, copiarTexto, divEditarInsc, formComprovante, loading, txtComprovante, txtFormadePagamento } from '../../../assets/js/ui.js';
+import { BtnComIcone, btnCopiar, btnDowload, btnEditar, btnLogout, cardCategoria, cardCidade, cardDataNascimento, cardDocumento, cardEmail, cardFoto, cardModalidade, cardNome, cardNomeEquipe, cardPais, cardStatus, cardTamanhoCamiseta, cardWhatsApp, copiarTexto, divEditarInsc, download, formComprovante, loading, txtComprovante, txtFormadePagamento } from '../../../assets/js/ui.js';
 import { BotoesPorNacionalidade, VerificaFormaPagamento, VerificaFormaPagamento2 } from "../../../assets/js/validaForm.js";
+import { Canvas } from "./canvas.js";
 import { createComprovante, updateComprovante } from "./participante-upd.js";
 if (sessionStorage.getItem('token') == null) {
     alert('Você precisa estar logado para acessar essa página')
@@ -40,7 +41,7 @@ docs.forEach(item => {
     cardModalidade.innerHTML = item.modalidade
     if (item.modalidade == "Racing") {
         cardCategoria.innerHTML = item.modalidadeRacing
-    } else {
+    } else if (item.modalidade == "Challenge") {
         cardCategoria.innerHTML = item.modalidadeChallenge
     }
     cardNomeEquipe.innerHTML = item.nomeEquipe
@@ -49,13 +50,65 @@ docs.forEach(item => {
     dataInscricao = item.dataInscricao
     dataFimEditar = item.dataFimEdit
     document.querySelector("#txtDataLimite").innerHTML = `Você tem até ${dataFimEditar} <br/> para editar as informações`
+    // ------------------------------------------------
     if (item.status == 'Confirmado') {
         cardStatus.classList.add('text-success');
         cardStatus.innerHTML = item.status
         formComprovante.style.display = "none";
         document.querySelector("#txtMsgComprovante").style.display = "none";
         txtComprovante.classList.add('disabled')
+        if (item.fotoCard != null) {
+            cardFoto.addEventListener('load', () => {
+                let fotoModalidade, corCategoria, nomeCategoria, x, y
+
+                if (item.modalidade == "Racing") {
+                    fotoModalidade = 'assets/images/card-racing.png'
+                    nomeCategoria = item.modalidadeRacing.toUpperCase()
+                    corCategoria = "white"
+                    x = 365
+                    y = 81
+                } else if (item.modalidade == "Challenge") {
+                    fotoModalidade = 'assets/images/card_challenge.png'
+                    nomeCategoria = item.modalidadeChallenge.toUpperCase()
+                    if (item.modalidadeChallenge == "Soft") {
+                        corCategoria = "#86d76d"
+                    }
+                    else if (item.modalidadeChallenge == "Light") {
+                        corCategoria = "#5ab9eb"
+
+                    }
+                    else if (item.modalidadeChallenge == "Hard") {
+                        corCategoria = "#f31c19"
+                    }
+                }
+
+                let nome = item.nome.toUpperCase()
+                let pais = item.pais.toUpperCase()
+                let cidade = item.cidade.toUpperCase()
+                let equipe = item.nomeEquipe.toUpperCase()
+                let foto = cardFoto.getAttribute("src")
+                let cardMTB = {
+                    fotoParticipante: foto,
+                    fotoModalidade: fotoModalidade,
+                    Categoria: {
+                        corCategoria: corCategoria,
+                        nomeCategoria: nomeCategoria,
+                        eixoX: x,
+                        eixoY: y,
+                    },
+                    nomeParticipante: nome,
+                    pais: pais,
+                    cidade: cidade,
+                    equipe: equipe,
+                }
+                Canvas(cardMTB)
+                btnDowload.addEventListener('click', () => {
+                    download()
+                })
+            })
+        }
     }
+
     else if (item.status == 'Em Analise') {
         cardStatus.classList.add('text-warning');
         cardStatus.innerHTML = item.status

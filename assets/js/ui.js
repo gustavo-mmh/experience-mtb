@@ -48,6 +48,7 @@ export const checkboxSenha = document.querySelector('#checkboxSenha');
 export const checkboxTermos = document.querySelector('#checkboxTermos');
 export const checkboxFoto = document.querySelector('#checkboxFoto');
 
+export const btnDowload = document.querySelector("#btnDownload");
 export const btnEditar = document.querySelector('#btnEditInsc');
 export const btnCopiar = document.querySelector('#copiarQR');
 export const btnCadastro = document.querySelector('#btnCadastrar');
@@ -164,4 +165,11 @@ export function download() {
         .replace("image/png", "image/octet-stream");
     download.setAttribute("href", image);
     //download.setAttribute("download","archive.png");
+    // try {
+    //     localStorage.setItem("elephant", Image);
+    // }
+    // catch (e) {
+    //     console.log("Storage failed: " + e);
+    // }
+
 }
