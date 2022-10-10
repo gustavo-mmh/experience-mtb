@@ -76,6 +76,7 @@ export async function Cadastrar() {
                     if (imgRef != null) {
                         fotoCard1 = imgRef
                     }
+                    let msgWpp = `https://api.whatsapp.com/send?phone=${txtdddWhatsApp.value}${txtWhatsApp.value}&text=Ol%C3%A1%20${txtNome.value}%2C%20obrigado%20pela%20inscri%C3%A7%C3%A3o`
                     const subscription = {
                         pais: txtPais.value,
                         nome: txtNome.value,
@@ -96,6 +97,7 @@ export async function Cadastrar() {
                         dataInscricao: hoje,
                         dataFimEdit: dataFim,
                         momentoInscricao: datainsc,
+                        LinkMsgWpp: msgWPP
                     }
                     subscribeToExperienceMtb(subscription, ID);
                     loading.hidden = false
