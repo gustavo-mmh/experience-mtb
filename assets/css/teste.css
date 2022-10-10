@@ -1,7 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap");
 :root {
   --laranja: #de5d12;
   --preto-azulado: #071b33;
   --verde: #344f29;
+  --soft: #86d76d;
+  --light: #5ab9eb;
+  --hard: #f31c19;
   --bordo: #842029;
   --roxo: #2e1c2b;
   --max-heigth-card: 100vh;
