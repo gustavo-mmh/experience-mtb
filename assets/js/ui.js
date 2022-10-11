@@ -55,6 +55,7 @@ export const btnCadastro = document.querySelector('#btnCadastrar');
 export const btnLogin = document.querySelector('#btnLogin')
 export const btnLogout = document.querySelector('#btnLogout')
 
+export const divDownloadCard = document.querySelector('#downloadCard');
 export const divEditarInsc = document.querySelector('#editarInsc');
 export const divComprovante = document.querySelector('#comprovante');
 export const divFoto = document.querySelector('#divFoto');
@@ -164,12 +165,5 @@ export function download() {
     var image = document.getElementById("myCanvas").toDataURL("image/png")
         .replace("image/png", "image/octet-stream");
     download.setAttribute("href", image);
-    //download.setAttribute("download","archive.png");
-    // try {
-    //     localStorage.setItem("elephant", Image);
-    // }
-    // catch (e) {
-    //     console.log("Storage failed: " + e);
-    // }
 
 }

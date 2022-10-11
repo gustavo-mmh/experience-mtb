@@ -83,8 +83,8 @@ export function Canvas(cardMTB) {
         let nh = h - (h * (diferenca / 100))
         let nw = w - (w * (diferenca / 100))
         let xi = 75 + ((430 - nw) / 2)
-        console.log('novaH', nh)
-        console.log('novaw', nw)
+        // console.log('novaH', nh)
+        // console.log('novaw', nw)
         ctx.drawImage(img, xi, 290, nw, nh);
         setBg();
     }
@@ -96,8 +96,8 @@ export function Canvas(cardMTB) {
         let nh = h - (h * (diferenca / 100))
         let nw = w - (w * (diferenca / 100))
         let yi = 290 + ((430 - nh) / 2)
-        console.log('novaH', nh)
-        console.log('novaw', nw)
+        // console.log('novaH', nh)
+        // console.log('novaw', nw)
         ctx.drawImage(img, 76, yi, nw, nh);
         setBg();
     }
