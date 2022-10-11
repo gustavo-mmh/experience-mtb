@@ -222,8 +222,9 @@ var partesData = dataFimEditar.split("/");
 var data = new Date(partesData[2], partesData[1] - 1, partesData[0]);
 var dataLimite = new Date(("2022, 11, 21"));
 if (data < new Date() || new Date() > dataLimite) {
-    divEditarInsc.style = 'display:none !important'
-    btnEditar.classList.add('disabled')
+    // REMOVER ESTE COMENTARIO
+    // divEditarInsc.style = 'display:none !important'
+    // btnEditar.classList.add('disabled')
 }
 if (img != "") {
     getUrlImage(storage, img, cardFoto)

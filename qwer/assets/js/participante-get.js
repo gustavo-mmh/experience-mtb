@@ -35,12 +35,13 @@ export async function getParticipante() {
         txtCidade.value = item.cidade
         txtWhatsApp.value = item.whatsapp
         txtCategoria.value = item.categoria
-        if (txtDataNascimento != null) {
-            let idade = calculaIdade(txtDataNascimento.value)
-            filtraCategoria(idade)
-            let cat = txtCategoria.value
-            filtraCategoriaSexo(cat)
-        }
+        // REMOVER ESTE COMENTARIO
+        // if (txtDataNascimento != null) {
+        //     let idade = calculaIdade(txtDataNascimento.value)
+        //     filtraCategoria(idade)
+        //     let cat = txtCategoria.value
+        //     filtraCategoriaSexo(cat)
+        // }
         txtModalidade.value = item.modalidade
         if (item.modalidade == "Racing") {
             divRacing.hidden = false
