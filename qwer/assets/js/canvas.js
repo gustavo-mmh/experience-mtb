@@ -2,18 +2,18 @@
 export function Canvas(cardMTB) {
     var canvas = document.getElementById("myCanvas");
     let ctx = canvas.getContext("2d");
-    var fotoUser = new Image();
-    fotoUser.src = cardMTB.fotoParticipante;
     var card = new Image();
     card.src = cardMTB.fotoModalidade;
+    var fotoUser = new Image();
+    fotoUser.src = cardMTB.fotoParticipante;
+    fotoUser.crossOrigin = "Anonymous";
     canvas.width = 1000;
     canvas.height = 838;
     render()
     function render() {
-        setImageUser();
         setText();
+        setImageUser();
         setCardImage()
-        ctx.globalCompositeOperation = "destination-over";
     }
     function estilizaCategoria() {
         ctx.font = "bold 34px Anton, sans-serif";
@@ -32,6 +32,7 @@ export function Canvas(cardMTB) {
         ctx.fillStyle = "white";
     }
     function setBg() {
+
         let grd = ctx.createLinearGradient(0, 0, 0, 1000);
         grd.addColorStop(0, "#2e1c2b");
         grd.addColorStop(0.5, "#de5d12");
@@ -47,6 +48,7 @@ export function Canvas(cardMTB) {
         })
     }
     function setText() {
+        ctx.globalCompositeOperation = "destination-over";
         estilizaCategoria()
         ctx.fillText(cardMTB.Categoria.nomeCategoria, cardMTB.Categoria.eixoX, cardMTB.Categoria.eixoY);
         estilizaNome()
@@ -69,7 +71,7 @@ export function Canvas(cardMTB) {
         } else if (w > h) {
             widthMaior(img, h, w)
         } else {
-            imgQuadrada()
+            imgQuadrada(img)
         }
 
     }
@@ -81,12 +83,12 @@ export function Canvas(cardMTB) {
         let nh = h - (h * (diferenca / 100))
         let nw = w - (w * (diferenca / 100))
         let xi = 75 + ((430 - nw) / 2)
-        // console.log('novaH', nh)
-        // console.log('novaw', nw)
+        console.log('novaH', nh)
+        console.log('novaw', nw)
         ctx.drawImage(img, xi, 290, nw, nh);
         setBg();
     }
-    function widthMaior(h, w) {
+    function widthMaior(img, h, w) {
         let qtp = 42700 / w
         let resto = w - (w * (qtp / 100))
         let restoPorc = resto * 100
@@ -96,11 +98,11 @@ export function Canvas(cardMTB) {
         let yi = 290 + ((430 - nh) / 2)
         console.log('novaH', nh)
         console.log('novaw', nw)
-        ctx.drawImage(this, 80, yi, nw, nh);
+        ctx.drawImage(img, 76, yi, nw, nh);
         setBg();
     }
-    function imgQuadrada() {
-        ctx.drawImage(this, 75, 290, 430, 430);
+    function imgQuadrada(img) {
+        ctx.drawImage(img, 75, 290, 430, 430);
     }
     // canvas.onmousemove = function (evt) {
     //     let rect = canvas.getBoundingClientRect();

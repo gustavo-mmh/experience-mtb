@@ -87,6 +87,7 @@ docs.forEach(item => {
                 let cidade = item.cidade.toUpperCase()
                 let equipe = item.nomeEquipe.toUpperCase()
                 let foto = cardFoto.getAttribute("src")
+                console.log(foto)
                 let cardMTB = {
                     fotoParticipante: foto,
                     fotoModalidade: fotoModalidade,
@@ -101,6 +102,7 @@ docs.forEach(item => {
                     cidade: cidade,
                     equipe: equipe,
                 }
+
                 Canvas(cardMTB)
                 btnDowload.addEventListener('click', () => {
                     download()
