@@ -56,7 +56,7 @@ export function Canvas(cardMTB) {
         estilizaDados()
         ctx.fillText(`PAIS: ${cardMTB.pais}`, 125, 200);
         ctx.fillText(`CIDADE: ${cardMTB.cidade}`, 125, 220);
-        ctx.fillText(`EQUIPE/GRUPO: ${cardMTB.equipe}`, 125, 240);
+        ctx.fillText(`${cardMTB.equipe}`, 125, 240);
     }
     function setImageUser() {
         fotoUser.addEventListener('load', function () {

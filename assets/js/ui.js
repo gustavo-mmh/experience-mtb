@@ -54,8 +54,9 @@ export const btnCopiar = document.querySelector('#copiarQR');
 export const btnCadastro = document.querySelector('#btnCadastrar');
 export const btnLogin = document.querySelector('#btnLogin')
 export const btnLogout = document.querySelector('#btnLogout')
-export const btnFechaModal = document.querySelector('.fechar-modal')
+export const btnFechaModal = document.querySelector('#fecharModal')
 
+export const divModalCard = document.querySelector('#modalCard');
 export const divDownloadCard = document.querySelector('#downloadCard');
 export const divEditarInsc = document.querySelector('#editarInsc');
 export const divComprovante = document.querySelector('#comprovante');

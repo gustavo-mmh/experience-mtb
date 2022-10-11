@@ -183,6 +183,16 @@ export function validatePassword(form, element, element2) {
         element.setCustomValidity('');
     }
 }
+export function bloqueioChecbox(checkbox, divElement, element) {
+    if (checkbox.checked == false) {
+        divElement.hidden = true;
+        element.value = '';
+        // element.required = true;
+    } else {
+        divElement.hidden = false;
+        // element.required = false;
+    }
+}
 export function bloqueio(divElement, element) {
     if (divElement.hidden == true) {
         divElement.hidden = false;
@@ -191,6 +201,19 @@ export function bloqueio(divElement, element) {
         divElement.hidden = true;
         element.value = '';
         // element.required = false;
+    }
+}
+export function bloqueioCheckboxSenha(checkbox, divElement, element, element2) {
+    if (checkbox.checked) {
+        divElement.style.display = "block";
+        element.required = true;
+        element2.required = true;
+    } else {
+        divElement.style.display = "none";
+        element.required = false;
+        element2.required = false;
+        element.value = '';
+        element2.value = '';
     }
 }
 export function bloqueioSenha(divElement, element, element2) {

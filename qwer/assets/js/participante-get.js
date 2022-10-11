@@ -3,7 +3,7 @@ import { getUrlImage } from "../../../assets/js/cadastro/storage/urlImg.js";
 import app from "../../../assets/js/firebase/app.js";
 import { getCollection } from "../../../assets/js/firebase/experience-mtb.js";
 import { checkboxFoto, checkboxSenha, divChallenge, divFoto, divRacing, divSenha, formUpdate, imgThumbnail, txtCategoria, txtCidade, txtConfirmaSenha, txtDataNascimento, txtDocumento, txtEmail, txtFotoCard, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtNome, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta, txtWhatsApp } from '../../../assets/js/ui.js';
-import { bloqueio, bloqueioSenha, calculaIdade, filtraCategoria, filtraCategoriaSexo, validatePassword, VerificaModalidade } from "../../../assets/js/validaForm.js";
+import { bloqueio, bloqueioChecbox, bloqueioCheckboxSenha, bloqueioSenha, calculaIdade, filtraCategoria, filtraCategoriaSexo, validatePassword, VerificaModalidade } from "../../../assets/js/validaForm.js";
 export let img
 export async function getParticipante() {
     txtModalidade.addEventListener('change', (e) => {
@@ -11,10 +11,10 @@ export async function getParticipante() {
         VerificaModalidade(txt)
     })
     checkboxFoto.addEventListener('click', () => {
-        bloqueio(divFoto, txtFotoCard)
+        bloqueioChecbox(checkboxFoto, divFoto, txtFotoCard)
     })
     checkboxSenha.addEventListener('click', () => {
-        bloqueioSenha(divSenha, txtSenha, txtConfirmaSenha)
+        bloqueioCheckboxSenha(checkboxSenha, divSenha, txtSenha, txtConfirmaSenha)
     })
     txtSenha.addEventListener('keyup', () => {
         validatePassword(formUpdate, txtConfirmaSenha, txtSenha)
