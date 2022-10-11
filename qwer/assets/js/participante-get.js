@@ -6,8 +6,9 @@ import { checkboxFoto, checkboxSenha, divChallenge, divFoto, divRacing, divSenha
 import { bloqueio, bloqueioSenha, calculaIdade, filtraCategoria, filtraCategoriaSexo, validatePassword, VerificaModalidade } from "../../../assets/js/validaForm.js";
 export let img
 export async function getParticipante() {
-    txtModalidade.addEventListener('change', () => {
-        VerificaModalidade()
+    txtModalidade.addEventListener('change', (e) => {
+        let txt = e.target.value
+        VerificaModalidade(txt)
     })
     checkboxFoto.addEventListener('click', () => {
         bloqueio(divFoto, txtFotoCard)
@@ -36,12 +37,12 @@ export async function getParticipante() {
         txtWhatsApp.value = item.whatsapp
         txtCategoria.value = item.categoria
         // REMOVER ESTE COMENTARIO
-        // if (txtDataNascimento != null) {
-        //     let idade = calculaIdade(txtDataNascimento.value)
-        //     filtraCategoria(idade)
-        //     let cat = txtCategoria.value
-        //     filtraCategoriaSexo(cat)
-        // }
+        if (txtDataNascimento != null) {
+            let idade = calculaIdade(txtDataNascimento.value)
+            filtraCategoria(idade)
+            let cat = txtCategoria.value
+            filtraCategoriaSexo(cat)
+        }
         txtModalidade.value = item.modalidade
         if (item.modalidade == "Racing") {
             divRacing.hidden = false

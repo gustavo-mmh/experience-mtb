@@ -54,6 +54,7 @@ export const btnCopiar = document.querySelector('#copiarQR');
 export const btnCadastro = document.querySelector('#btnCadastrar');
 export const btnLogin = document.querySelector('#btnLogin')
 export const btnLogout = document.querySelector('#btnLogout')
+export const btnFechaModal = document.querySelector('.fechar-modal')
 
 export const divDownloadCard = document.querySelector('#downloadCard');
 export const divEditarInsc = document.querySelector('#editarInsc');
@@ -135,6 +136,10 @@ export function copiarTexto() {
     document.execCommand("copy");
     alert("Texto Copiado");
 }
+export function fechaModal(tag) {
+    $(tag).modal("hide");
+}
+
 
 export function addDaysToDate(date, days) {
     var res = new Date(date);

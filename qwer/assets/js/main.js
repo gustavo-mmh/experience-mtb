@@ -2,7 +2,7 @@ import { getStorage } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-s
 import { getUrlImage } from "../../../assets/js/cadastro/storage/urlImg.js";
 import app from "../../../assets/js/firebase/app.js";
 import { getCollection } from '../../../assets/js/firebase/experience-mtb.js';
-import { BtnComIcone, btnCopiar, btnDowload, btnEditar, btnLogout, cardCategoria, cardCidade, cardDataNascimento, cardDocumento, cardEmail, cardFoto, cardModalidade, cardNome, cardNomeEquipe, cardPais, cardStatus, cardTamanhoCamiseta, cardWhatsApp, copiarTexto, divDownloadCard, divEditarInsc, download, formComprovante, loading, txtComprovante, txtFormadePagamento } from '../../../assets/js/ui.js';
+import { BtnComIcone, btnCopiar, btnDowload, btnEditar, btnFechaModal, btnLogout, cardCategoria, cardCidade, cardDataNascimento, cardDocumento, cardEmail, cardFoto, cardModalidade, cardNome, cardNomeEquipe, cardPais, cardStatus, cardTamanhoCamiseta, cardWhatsApp, copiarTexto, divDownloadCard, divEditarInsc, download, fechaModal, formComprovante, loading, txtComprovante, txtFormadePagamento } from '../../../assets/js/ui.js';
 import { BotoesPorNacionalidade, VerificaFormaPagamento, VerificaFormaPagamento2 } from "../../../assets/js/validaForm.js";
 import { Canvas } from "./canvas.js";
 import { createComprovante, updateComprovante } from "./participante-upd.js";
@@ -14,6 +14,9 @@ btnLogout.addEventListener('click', () => {
     sessionStorage.clear()
     window.location.href = '../index.html'
 })
+btnFechaModal.addEventListener('click', () => {
+    fechaModal('.fechar-modal')
+});
 loading.hidden = false
 setTimeout(function () {
     loading.hidden = true
@@ -74,7 +77,6 @@ docs.forEach(item => {
                     }
                     else if (item.modalidadeChallenge == "Light") {
                         corCategoria = "#5ab9eb"
-
                     }
                     else if (item.modalidadeChallenge == "Hard") {
                         corCategoria = "#f31c19"
