@@ -39,9 +39,9 @@ export async function getParticipante() {
         // REMOVER ESTE COMENTARIO
         if (txtDataNascimento != null) {
             let idade = calculaIdade(txtDataNascimento.value)
-            filtraCategoria(idade)
+            // filtraCategoria(idade)
             let cat = txtCategoria.value
-            filtraCategoriaSexo(cat)
+            // filtraCategoriaSexo(cat)
         }
         txtModalidade.value = item.modalidade
         if (item.modalidade == "Racing") {
