@@ -191,7 +191,6 @@ export async function createComprovante(id) {
             status: "Em Analise",
         }
         updateCollection(id, subscription)
-        alert("Comprovante Enviado com sucesso! \n" + "Em até 3 dias uteis seu pagamento será confirmado.")
         loading.hidden = false
         if (imgRef != null) {
             let ref = `comprovantes/${imgRef}`
@@ -202,6 +201,7 @@ export async function createComprovante(id) {
                 window.location.reload(1);
             }, 2000);
         }
+        alert("Comprovante Enviado com sucesso! \n" + "Em até 3 dias uteis seu pagamento será confirmado.")
     })
 }
 export async function updateComprovante(id, img) {

@@ -11,9 +11,9 @@ export function Canvas(cardMTB) {
     canvas.height = 838;
     render()
     function render() {
-        setText();
-        setImageUser();
         setCardImage()
+        setImageUser();
+
     }
     function estilizaCategoria() {
         ctx.font = "bold 34px Anton, sans-serif";
@@ -48,14 +48,14 @@ export function Canvas(cardMTB) {
         })
     }
     function setText() {
-        ctx.globalCompositeOperation = "destination-over";
+        // ctx.globalCompositeOperation = "destination-over";
         estilizaCategoria()
         ctx.fillText(cardMTB.Categoria.nomeCategoria, cardMTB.Categoria.eixoX, cardMTB.Categoria.eixoY);
         estilizaNome()
         ctx.fillText(cardMTB.nomeParticipante, 125, 140);
         estilizaDados()
-        ctx.fillText(`PAIS: ${cardMTB.pais}`, 125, 200);
-        ctx.fillText(`CIDADE: ${cardMTB.cidade}`, 125, 220);
+        ctx.fillText(`${cardMTB.pais}`, 125, 200);
+        ctx.fillText(`${cardMTB.cidade}`, 125, 220);
         ctx.fillText(`${cardMTB.equipe}`, 125, 240);
     }
     function setImageUser() {
@@ -86,7 +86,8 @@ export function Canvas(cardMTB) {
         // console.log('novaH', nh)
         // console.log('novaw', nw)
         ctx.drawImage(img, xi, 290, nw, nh);
-        setBg();
+        // setBg();
+        setText();
     }
     function widthMaior(img, h, w) {
         let qtp = 42700 / w
@@ -99,7 +100,8 @@ export function Canvas(cardMTB) {
         // console.log('novaH', nh)
         // console.log('novaw', nw)
         ctx.drawImage(img, 76, yi, nw, nh);
-        setBg();
+        // setBg();
+        setText();
     }
     function imgQuadrada(img) {
         ctx.drawImage(img, 75, 290, 430, 430);

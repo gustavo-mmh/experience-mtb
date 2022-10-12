@@ -62,9 +62,11 @@ docs.forEach(item => {
         txtComprovante.classList.add('disabled')
         if (item.fotoCard != null) {
             cardFoto.addEventListener('load', () => {
-                let fotoModalidade, corCategoria, nomeCategoria, x, y
+                let fotoModalidade, x, y
+                let nomeCategoria
+                let corCategoria
                 if (item.modalidade == "Racing") {
-                    fotoModalidade = 'assets/images/card-racing.png'
+                    fotoModalidade = 'assets/images/3.png'
                     if (item.modalidadeRacing == "Dama Promocional") {
                         nomeCategoria = "DAMA PROMO"
                     } else {
@@ -74,8 +76,7 @@ docs.forEach(item => {
                     x = 365
                     y = 81
                 } else if (item.modalidade == "Challenge") {
-                    fotoModalidade = 'assets/images/card_challenge.png'
-                    nomeCategoria = item.modalidadeChallenge.toUpperCase()
+                    fotoModalidade = 'assets/images/4.png'
                     if (item.modalidadeChallenge == "Soft") {
                         corCategoria = "#86d76d"
                     }
@@ -85,22 +86,22 @@ docs.forEach(item => {
                     else if (item.modalidadeChallenge == "Hard") {
                         corCategoria = "#f31c19"
                     }
+                    nomeCategoria = item.modalidadeChallenge.toUpperCase()
+                    x = 405
+                    y = 82
                 }
 
                 let nome = item.nome.toUpperCase()
                 let pais = item.pais.toUpperCase()
                 let cidade = item.cidade.toUpperCase()
-                let equipe = ``
-                if (item.nomeEquipe != null) {
-                    equipe = `EQUIPE/GRUPO: ${item.nomeEquipe.toUpperCase()}`
-                }
+                let equipe = item.nomeEquipe.toUpperCase()
                 let foto = cardFoto.getAttribute("src")
                 let cardMTB = {
                     fotoParticipante: foto,
                     fotoModalidade: fotoModalidade,
                     Categoria: {
-                        corCategoria: corCategoria,
                         nomeCategoria: nomeCategoria,
+                        corCategoria: corCategoria,
                         eixoX: x,
                         eixoY: y,
                     },
