@@ -158,7 +158,7 @@ export function deleteImage(imgRef) {
         // console.log(error);
     });
 }
-export function urlDownloadImg() {
+export function urlDownloadImg(imgRef) {
 
     // Create a reference with an initial file path and name
     const storage = getStorage(app);

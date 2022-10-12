@@ -71,6 +71,8 @@ export function Canvas(cardMTB) {
         ctx.fillText(`${cardMTB.pais}`, 125, 200);
         ctx.fillText(`${cardMTB.cidade}`, 125, 220);
         ctx.fillText(`${cardMTB.equipe}`, 125, 240);
+        ctx.fillText(`${cardMTB.equipe2}`, 125, 260);
+
     }
     function setImageUser() {
         fotoUser.addEventListener('load', function () {

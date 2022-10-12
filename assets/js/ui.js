@@ -182,28 +182,41 @@ export function cutName(nome) {
     }
     return nome;
 }
-export async function resizeImage(src, options) {
-
-    const image = await loadImage(document.createElement('img'), src);
-    canvas
-    if (options.width && !options.height) {
-        options.height = image.height * (options.width / image.width);
-    } else if (!options.width && options.height) {
-        options.width = image.width * (options.height / image.height);
+export function lineBroken(text, text2) {
+    if (text.length > 40) {
+        let texts = text.split(" ");
+        if (texts.length > 2) {
+            text2 = texts.pop()
+            text = texts.toString().replace(/,/g, " ");
+            console.log('text', text)
+            console.log('text2', text2)
+        }
+        else text = text.substring(0, 40);
     }
-    Object.assign(canvas, options);
-    canvas.getContext('2d').drawImage(image, 0, 0, canvas.width, canvas.height);
-    return await new Promise(function (resolve) {
-        canvas.toBlob(resolve, options.type || 'image/png', options.quality);
-    });
+    return { text, text2 };
 }
+// export async function resizeImage(src, options) {
 
-function loadImage(img, src) {
-    return new Promise((resolve, reject) => {
-        img.src = src;
-        img.completed ? resolve(img) : img.addEventListener('load', function () {
-            resolve(img)
-        });
-        img.addEventListener('error', reject);
-    })
-}
+//     const image = await loadImage(document.createElement('img'), src);
+//     canvas
+//     if (options.width && !options.height) {
+//         options.height = image.height * (options.width / image.width);
+//     } else if (!options.width && options.height) {
+//         options.width = image.width * (options.height / image.height);
+//     }
+//     Object.assign(canvas, options);
+//     canvas.getContext('2d').drawImage(image, 0, 0, canvas.width, canvas.height);
+//     return await new Promise(function (resolve) {
+//         canvas.toBlob(resolve, options.type || 'image/png', options.quality);
+//     });
+// }
+
+// function loadImage(img, src) {
+//     return new Promise((resolve, reject) => {
+//         img.src = src;
+//         img.completed ? resolve(img) : img.addEventListener('load', function () {
+//             resolve(img)
+//         });
+//         img.addEventListener('error', reject);
+//     })
+// }
