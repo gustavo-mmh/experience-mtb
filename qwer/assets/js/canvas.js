@@ -1,18 +1,32 @@
+import { canvas } from "../../../assets/js/ui.js";
 
 export function Canvas(cardMTB) {
-    var canvas = document.getElementById("myCanvas");
+
     let ctx = canvas.getContext("2d");
     var card = new Image();
     card.src = cardMTB.fotoModalidade;
     var fotoUser = new Image();
     fotoUser.src = cardMTB.fotoParticipante;
+    var file = document.querySelector('#updImgUser');
+
     fotoUser.crossOrigin = "Anonymous";
     canvas.width = 1000;
     canvas.height = 838;
+    file.addEventListener('change', function () {
+        var image = file.files[0];
+        var src = URL.createObjectURL(image);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        fotoUser.src = src;
+        card.src = cardMTB.fotoModalidade;
+        render()
+        // resizeImage(src, { width: 427 }).then(function (blob) {
+        //     document.querySelector("#resized").src = URL.createObjectURL(blob)
+        // })
+    });
     render()
     function render() {
-        setCardImage()
         setImageUser();
+        setCardImage()
 
     }
     function estilizaCategoria() {

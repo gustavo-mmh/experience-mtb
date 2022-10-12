@@ -108,7 +108,7 @@
                     </div>
                     <div class="d-flex">
                       <div id="downloadCard" class="p-2" hidden>
-                        <a id="download" download="card.png">
+                        <a id="linkDownload" download="card.png">
                           <button type="button" class="btn btn-outline-success" id="btnDownload"><i
                               class="fa fa-download" aria-hidden="true"></i> Download do Card</button>
                         </a>
@@ -130,7 +130,14 @@
                                 <canvas id="myCanvas" class="mycanvas">Your browser does not support
                                   Canvas.</canvas>
                               </div>
-
+                              <div class="modal-footer justify-content-start">
+                                <label for="updImgUser">Atualizar Foto do Card</label>
+                                <input type="file" class="form-control" name="btnUpdImgUser" id="updImgUser">
+                                <a id="linkDownloadUpd" download="card.png">
+                                  <button type="button" class="btn btn-outline-success" id="btnDownloadUpd"><i
+                                      class="fa fa-download" aria-hidden="true"></i> Download do Card</button>
+                                </a>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -147,7 +154,6 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div id="downloadCard"></div>
                   <div id="txtMsgComprovante">
                     <p id="txtDesconto" class="text-bg-warning text-center"></p>
                     <p class="text-bg-danger text-center">O pagamento só será confirmado após envio do comprovante.
