@@ -27,7 +27,7 @@ export function updateParticipante() {
                 let ref2 = `images/${img}`
                 deleteImage(ref2)
                 updateCollection(ID, subscription)
-                alert('Cadastro Atualizado com sucesso!')
+                // alert('Cadastro Atualizado com sucesso!')
                 loading.hidden = false
                 if (imgRef != null) {
                     let ref = `images/${imgRef}`
@@ -47,7 +47,7 @@ export function updateParticipante() {
                     senha: txtSenha.value,
                 }
                 updateCollection(ID, subscription)
-                alert('Cadastro Atualizado com sucesso!')
+                // alert('Cadastro Atualizado com sucesso!')
                 loading.hidden = false
                 setTimeout(function () {
                     window.location.href = "index.html";
@@ -66,7 +66,7 @@ export function updateParticipante() {
                 let ref2 = `images/${img}`
                 deleteImage(ref2)
                 updateCollection(ID, subscription)
-                alert('Cadastro Atualizado com sucesso!')
+                // alert('Cadastro Atualizado com sucesso!')
                 loading.hidden = false
                 if (imgRef != null) {
                     let ref = `images/${imgRef}`
@@ -84,7 +84,7 @@ export function updateParticipante() {
                     nomeEquipe: txtNomeEquipe.value,
                 }
                 updateCollection(ID, subscription)
-                alert('Cadastro Atualizado com sucesso!')
+                // alert('Cadastro Atualizado com sucesso!')
                 loading.hidden = false
                 setTimeout(function () {
                     window.location.href = "index.html";
@@ -108,7 +108,7 @@ export function updateParticipante() {
                 let ref2 = `images/${img}`
                 deleteImage(ref2)
                 updateCollection(ID, subscription)
-                alert('Cadastro Atualizado com sucesso!')
+                // alert('Cadastro Atualizado com sucesso!')
                 loading.hidden = false
                 if (imgRef != null) {
                     let ref = `images/${imgRef}`
@@ -127,7 +127,7 @@ export function updateParticipante() {
                     senha: txtSenha.value,
                 }
                 updateCollection(ID, subscription)
-                alert('Cadastro Atualizado com sucesso!')
+                // alert('Cadastro Atualizado com sucesso!')
                 loading.hidden = false
                 setTimeout(function () {
                     window.location.href = "index.html";
@@ -146,7 +146,7 @@ export function updateParticipante() {
                 let ref2 = `images/${img}`
                 deleteImage(ref2)
                 updateCollection(ID, subscription)
-                alert('Cadastro Atualizado com sucesso!')
+                // alert('Cadastro Atualizado com sucesso!')
                 loading.hidden = false
                 if (imgRef != null) {
                     let ref = `images/${imgRef}`
@@ -165,7 +165,7 @@ export function updateParticipante() {
                     nomeEquipe: txtNomeEquipe.value,
                 }
                 updateCollection(ID, subscription)
-                alert('Cadastro Atualizado com sucesso!')
+                // alert('Cadastro Atualizado com sucesso!')
                 loading.hidden = false
                 setTimeout(function () {
                     window.location.href = "index.html";

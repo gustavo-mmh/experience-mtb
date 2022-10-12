@@ -68,7 +68,7 @@ docs.forEach(item => {
                 if (item.modalidade == "Racing") {
                     fotoModalidade = 'assets/images/3.png'
                     if (item.modalidadeRacing == "Dama Promocional") {
-                        nomeCategoria = "DAMA PROMO"
+                        nomeCategoria = "DAMAS PROMO"
                     } else {
                         nomeCategoria = item.modalidadeRacing.toUpperCase()
                     }
