@@ -2,7 +2,7 @@ import { getStorage } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-s
 import { getUrlImage } from "../../../assets/js/cadastro/storage/urlImg.js";
 import app from "../../../assets/js/firebase/app.js";
 import { getCollection } from '../../../assets/js/firebase/experience-mtb.js';
-import { BtnComIcone, btnCopiar, btnDowload, btnEditar, btnFechaModal, btnLogout, cardCategoria, cardCidade, cardDataNascimento, cardDocumento, cardEmail, cardFoto, cardModalidade, cardNome, cardNomeEquipe, cardPais, cardStatus, cardTamanhoCamiseta, cardWhatsApp, copiarTexto, divDownloadCard, divEditarInsc, divModalCard, download, fechaModal, formComprovante, loading, txtComprovante, txtFormadePagamento } from '../../../assets/js/ui.js';
+import { BtnComIcone, btnCopiar, btnDowload, btnEditar, btnFechaModal, btnLogout, cardCategoria, cardCidade, cardDataNascimento, cardDocumento, cardEmail, cardFoto, cardModalidade, cardNome, cardNomeEquipe, cardPais, cardStatus, cardTamanhoCamiseta, cardWhatsApp, copiarTexto, cutName, divDownloadCard, divEditarInsc, divModalCard, download, fechaModal, formComprovante, loading, txtComprovante, txtFormadePagamento } from '../../../assets/js/ui.js';
 import { BotoesPorNacionalidade, VerificaFormaPagamento, VerificaFormaPagamento2 } from "../../../assets/js/validaForm.js";
 import { Canvas } from "./canvas.js";
 import { createComprovante, updateComprovante } from "./participante-upd.js";
@@ -90,8 +90,8 @@ docs.forEach(item => {
                     x = 405
                     y = 82
                 }
-
                 let nome = item.nome.toUpperCase()
+                while (nome.length > 22) nome = cutName(nome)
                 let pais = item.pais.toUpperCase()
                 let cidade = item.cidade.toUpperCase()
                 let equipe = item.nomeEquipe.toUpperCase()

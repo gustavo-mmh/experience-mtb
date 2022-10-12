@@ -173,3 +173,12 @@ export function download() {
     download.setAttribute("href", image);
 
 }
+export function cutName(nome) {
+    if (nome.length > 22) {
+        let nomes = nome.split(" ");
+        if (nomes.length > 2)
+            nome = nomes[0] + " " + nomes[nomes.length - 1]
+        else nome = nome.substring(0, 22);
+    }
+    return nome;
+}
