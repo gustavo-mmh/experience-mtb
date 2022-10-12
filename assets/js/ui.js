@@ -178,7 +178,7 @@ export function cutName(nome) {
         let nomes = nome.split(" ");
         if (nomes.length > 2)
             nome = nomes[0] + " " + nomes[nomes.length - 1]
-        else nome = nome.substring(0, 22);
+        else nome = nome.substring(0, 20);
     }
     return nome;
 }
