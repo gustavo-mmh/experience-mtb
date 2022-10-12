@@ -36,7 +36,7 @@ export async function getParticipante() {
         txtCidade.value = item.cidade
         txtWhatsApp.value = item.whatsapp
         txtCategoria.value = item.categoria
-        // REMOVER ESTE COMENTARIO
+        // REMOVER ESTE COMENTARIO ABAIXO
         if (txtDataNascimento != null) {
             let idade = calculaIdade(txtDataNascimento.value)
             // filtraCategoria(idade)
