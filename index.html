@@ -14,7 +14,16 @@
 
 <body>
   <div id="load" class="load" hidden>
-    <div class="spinner-border spinner-border-xl text-success" role="status">
+    <div class="spinner-grow text-success" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-grow text-danger" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-grow text-warning" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-grow text-info" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
   </div>
@@ -328,7 +337,7 @@
     <a class="btn btn-outline-light"
       href="https://drive.google.com/file/d/1qf5huWycGeP-ilEyvfmyZ42xe0Vmt5UY/view?usp=sharing" target="_blank"
       rel="noopener noreferrer">Saiba Mais</a>
-    <p class="text-bg-warning m-2"><b>Lote Sprint </b> (de 07.10 à 21.10) R$135,00 BR ou $1350,00 UY</p>
+    <p class="text-bg-warning m-2" id="lote"><b>Lote Sprint </b> (de 07.10 à 21.10) R$135,00 BR ou $1350,00 UY</p>
   </div>
   <div class="container py-2">
     <h2 class="text-dark">Sobre</h2>
@@ -401,7 +410,7 @@
                 <li class="none"> Three Challenge (Desafios)</li>
                 <li> Challenge <b>Hard</b> 45km (pedal forte) </li>
                 <li> Challenge <b>Light</b> 25km (pedal médio) </li>
-                <li> Challenge <b>Soft</b> 10km (estilo passeio) </li>
+                <li> Challenge <b>Soft</b> 10km (pedal passeio) </li>
               </ul>
             </div>
           </div>

@@ -174,22 +174,20 @@ export function download(div) {
 
 }
 export function cutName(nome) {
-    if (nome.length > 22) {
-        let nomes = nome.split(" ");
+    if (nome.length > 21) {
+        let nomes = nome.trim().split(" ");
         if (nomes.length > 2)
             nome = nomes[0] + " " + nomes[nomes.length - 1]
-        else nome = nome.substring(0, 20);
+        else nome = nome.substring(0, 21);
     }
     return nome;
 }
 export function lineBroken(text, text2) {
     if (text.length > 40) {
-        let texts = text.split(" ");
+        let texts = text.trim().split(" ");
         if (texts.length > 2) {
             text2 = texts.pop()
             text = texts.toString().replace(/,/g, " ");
-            console.log('text', text)
-            console.log('text2', text2)
         }
         else text = text.substring(0, 40);
     }

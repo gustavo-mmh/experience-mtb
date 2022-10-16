@@ -53,8 +53,9 @@ export async function Cadastrar() {
         txtModalidadeRacing.selectedIndex = 0
     })
     txtCategoria.addEventListener('change', () => {
+        let idade = calculaIdade(txtDataNascimento.value)
         let cat = txtCategoria.value
-        filtraCategoriaSexo(cat)
+        filtraCategoriaSexo(cat, idade)
     })
     getImgRef(txtFotoCard)
     formCadastro.addEventListener('submit', async (event) => {
@@ -74,100 +75,111 @@ export async function Cadastrar() {
             }
             else {
                 let msgWpp = `https://api.whatsapp.com/send?phone=${txtdddWhatsApp.value}${txtWhatsApp.value}&text=Ol%C3%A1%20${txtNome.value}%2C%20obrigado%20pela%20inscri%C3%A7%C3%A3o`
+
+                let categoriaModalidade
+                let resultCategoriaModalidade
                 if (txtModalidade.value == "Racing") {
-                    if (imgRef != null) {
-                        fotoCard1 = imgRef
-                    }
-
-                    const subscription = {
-                        pais: txtPais.value,
-                        nome: txtNome.value,
-                        documento: txtDocumento.value,
-                        dataNascimento: txtDataNascimento.value,
-                        email: txtEmail.value,
-                        cidade: txtCidade.value,
-                        whatsapp: txtdddWhatsApp.value + txtWhatsApp.value,
-                        categoria: txtCategoria.value,
-                        tamanhoCamiseta: txtTamanhoCamiseta.value,
-                        modalidade: txtModalidade.value,
-                        modalidadeRacing: txtModalidadeRacing.value,
-                        nomeEquipe: txtNomeEquipe.value,
-                        senha: txtSenha.value,
-                        fotoCard: fotoCard1,
-                        comprovantePagamento: '',
-                        status: 'Pendente',
-                        dataInscricao: hoje,
-                        dataFimEdit: dataFim,
-                        momentoInscricao: datainsc,
-                        LinkMsgWpp: msgWpp
-                    }
-                    subscribeToExperienceMtb(subscription, ID);
-                    loading.hidden = false
-                    if (imgRef != null) {
-                        let ref = `images/${imgRef}`
-                        let pais = txtPais.value
-                        let doc = txtDocumento.value
-                        let psw = txtSenha.value
-                        uploadImagemCad(file, ref, metadata, doc, psw, pais)
-                        limparDados()
-                    } else {
-                        let pais = txtPais.value
-                        let doc = txtDocumento.value
-                        let psw = txtSenha.value
-                        loginCad(doc, psw, pais)
-                        limparDados()
-                    }
-                    // alert("Cadastro Feito com Sucesso!!!")
-
-                } else if (txtModalidade.value == "Challenge") {
-                    if (imgRef != null) {
-                        fotoCard1 = imgRef
-                    }
-                    const subscription = {
-                        pais: txtPais.value,
-                        nome: txtNome.value,
-                        documento: txtDocumento.value,
-                        dataNascimento: txtDataNascimento.value,
-                        email: txtEmail.value,
-                        cidade: txtCidade.value,
-                        whatsapp: txtWhatsApp.value,
-                        categoria: txtCategoria.value,
-                        tamanhoCamiseta: txtTamanhoCamiseta.value,
-                        modalidade: txtModalidade.value,
-                        modalidadeChallenge: txtModalidadeChallenge.value,
-                        nomeEquipe: txtNomeEquipe.value,
-                        senha: txtSenha.value,
-                        fotoCard: fotoCard1,
-                        comprovantePagamento: '',
-                        status: 'Pendente',
-                        dataInscricao: 'Pendente',
-                        dataInscricao: hoje,
-                        dataFimEdit: dataFim,
-                        momentoInscricao: datainsc,
-                        LinkMsgWpp: msgWpp
-                    }
-                    subscribeToExperienceMtb(subscription, ID);
-                    loading.hidden = false
-                    if (imgRef != null) {
-                        let ref = `images/${imgRef}`
-                        let pais = txtPais.value
-                        let doc = txtDocumento.value
-                        let psw = txtSenha.value
-                        uploadImagemCad(file, ref, metadata, doc, psw, pais)
-                        limparDados()
-                    } else {
-                        let pais = txtPais.value
-                        let doc = txtDocumento.value
-                        let psw = txtSenha.value
-                        loginCad(doc, psw, pais)
-                        limparDados()
-                    }
-                    // alert("Cadastro Feito com Sucesso!!!")
+                    categoriaModalidade = 'modalidadeRacing'
+                    resultCategoriaModalidade = txtModalidadeRacing.value
                 }
-                else {
-                    alert("Preencha o Formulário corretamente")
-
+                else if (txtModalidade.value == "Challenge") {
+                    categoriaModalidade = 'modalidadeChallenge'
+                    resultCategoriaModalidade = txtModalidadeChallenge.value
                 }
+
+                if (imgRef != null) {
+                    fotoCard1 = imgRef
+                }
+                const subscription = {
+                    pais: txtPais.value,
+                    nome: txtNome.value,
+                    documento: txtDocumento.value,
+                    dataNascimento: txtDataNascimento.value,
+                    email: txtEmail.value,
+                    cidade: txtCidade.value,
+                    whatsapp: txtdddWhatsApp.value + txtWhatsApp.value,
+                    categoria: txtCategoria.value,
+                    tamanhoCamiseta: txtTamanhoCamiseta.value,
+                    modalidade: txtModalidade.value,
+                    // modalidadeRacing: txtModalidadeRacing.value,
+                    nomeEquipe: txtNomeEquipe.value,
+                    senha: txtSenha.value,
+                    fotoCard: fotoCard1,
+                    comprovantePagamento: '',
+                    status: 'Pendente',
+                    dataInscricao: hoje,
+                    dataFimEdit: dataFim,
+                    momentoInscricao: datainsc,
+                    LinkMsgWpp: msgWpp,
+                }
+                subscription[categoriaModalidade] = resultCategoriaModalidade
+                subscribeToExperienceMtb(subscription, ID);
+                loading.hidden = false
+                if (imgRef != null) {
+                    let ref = `images/${imgRef}`
+                    let pais = txtPais.value
+                    let doc = txtDocumento.value
+                    let psw = txtSenha.value
+                    uploadImagemCad(file, ref, metadata, doc, psw, pais)
+                    // limparDados()
+                } else {
+                    let pais = txtPais.value
+                    let doc = txtDocumento.value
+                    let psw = txtSenha.value
+                    loginCad(doc, psw, pais)
+                    limparDados()
+                }
+                // alert("Cadastro Feito com Sucesso!!!")
+
+
+                //     if (imgRef != null) {
+                //         fotoCard1 = imgRef
+                //     }
+                //     const subscription = {
+                //         pais: txtPais.value,
+                //         nome: txtNome.value,
+                //         documento: txtDocumento.value,
+                //         dataNascimento: txtDataNascimento.value,
+                //         email: txtEmail.value,
+                //         cidade: txtCidade.value,
+                //         whatsapp: txtWhatsApp.value,
+                //         categoria: txtCategoria.value,
+                //         tamanhoCamiseta: txtTamanhoCamiseta.value,
+                //         modalidade: txtModalidade.value,
+                //         modalidadeChallenge: txtModalidadeChallenge.value,
+                //         nomeEquipe: txtNomeEquipe.value,
+                //         senha: txtSenha.value,
+                //         fotoCard: fotoCard1,
+                //         comprovantePagamento: '',
+                //         status: 'Pendente',
+                //         dataInscricao: 'Pendente',
+                //         dataInscricao: hoje,
+                //         dataFimEdit: dataFim,
+                //         momentoInscricao: datainsc,
+                //         LinkMsgWpp: msgWpp
+                //     }
+                //     subscribeToExperienceMtb(subscription, ID);
+                //     loading.hidden = false
+                //     if (imgRef != null) {
+                //         let ref = `images/${imgRef}`
+                //         let pais = txtPais.value
+                //         let doc = txtDocumento.value
+                //         let psw = txtSenha.value
+                //         uploadImagemCad(file, ref, metadata, doc, psw, pais)
+                //         limparDados()
+                //     } else {
+                //         let pais = txtPais.value
+                //         let doc = txtDocumento.value
+                //         let psw = txtSenha.value
+                //         loginCad(doc, psw, pais)
+                //         limparDados()
+                //     }
+                //     // alert("Cadastro Feito com Sucesso!!!")
+                // }
+                // else {
+                //     alert("Preencha o Formulário corretamente")
+
+                // }
             }
 
         }

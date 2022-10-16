@@ -19,7 +19,7 @@ else {
     var dataLimite = new Date(("2022, 11, 21"));
     if (data < new Date() || new Date() > dataLimite) {
         // REMOVER ESTE COMENTARIO ABAIXO
-        // window.location.href = 'index.html'
+        window.location.href = 'index.html'
     }
     loading.hidden = false
     setTimeout(function () {
