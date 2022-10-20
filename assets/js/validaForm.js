@@ -1,4 +1,4 @@
-import { btnCadastro, BtnComIcone, checkboxTermos, divChallenge, divPagamento, divRacing, LinkComIcone, Paragrafo, txtFormadePagamento, txtModalidadeChallenge, txtModalidadeRacing } from "./ui.js";
+import { btnCadastro, BtnComIcone, btnCopiar, checkboxTermos, codigoQR, dataLote, divChallenge, divPagamento, divRacing, LinkComIcone, nomeLote, Paragrafo, precoLoteBr, precoLoteUy, qrPix, txtDesconto, txtFormadePagamento, txtModalidadeChallenge, txtModalidadeRacing } from "./ui.js";
 let idLinkPagamento = 'btnLinkPagamento';
 let faIconPagamento = 'fa';
 let classeIconLinkPagamento = 'fa-credit-card';
@@ -72,7 +72,6 @@ export function BotoesPorNacionalidade(pais) {
         txtFormadePagamento.options[1].hidden = true
         txtFormadePagamento.options[2].disabled = true
         txtFormadePagamento.options[2].hidden = true
-
     }
     else if (pais == 'Uruguai') {
         let btnClassLinkPagamento = 'btn-outline-primary';
@@ -97,7 +96,6 @@ export function BotoesPorNacionalidade(pais) {
         txtFormadePagamento.options[3].hidden = true
         txtFormadePagamento.options[4].disabled = true
         txtFormadePagamento.options[4].hidden = true
-
     } else {
         let btnClassLinkPagamento = 'btn-outline-info';
         let txtLinkPagamento = "Pagamento por Mercadopago";
@@ -115,6 +113,56 @@ export function BotoesPorNacionalidade(pais) {
         txtFormadePagamento.options[5].hidden = true
     }
 }
+export function formaDePagamentoPais(itemPais) {
+    if (itemPais == 'Brasil') {
+        txtDesconto.innerHTML = `<b>${nomeLote}</b> (${dataLote}) ${precoLoteBr}`
+        BotoesPorNacionalidade(itemPais)
+        let btnLinkPagamento = document.querySelector("#btnLinkPagamento")
+        btnLinkPagamento.hidden = true
+        let btnPix = document.querySelector("#BtnPix")
+        btnPix.hidden = true
+        let p = document.querySelector("#pBicicletaria")
+        p.hidden = true
+        btnPix.addEventListener('click', () => {
+            $("#modalPix").modal("show");
+        });
+        btnCopiar.addEventListener('click', () => {
+            copiarTexto()
+        })
+        txtFormadePagamento.addEventListener('change', () => {
+            VerificaFormaPagamento2(btnLinkPagamento, btnPix, p)
+        })
+        codigoQR.value = qrPix
+    } else if (itemPais == 'Uruguai') {
+        txtDesconto.innerHTML = `<b>${nomeLote}</b> (${dataLote}) ${precoLoteUy}`
+        BotoesPorNacionalidade(itemPais)
+        let btnLinkPagamento = document.querySelector("#btnLinkPagamento")
+        btnLinkPagamento.hidden = true
+        let btnMidinero = document.querySelector("#BtnMidinero")
+        btnMidinero.hidden = true
+        let p = document.querySelector("#pBicicletaria")
+        p.hidden = true
+        btnMidinero.addEventListener('click', () => {
+            $("#modalMidinero").modal("show");
+        });
+        txtFormadePagamento.addEventListener('change', () => {
+            VerificaFormaPagamento2(btnLinkPagamento, btnMidinero, p)
+        })
+    } else {
+        BotoesPorNacionalidade(itemPais)
+        let btnLinkPagamento = document.querySelector("#btnLinkPagamento")
+        btnLinkPagamento.hidden = true
+        txtFormadePagamento.value
+        txtFormadePagamento.addEventListener('change', () => {
+            VerificaFormaPagamento(btnLinkPagamento)
+        })
+    }
+}
+
+
+
+
+
 export function validatePassword(form, element, element2) {
     if (element.value != element2.value) {
         form.classList.add('was-validated')

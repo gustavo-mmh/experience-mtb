@@ -1,9 +1,13 @@
+// Canvas
 export const canvas = document.getElementById('myCanvas');
+// Required
 export const required = document.createAttribute("required");
+// Forms
 export const formComprovante = document.querySelector('#formComprovante');
 export const formCadastro = document.querySelector('#formCadastro');
 export const formUpdate = document.querySelector('#formUpdate');
 export const formLogin = document.querySelector('#formLogin');
+// Txts
 export const txtFormadePagamento = document.querySelector('#txtFormadePagamento');
 export const txtNome = document.querySelector('#txtNome');
 export const txtComprovante = document.querySelector('#txtComprovante');
@@ -24,10 +28,14 @@ export const txtSenha = document.querySelector('#txtSenha');
 export const txtFotoCard = document.querySelector('#txtFotoCard');
 export const txtRefFotoCard = document.querySelector('#txtRefFotoCard');
 export const txtConfirmaSenha = document.querySelector('#txtConfirmaSenha');
+export const txtDesconto = document.querySelector("#txtDesconto")
+// Login
 export const imgThumbnail = document.querySelector('#imgThumbnail');
 export const loginDocumento = document.querySelector('#loginDocumento');
 export const loginPais = document.querySelector('#loginPais');
 export const loginPassword = document.querySelector('#loginPassword');
+export const statusLogin = document.querySelector('#statusLogin')
+// cards
 export const cardNome = document.querySelector('#cardNome');
 export const cardDocumento = document.querySelector('#cardDocumento');
 export const cardEmail = document.querySelector('#cardEmail');
@@ -41,26 +49,28 @@ export const cardNomeEquipe = document.querySelector('#cardNomeEquipe');
 export const cardTamanhoCamiseta = document.querySelector('#cardTamanhoCamiseta');
 export const cardFoto = document.querySelector('#cardFoto');
 export const cardStatus = document.querySelector('#cardStatus');
+// Load
 export const loading = document.querySelector("#load");
-
-
+// checkbox
 export const checkboxSenha = document.querySelector('#checkboxSenha');
 export const checkboxTermos = document.querySelector('#checkboxTermos');
 export const checkboxFoto = document.querySelector('#checkboxFoto');
-
+// Botões
 export const btnDowload = document.querySelector("#btnDownload");
 export const btnDowloadUpd = document.querySelector("#btnDownloadUpd");
 export const btnEditar = document.querySelector('#btnEditInsc');
 export const btnCopiar = document.querySelector('#copiarQR');
+export const codigoQR = document.querySelector('#codigoQR');
 export const btnCadastro = document.querySelector('#btnCadastrar');
 export const btnLogin = document.querySelector('#btnLogin')
 export const btnLogout = document.querySelector('#btnLogout')
 export const btnFechaModal = document.querySelector('#fecharModal')
-
-export const divModalCard = document.querySelector('#modalCard');
-export const divDownloadCard = document.querySelector('#downloadCard');
+// Links
 export const linkDownload = document.querySelector('#linkDownload');
 export const linkDownloadUpd = document.querySelector('#linkDownloadUpd');
+// Divs
+export const divModalCard = document.querySelector('#modalCard');
+export const divDownloadCard = document.querySelector('#downloadCard');
 export const divEditarInsc = document.querySelector('#editarInsc');
 export const divComprovante = document.querySelector('#comprovante');
 export const divFoto = document.querySelector('#divFoto');
@@ -68,12 +78,18 @@ export const divSenha = document.querySelector('#Senha');
 export const divRacing = document.querySelector('#racing');
 export const divChallenge = document.querySelector('#challenge');
 export const divAuthState = document.querySelector('#divAuthState')
-export const statusLogin = document.querySelector('#statusLogin')
-
 export const divPagamento = document.querySelector('#pagamento')
 export const divLoginError = document.querySelector('#divLoginError')
 export const lblLoginErrorMessage = document.querySelector('#lblLoginErrorMessage')
-
+export const divLote = document.querySelector('#lote')
+// Lote
+export const dataHoje = new Date();
+export const dataLimiteLote = new Date(("2022, 10, 22"));
+export const nomeLote = 'Lote Sprint'
+export const dataLote = 'de 07.10 à 21.10'
+export const precoLoteBr = 'R$135,00'
+export const precoLoteUy = "$1350,00"
+export const qrPix = '00020101021126670014br.gov.bcb.pix0114477893600001880227Lote Sprint Experience 20225204000053039865406135.005802BR5913YELLOW SPORTS6008BRASILIA621405102loteExp226304CAEE'
 export let BtnComIcone = (tipo, classeBtn, idBtn, faIcon, classeIcon, txtBtn, idDiv) => {
     let btn = document.createElement('button')
     let iconCheck = document.createElement('i');
@@ -96,7 +112,6 @@ export let Paragrafo = (idP, classP, txtP, divP) => {
     p.innerHTML = txtP
     divP.appendChild(p)
 }
-
 export let LinkComIcone = (idLink, faIcon, classeIcon, btnClassLink, txtLink, titleLink, targetLink, hrefLink, divLink) => {
     let a = document.createElement('a');
     let icon = document.createElement('i');
@@ -193,6 +208,8 @@ export function lineBroken(text, text2) {
     }
     return { text, text2 };
 }
+
+
 // export async function resizeImage(src, options) {
 
 //     const image = await loadImage(document.createElement('img'), src);

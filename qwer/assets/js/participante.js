@@ -13,11 +13,19 @@ else {
         sessionStorage.clear()
         window.location.href = '../index.html'
     })
-    let dataFimEditar = sessionStorage.getItem('dataFimEdit')
+    let dataFimEditar = sessionStorage.getItem('dataFimEdit').replace(/"/g, " ")
     var partesData = dataFimEditar.split("/");
+
     var data = new Date(partesData[2], partesData[1] - 1, partesData[0]);
-    var dataLimite = new Date(("2022, 11, 21"));
-    if (data < new Date() || new Date() > dataLimite) {
+    var dataLimite = new Date(("2022, 11, 15"));
+    var dataMaior
+    if (data > dataLimite) {
+        dataMaior = dataFimEditar
+    } else {
+        dataMaior = dataLimite
+    }
+    // || new Date() > dataLimite
+    if (dataMaior < new Date()) {
         // REMOVER ESTE COMENTARIO ABAIXO
         window.location.href = 'index.html'
     }

@@ -1,178 +1,83 @@
 import { file, getImgRef, imgRef, metadata } from "../../../assets/js/cadastro/storage/getImg.js";
 import { deleteImage, updateCollection, uploadImagem } from "../../../assets/js/firebase/experience-mtb.js";
-import { checkboxFoto, checkboxSenha, formComprovante, formUpdate, loading, txtComprovante, txtFormadePagamento, txtFotoCard, txtModalidade, txtModalidadeRacing, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta } from "../../../assets/js/ui.js";
+import { checkboxFoto, checkboxSenha, formComprovante, formUpdate, loading, txtComprovante, txtFormadePagamento, txtFotoCard, txtModalidade, txtModalidadeRacing, txtNome, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta } from "../../../assets/js/ui.js";
 import { img } from "./participante-get.js";
 export function updateParticipante() {
     let doc = sessionStorage.getItem('documentoLogado').replace(/\"|\"|\-/g, '');
     let pais = sessionStorage.getItem('paislogado').replace(/\"|\"|\-/g, '');
     const ID = pais + doc;
+    let subscription = {};
     getImgRef(txtFotoCard)
     let fotoCard1 = ''
     formUpdate.addEventListener('submit', async (event) => {
-
+        debugger
         event.preventDefault();
+        let categoriaModalidade
+        let resultCategoriaModalidade
+        let subscriptionSenha = ''
+        let campoSenha
+        let resultSenha
         if (txtModalidade.value == "Racing") {
-            if (checkboxFoto.checked && checkboxSenha.checked) {
-                if (imgRef != null) {
-                    fotoCard1 = imgRef
-                }
-                const subscription = {
-                    tamanhoCamiseta: txtTamanhoCamiseta.value,
-                    modalidade: txtModalidade.value,
-                    modalidadeRacing: txtModalidadeRacing.value,
-                    nomeEquipe: txtNomeEquipe.value,
-                    senha: txtSenha.value,
-                    fotoCard: fotoCard1,
-                }
-                let ref2 = `images/${img}`
-                deleteImage(ref2)
-                updateCollection(ID, subscription)
-                // alert('Cadastro Atualizado com sucesso!')
-                loading.hidden = false
-                if (imgRef != null) {
-                    let ref = `images/${imgRef}`
-                    uploadImagem(file, ref, metadata, 'redirect')
-                }
-                else {
-                    setTimeout(function () {
-                        window.location.href = "index.html";
-                    }, 2000);
-                };
-            } else if (checkboxFoto.checked == false && checkboxSenha.checked) {
-                const subscription = {
-                    tamanhoCamiseta: txtTamanhoCamiseta.value,
-                    modalidade: txtModalidade.value,
-                    modalidadeRacing: txtModalidadeRacing.value,
-                    nomeEquipe: txtNomeEquipe.value,
-                    senha: txtSenha.value,
-                }
-                updateCollection(ID, subscription)
-                // alert('Cadastro Atualizado com sucesso!')
-                loading.hidden = false
-                setTimeout(function () {
-                    window.location.href = "index.html";
-                }, 2000);
-            } else if (checkboxSenha.checked == false && checkboxFoto.checked) {
-                if (imgRef != null) {
-                    fotoCard1 = imgRef
-                }
-                const subscription = {
-                    tamanhoCamiseta: txtTamanhoCamiseta.value,
-                    modalidade: txtModalidade.value,
-                    modalidadeRacing: txtModalidadeRacing.value,
-                    nomeEquipe: txtNomeEquipe.value,
-                    fotoCard: fotoCard1,
-                }
-                let ref2 = `images/${img}`
-                deleteImage(ref2)
-                updateCollection(ID, subscription)
-                // alert('Cadastro Atualizado com sucesso!')
-                loading.hidden = false
-                if (imgRef != null) {
-                    let ref = `images/${imgRef}`
-                    uploadImagem(file, ref, metadata, 'redirect')
-                } else {
-                    setTimeout(function () {
-                        window.location.href = "index.html";
-                    }, 2000);
-                }
-            } else {
-                const subscription = {
-                    tamanhoCamiseta: txtTamanhoCamiseta.value,
-                    modalidade: txtModalidade.value,
-                    modalidadeRacing: txtModalidadeRacing.value,
-                    nomeEquipe: txtNomeEquipe.value,
-                }
-                updateCollection(ID, subscription)
-                // alert('Cadastro Atualizado com sucesso!')
-                loading.hidden = false
-                setTimeout(function () {
-                    window.location.href = "index.html";
-                }, 2000);
-            }
+            categoriaModalidade = 'modalidadeRacing'
+            resultCategoriaModalidade = txtModalidadeRacing.value
         }
-        // -----------------------CHLANGER--------------------------------
-        else {
-            if (checkboxFoto.checked && checkboxSenha.checked) {
-                if (imgRef != null) {
-                    fotoCard1 = imgRef
-                }
-                const subscription = {
-                    tamanhoCamiseta: txtTamanhoCamiseta.value,
-                    modalidade: txtModalidade.value,
-                    modalidadeChallenge: txtModalidadeChallenge.value,
-                    nomeEquipe: txtNomeEquipe.value,
-                    senha: txtSenha.value,
-                    fotoCard: fotoCard1,
-                }
-                let ref2 = `images/${img}`
-                deleteImage(ref2)
-                updateCollection(ID, subscription)
-                // alert('Cadastro Atualizado com sucesso!')
-                loading.hidden = false
-                if (imgRef != null) {
-                    let ref = `images/${imgRef}`
-                    uploadImagem(file, ref, metadata, 'redirect')
-                } else {
-                    setTimeout(function () {
-                        window.location.href = "index.html";
-                    }, 2000);
-                }
-            } else if (checkboxFoto.checked == false && checkboxSenha.checked) {
-                const subscription = {
-                    tamanhoCamiseta: txtTamanhoCamiseta.value,
-                    modalidade: txtModalidade.value,
-                    modalidadeChallenge: txtModalidadeChallenge.value,
-                    nomeEquipe: txtNomeEquipe.value,
-                    senha: txtSenha.value,
-                }
-                updateCollection(ID, subscription)
-                // alert('Cadastro Atualizado com sucesso!')
-                loading.hidden = false
-                setTimeout(function () {
-                    window.location.href = "index.html";
-                }, 2000);
-            } else if (checkboxSenha.checked == false && checkboxFoto.checked) {
-                if (imgRef != null) {
-                    fotoCard1 = imgRef
-                }
-                const subscription = {
-                    tamanhoCamiseta: txtTamanhoCamiseta.value,
-                    modalidade: txtModalidade.value,
-                    modalidadeChallenge: txtModalidadeChallenge.value,
-                    nomeEquipe: txtNomeEquipe.value,
-                    fotoCard: imgRef,
-                }
-                let ref2 = `images/${img}`
-                deleteImage(ref2)
-                updateCollection(ID, subscription)
-                // alert('Cadastro Atualizado com sucesso!')
-                loading.hidden = false
-                if (imgRef != null) {
-                    let ref = `images/${imgRef}`
-                    uploadImagem(file, ref, metadata, 'redirect')
-                }
-                else {
-                    setTimeout(function () {
-                        window.location.href = "index.html";
-                    }, 2000);
-                }
-            } else {
-                const subscription = {
-                    tamanhoCamiseta: txtTamanhoCamiseta.value,
-                    modalidade: txtModalidade.value,
-                    modalidadeChallenge: txtModalidadeChallenge.value,
-                    nomeEquipe: txtNomeEquipe.value,
-                }
-                updateCollection(ID, subscription)
-                // alert('Cadastro Atualizado com sucesso!')
-                loading.hidden = false
-                setTimeout(function () {
-                    window.location.href = "index.html";
-                }, 2000);
-            }
+        else if (txtModalidade.value == "Challenge") {
+            categoriaModalidade = 'modalidadeChallenge'
+            resultCategoriaModalidade = txtModalidadeChallenge.value
+        } else {
+            alert('Escolha uma Categoria')
         }
-
+        if (checkboxSenha.checked) {
+            campoSenha = 'senha'
+            resultSenha = txtSenha.value
+        }
+        if (checkboxFoto.checked) {
+            if (imgRef != null) {
+                fotoCard1 = imgRef
+            }
+            subscription = {
+                nome: txtNome.value,
+                tamanhoCamiseta: txtTamanhoCamiseta.value,
+                modalidade: txtModalidade.value,
+                // modalidadeRacing: txtModalidadeRacing.value,
+                nomeEquipe: txtNomeEquipe.value,
+                // senha: txtSenha.value,
+                fotoCard: fotoCard1,
+            }
+            subscription[categoriaModalidade] = resultCategoriaModalidade
+            if (campoSenha != null) subscription[campoSenha] = resultSenha
+            let ref2 = `images/${img}`
+            deleteImage(ref2)
+            updateCollection(ID, subscription)
+            // alert('Cadastro Atualizado com sucesso!')
+            loading.hidden = false
+            if (imgRef != null) {
+                let ref = `images/${imgRef}`
+                uploadImagem(file, ref, metadata, 'redirect')
+            }
+            else {
+                setTimeout(function () {
+                    window.location.href = "index.html";
+                }, 2000);
+            };
+        } else if (checkboxFoto.checked == false) {
+            subscription = {
+                nome: txtNome.value,
+                tamanhoCamiseta: txtTamanhoCamiseta.value,
+                modalidade: txtModalidade.value,
+                // modalidadeRacing: txtModalidadeRacing.value,
+                nomeEquipe: txtNomeEquipe.value,
+                // senha: txtSenha.value,
+            }
+            subscription[categoriaModalidade] = resultCategoriaModalidade
+            if (campoSenha != null) subscription[campoSenha] = resultSenha
+            updateCollection(ID, subscription)
+            // alert('Cadastro Atualizado com sucesso!')
+            loading.hidden = false
+            setTimeout(function () {
+                window.location.href = "index.html";
+            }, 2000);
+        }
     })
 }
 
