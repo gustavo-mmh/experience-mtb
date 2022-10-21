@@ -84,7 +84,7 @@ export const lblLoginErrorMessage = document.querySelector('#lblLoginErrorMessag
 export const divLote = document.querySelector('#lote')
 // Lote
 export const dataHoje = new Date();
-export const dataLimiteLote = new Date(("2022, 10, 22"));
+export const dataLimiteLote = new Date(("2022, 10, 21"));
 export const nomeLote = 'Lote Finish'
 export const dataLote = 'de 22.10 à 22.11'
 export const precoLoteBr = 'R$140,00'
