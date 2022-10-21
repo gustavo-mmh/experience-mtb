@@ -28,8 +28,8 @@ export function Canvas(cardMTB) {
         // if (cardMTB.fotoParticipante == '') {
         //     setText()
         // }
-        setImageUser();
         setCardImage();
+        setImageUser();
 
 
     }

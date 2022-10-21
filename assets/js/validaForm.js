@@ -1,4 +1,4 @@
-import { btnCadastro, BtnComIcone, btnCopiar, checkboxTermos, codigoQR, dataLote, divChallenge, divPagamento, divRacing, LinkComIcone, nomeLote, Paragrafo, precoLoteBr, precoLoteUy, qrPix, txtDesconto, txtFormadePagamento, txtModalidadeChallenge, txtModalidadeRacing } from "./ui.js";
+import { btnCadastro, BtnComIcone, btnCopiar, checkboxTermos, codigoQR, dataHoje, dataLimiteLote, dataLote, divChallenge, divPagamento, divRacing, LinkComIcone, nomeLote, Paragrafo, precoLoteBr, precoLoteUy, qrPix, qrPix2, txtDesconto, txtFormadePagamento, txtModalidadeChallenge, txtModalidadeRacing } from "./ui.js";
 let idLinkPagamento = 'btnLinkPagamento';
 let faIconPagamento = 'fa';
 let classeIconLinkPagamento = 'fa-credit-card';
@@ -115,7 +115,14 @@ export function BotoesPorNacionalidade(pais) {
 }
 export function formaDePagamentoPais(itemPais) {
     if (itemPais == 'Brasil') {
-        txtDesconto.innerHTML = `<b>${nomeLote}</b> (${dataLote}) ${precoLoteBr}`
+        if (dataHoje >= dataLimiteLote) {
+            txtDesconto.innerHTML = `<b>${nomeLote}</b> (${dataLote}) ${precoLoteBr}`
+            codigoQR.value = qrPix2
+            document.querySelector("#imgQrPix").src = './assets/images/qrcode2.jpg'
+        } else {
+            codigoQR.value = qrPix
+            txtDesconto.innerHTML = `<b>Lote Sprint</b> (de 07.10 à 21.10) R$135,00 `
+        }
         BotoesPorNacionalidade(itemPais)
         let btnLinkPagamento = document.querySelector("#btnLinkPagamento")
         btnLinkPagamento.hidden = true
@@ -132,9 +139,12 @@ export function formaDePagamentoPais(itemPais) {
         txtFormadePagamento.addEventListener('change', () => {
             VerificaFormaPagamento2(btnLinkPagamento, btnPix, p)
         })
-        codigoQR.value = qrPix
     } else if (itemPais == 'Uruguai') {
-        txtDesconto.innerHTML = `<b>${nomeLote}</b> (${dataLote}) ${precoLoteUy}`
+        if (dataHoje >= dataLimiteLote) {
+            txtDesconto.innerHTML = `<b>${nomeLote}</b> (${dataLote}) ${precoLoteUy}`
+        } else {
+            txtDesconto.innerHTML = `<b>Lote Sprint</b> (de 07.10 à 21.10) $1350,00 `
+        }
         BotoesPorNacionalidade(itemPais)
         let btnLinkPagamento = document.querySelector("#btnLinkPagamento")
         btnLinkPagamento.hidden = true

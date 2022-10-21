@@ -85,11 +85,12 @@ export const divLote = document.querySelector('#lote')
 // Lote
 export const dataHoje = new Date();
 export const dataLimiteLote = new Date(("2022, 10, 22"));
-export const nomeLote = 'Lote Sprint'
-export const dataLote = 'de 07.10 à 21.10'
-export const precoLoteBr = 'R$135,00'
-export const precoLoteUy = "$1350,00"
+export const nomeLote = 'Lote Finish'
+export const dataLote = 'de 22.10 à 22.11'
+export const precoLoteBr = 'R$140,00'
+export const precoLoteUy = "$1400,00"
 export const qrPix = '00020101021126670014br.gov.bcb.pix0114477893600001880227Lote Sprint Experience 20225204000053039865406135.005802BR5913YELLOW SPORTS6008BRASILIA621405102loteExp226304CAEE'
+export const qrPix2 = '00020101021126720014br.gov.bcb.pix0114477893600001880232Lote Finish Experience incrições5204000053039865406140.005802BR5913YELLOW SPORTS6008BRASILIA622005163loteFinishExp226304D6F4'
 export let BtnComIcone = (tipo, classeBtn, idBtn, faIcon, classeIcon, txtBtn, idDiv) => {
     let btn = document.createElement('button')
     let iconCheck = document.createElement('i');
@@ -202,7 +203,7 @@ export function lineBroken(text, text2) {
         let texts = text.trim().split(" ");
         if (texts.length > 2) {
             text2 = texts.pop()
-            text = texts.toString().replace(/,/g, " ");
+            text = texts.join(" ");
         }
         else text = text.substring(0, 40);
     }
