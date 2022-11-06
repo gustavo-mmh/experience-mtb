@@ -14,7 +14,23 @@
 
 <body>
     <div id="load" class="load" hidden>
-        <div class="spinner-border spinner-border-xl text-success" role="status">
+        <div class="progress w-100">
+            <div id="progressBar" class="flex-column progress-bar progress-bar-striped progress-bar-animated"
+                role="progressbar" aria-label="Animated striped example" aria-valuenow="" aria-valuemin="0"
+                aria-valuemax="100">
+            </div>
+
+        </div>
+        <div class="spinner-grow text-success" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-danger" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-warning" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-info" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
     </div>

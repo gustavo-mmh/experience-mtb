@@ -6,8 +6,10 @@
   height: 100%;
   z-index: 9999;
   display: flex;
-  justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
 }
 .cabecalho {
   background: #f7f7f7;

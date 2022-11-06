@@ -10,7 +10,6 @@ export function updateParticipante() {
     getImgRef(txtFotoCard)
     let fotoCard1 = ''
     formUpdate.addEventListener('submit', async (event) => {
-        debugger
         event.preventDefault();
         let categoriaModalidade
         let resultCategoriaModalidade

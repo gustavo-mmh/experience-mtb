@@ -115,14 +115,14 @@ export function BotoesPorNacionalidade(pais) {
 }
 export function formaDePagamentoPais(itemPais) {
     if (itemPais == 'Brasil') {
-        if (dataHoje >= dataLimiteLote) {
-            txtDesconto.innerHTML = `<b>${nomeLote}</b> (${dataLote}) ${precoLoteBr}`
-            codigoQR.value = qrPix2
-            document.querySelector("#imgQrPix").src = './assets/images/qrcode2.jpg'
-        } else {
-            codigoQR.value = qrPix
-            txtDesconto.innerHTML = `<b>Lote Sprint</b> (de 07.10 à 21.10) R$135,00 `
-        }
+        // if (dataHoje >= dataLimiteLote) {
+        txtDesconto.innerHTML = `<b>${nomeLote}</b> (${dataLote}) ${precoLoteBr}`
+        codigoQR.value = qrPix2
+        document.querySelector("#imgQrPix").src = './assets/images/qrcode2.jpg'
+        // } else {
+        // codigoQR.value = qrPix
+        // txtDesconto.innerHTML = `<b>Lote Sprint</b> (de 07.10 à 21.10) R$135,00 `
+        // }
         BotoesPorNacionalidade(itemPais)
         let btnLinkPagamento = document.querySelector("#btnLinkPagamento")
         btnLinkPagamento.hidden = true
@@ -258,22 +258,28 @@ export function calculaIdade(dataNasc) {
     }
     return idade;
 }
-export function filtraCategoriaSexo(cat) {
+export function filtraCategoriaSexo(cat, idade) {
     if (cat == "Masculino") {
         txtModalidadeRacing.options[2].disabled = true
         txtModalidadeRacing.options[2].hidden = true
+        // if
         txtModalidadeRacing.options[4].disabled = true
         txtModalidadeRacing.options[4].hidden = true
         txtModalidadeRacing.options[1].disabled = false
         txtModalidadeRacing.options[1].hidden = false
-        txtModalidadeRacing.options[3].disabled = false
-        txtModalidadeRacing.options[3].hidden = false
+        if (idade > 18) {
+            txtModalidadeRacing.options[3].disabled = false
+            txtModalidadeRacing.options[3].hidden = false
+        }
         document.querySelector('#catId').hidden = false
     } else {
         txtModalidadeRacing.options[2].disabled = false
         txtModalidadeRacing.options[2].hidden = false
-        txtModalidadeRacing.options[4].disabled = false
-        txtModalidadeRacing.options[4].hidden = false
+        if (idade > 18) {
+
+            txtModalidadeRacing.options[4].disabled = false
+            txtModalidadeRacing.options[4].hidden = false
+        }
         txtModalidadeRacing.options[1].disabled = true
         txtModalidadeRacing.options[1].hidden = true
         txtModalidadeRacing.options[3].disabled = true

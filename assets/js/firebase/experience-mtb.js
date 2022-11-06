@@ -54,15 +54,20 @@ export function uploadImagem(file, imgRef, metadata, redirec) {
     uploadTask.on('state_changed',
         (snapshot) => {
             // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            // console.log('Upload is ' + progress + '% done');
-
+            const progress = (snapshot.bytesTransferred / snapshot.totalBytes).toPrecision(4) * 100;
+            console.log('Upload is ' + progress + '% done');
+            document.querySelector('#progressBar').style = `width: ${progress}%`
+            document.querySelector('#progressBar').innerHTML = `${progress}`
             switch (snapshot.state) {
                 case 'paused':
-                    // console.log('Upload is paused');
+                    console.log('Upload is paused');
+                    document.querySelector('#progressBar').style = `width: ${progress}%`
+                    document.querySelector('#progressBar').innerHTML = `${progress}`
                     break;
                 case 'running':
-                    // console.log('Upload is running');
+                    document.querySelector('#progressBar').style = `width: ${progress}%`
+                    document.querySelector('#progressBar').innerHTML = `${progress}`
+                    console.log('Upload is running');
                     break;
             }
         },
@@ -108,15 +113,21 @@ export function uploadImagemCad(file, imgRef, metadata, doc, psw, pais) {
     // Listen for state changes, errors, and completion of the upload.
     uploadTask.on('state_changed',
         (snapshot) => {
+            debugger
             // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            const progress = (snapshot.bytesTransferred / snapshot.totalBytes).toPrecision(4) * 100;
             console.log('Upload is ' + progress + '% done');
-
+            document.querySelector('#progressBar').style = `width: ${progress}%`
+            document.querySelector('#progressBar').innerHTML = `${progress}`
             switch (snapshot.state) {
                 case 'paused':
                     console.log('Upload is paused');
+                    document.querySelector('#progressBar').style = `width: ${progress}%`
+                    document.querySelector('#progressBar').innerHTML = `${progress}`
                     break;
                 case 'running':
+                    document.querySelector('#progressBar').style = `width: ${progress}%`
+                    document.querySelector('#progressBar').innerHTML = `${progress}`
                     console.log('Upload is running');
                     break;
             }
@@ -138,7 +149,6 @@ export function uploadImagemCad(file, imgRef, metadata, doc, psw, pais) {
             }
         },
         () => {
-            debugger
             // loading.hidden = true
             loginCad(doc, psw, pais)
         }
