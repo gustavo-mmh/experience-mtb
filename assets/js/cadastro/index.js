@@ -5,33 +5,32 @@ import { bloqueioCadastro, calculaIdade, filtraCategoria, filtraCategoriaSexo, v
 import { file, getImgRef, imgRef, metadata } from "./storage/getImg.js";
 // import { file, getimg, metadata, newName, storageRef } from "./storage/index.js";
 
-let fotoCard1 = ''
+let fotoCard = ''
 let tmpDate = new Date()
 let hoje = formatDate(tmpDate, 'dd/mm/aaaa')
 let dia10 = addDaysToDate(tmpDate, 10)
 let dataFim = formatDate(dia10, 'dd/mm/aaaa')
 let datainsc = dataAtualFormatada(tmpDate)
 export async function Cadastrar() {
-
     txtdddWhatsApp.addEventListener('change', (e) => {
         let txt = e.target.value
         txtWhatsApp.value = ''
-        if (txt == '+55') {
-            txtWhatsApp.placeholder = 'DD XXXXX XXXX'
-            txtWhatsApp.maxlength = 13
-            return
-        } else if (txt == '+598') {
-            txtWhatsApp.placeholder = 'XX XXX XXX'
-            txtWhatsApp.maxlength = 10
-            return
-        } else if (txt == '+549') {
-            txtWhatsApp.placeholder = 'XX XXXX XXXX'
-            txtWhatsApp.maxlength = 12
-            // paisWpp(mascaraAR)
-            return
-        } else {
-            txtWhatsApp.placeholder = 'Digite Seu WhatsApp'
-            return
+        switch (txt) {
+            case '+55':
+                txtWhatsApp.placeholder = 'DD XXXXX XXXX'
+                txtWhatsApp.maxLength = 13
+                break;
+            case '+598':
+                txtWhatsApp.placeholder = 'XX XXX XXX'
+                txtWhatsApp.maxLength = 10
+                break;
+            case '+54':
+                txtWhatsApp.placeholder = 'XX XXXX XXXX'
+                txtWhatsApp.maxLength = 12
+                break;
+            default:
+                txtWhatsApp.placeholder = 'Digite Seu WhatsApp'
+                break;
         }
     })
     txtModalidade.addEventListener('change', (e) => {
@@ -69,7 +68,7 @@ export async function Cadastrar() {
             const ID = txtPais.value + txtDocumento.value
             // Previne a submissão do formulário:
             const docsID = await getExperienceMtbdocsID()
-            if (docsID.includes(ID) == true) {
+            if (docsID.includes(ID) === true) {
                 alert("Esse Documento já existe")
                 txtDocumento.focus();
             }
@@ -77,17 +76,17 @@ export async function Cadastrar() {
                 let msgWpp = `https://api.whatsapp.com/send?phone=${txtdddWhatsApp.value}${txtWhatsApp.value}&text=Ol%C3%A1%20${txtNome.value}%2C%20obrigado%20pela%20inscri%C3%A7%C3%A3o`
                 let categoriaModalidade
                 let resultCategoriaModalidade
-                if (txtModalidade.value == "Racing") {
+                if (txtModalidade.value === "Racing") {
                     categoriaModalidade = 'modalidadeRacing'
                     resultCategoriaModalidade = txtModalidadeRacing.value
                 }
-                else if (txtModalidade.value == "Challenge") {
+                else if (txtModalidade.value === "Challenge") {
                     categoriaModalidade = 'modalidadeChallenge'
                     resultCategoriaModalidade = txtModalidadeChallenge.value
                 }
 
                 if (imgRef != null) {
-                    fotoCard1 = imgRef
+                    fotoCard = imgRef
                 }
                 const subscription = {
                     pais: txtPais.value,
@@ -100,9 +99,10 @@ export async function Cadastrar() {
                     categoria: txtCategoria.value,
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
                     modalidade: txtModalidade.value,
+                    [categoriaModalidade]: resultCategoriaModalidade,
                     nomeEquipe: txtNomeEquipe.value,
                     senha: txtSenha.value,
-                    fotoCard: fotoCard1,
+                    fotoCard,
                     comprovantePagamento: '',
                     status: 'Pendente',
                     dataInscricao: hoje,
@@ -110,7 +110,6 @@ export async function Cadastrar() {
                     momentoInscricao: datainsc,
                     LinkMsgWpp: msgWpp,
                 }
-                subscription[categoriaModalidade] = resultCategoriaModalidade
                 subscribeToExperienceMtb(subscription, ID);
                 loading.hidden = false
                 if (imgRef != null) {
@@ -125,7 +124,7 @@ export async function Cadastrar() {
                     let doc = txtDocumento.value
                     let psw = txtSenha.value
                     loginCad(doc, psw, pais)
-                    limparDados()
+                    // limparDados()
                 }
             }
 

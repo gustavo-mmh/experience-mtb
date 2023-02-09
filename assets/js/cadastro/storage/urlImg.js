@@ -4,7 +4,6 @@ export function getUrlImage(storage, img, fotoCard) {
     // Get the download URL
     getDownloadURL(starsRef).then((url) => {
         // Insert url into an <img> tag to "download"
-        console.log('second')
         fotoCard.setAttribute('src', url);
     }).catch((error) => {
         // A full list of error codes is available at

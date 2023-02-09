@@ -8,12 +8,11 @@ export function updateParticipante() {
     const ID = pais + doc;
     let subscription = {};
     getImgRef(txtFotoCard)
-    let fotoCard1 = ''
+    let fotoCard = ''
     formUpdate.addEventListener('submit', async (event) => {
         event.preventDefault();
         let categoriaModalidade
         let resultCategoriaModalidade
-        let subscriptionSenha = ''
         let campoSenha
         let resultSenha
         if (txtModalidade.value == "Racing") {
@@ -32,18 +31,16 @@ export function updateParticipante() {
         }
         if (checkboxFoto.checked) {
             if (imgRef != null) {
-                fotoCard1 = imgRef
+                fotoCard = imgRef
             }
             subscription = {
                 nome: txtNome.value,
                 tamanhoCamiseta: txtTamanhoCamiseta.value,
                 modalidade: txtModalidade.value,
-                // modalidadeRacing: txtModalidadeRacing.value,
+                [categoriaModalidade]: resultCategoriaModalidade,
                 nomeEquipe: txtNomeEquipe.value,
-                // senha: txtSenha.value,
-                fotoCard: fotoCard1,
+                fotoCard,
             }
-            subscription[categoriaModalidade] = resultCategoriaModalidade
             if (campoSenha != null) subscription[campoSenha] = resultSenha
             let ref2 = `images/${img}`
             deleteImage(ref2)
@@ -64,11 +61,9 @@ export function updateParticipante() {
                 nome: txtNome.value,
                 tamanhoCamiseta: txtTamanhoCamiseta.value,
                 modalidade: txtModalidade.value,
-                // modalidadeRacing: txtModalidadeRacing.value,
+                [categoriaModalidade]: resultCategoriaModalidade,
                 nomeEquipe: txtNomeEquipe.value,
-                // senha: txtSenha.value,
             }
-            subscription[categoriaModalidade] = resultCategoriaModalidade
             if (campoSenha != null) subscription[campoSenha] = resultSenha
             updateCollection(ID, subscription)
             // alert('Cadastro Atualizado com sucesso!')

@@ -1,7 +1,7 @@
-import { collection, doc, getDoc, getDocs, getFirestore, setDoc, query, where, updateDoc } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
-import { getStorage, ref, uploadBytesResumable, deleteObject } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js";
+import { collection, doc, getDoc, getDocs, getFirestore, query, setDoc, updateDoc, where } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
+import { deleteObject, getStorage, ref, uploadBytesResumable } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js";
 import { loginCad } from '../login/index.js';
-import { formCadastro, loading, loginDocumento, txtDocumento, txtPais, txtSenha } from '../ui.js';
+import { loading, txtDocumento, txtPais, txtSenha } from '../ui.js';
 import app from './app.js';
 const db = getFirestore(app)
 const expereinceMTBCollection = collection(db, 'experience-mtb')
@@ -33,6 +33,7 @@ export async function getCollection(documento, pais) {
     const documentoQuery = query(expereinceMTBCollection, where("documento", "==", documento), where("pais", "==", pais));
     const querySnapshot = await getDocs(documentoQuery);
     const docsData = querySnapshot.docs.map(doc => doc.data());
+    console.log('getCollection');
     return docsData;
 }
 export async function updateCollection(documento, subscription) {
