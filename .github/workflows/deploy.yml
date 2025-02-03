@@ -20,11 +20,11 @@ jobs:
       
       - name: Install dependencies
         run: npm install
-        working-directory: ./experience-mtb # Atualize o caminho se necessário
+        working-directory: ./ # Atualize o caminho se necessário
         
       - name: Build project
         run: npm run build
-        working-directory: ./experience-mtb # Atualize o caminho se necessário
+        working-directory: ./ # Atualize o caminho se necessário
       - name: Deploy to Firebase
         env:
           FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
