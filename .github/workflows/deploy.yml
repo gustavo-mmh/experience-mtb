@@ -13,7 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Replace environment variables in config.js
+      - name: Replace environment variables in app.js
         run: |
           sed -e "s/FIREBASE_API_KEY_PLACEHOLDER/${{ secrets.FIREBASE_API_KEY }}/" \
               -e "s/FIREBASE_AUTH_DOMAIN_PLACEHOLDER/${{ secrets.FIREBASE_AUTH_DOMAIN }}/" \
@@ -22,7 +22,7 @@ jobs:
               -e "s/FIREBASE_MESSAGING_SENDER_ID_PLACEHOLDER/${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}/" \
               -e "s/FIREBASE_APP_ID_PLACEHOLDER/${{ secrets.FIREBASE_APP_ID }}/" \
               -e "s/FIREBASE_MEASUREMENT_ID_PLACEHOLDER/${{ secrets.FIREBASE_MEASUREMENT_ID }}/" \
-              assets/js/firebase/config.template.js > assets/js/firebase/config.js
+              assets/js/firebase/app.js > assets/js/firebase/app.js
 
       - name: Build project
         run: npm run build
