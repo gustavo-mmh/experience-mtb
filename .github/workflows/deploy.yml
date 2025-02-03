@@ -8,16 +8,16 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
+        
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '14'
-
+      
       - name: Install dependencies
         run: npm install
 
@@ -33,9 +33,7 @@ jobs:
               assets/js/firebase/config.template.js > assets/js/firebase/config.js
 
       - name: Build project
-        run: |
-          # Seu comando de build aqui
-          echo "Building the project..."
+        run: npm run build
 
       - name: Deploy to Firebase
         env:
