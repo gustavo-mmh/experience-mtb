@@ -2,17 +2,17 @@
 
 Site desenvolvido em HTML, CSS e JS no FrontEnd, com JS no Backend, e banco de dados NoSql Firebase. Site para inscrição de participantes para um Evento, com criação de um Card personalizado em Canvas.
 
-## Visão Geral
+## 📌 Sobre o Projeto
 
 Este projeto é um site desenvolvido para inscrições de participantes em um evento de Mountain Bike, com funcionalidades de criação de cards personalizados para os inscritos.
 
-### Tecnologias Utilizadas
+## 🚀 Tecnologias Utilizadas
 
 - **Frontend**: HTML, CSS, JavaScript
 - **Backend**: JavaScript
 - **Banco de Dados**: NoSql Firebase
 
-## Estrutura do Projeto
+## 📂 Estrutura do Projeto
 
 ### Principais Arquivos
 
@@ -20,13 +20,13 @@ Este projeto é um site desenvolvido para inscrições de participantes em um ev
 - **assets/js/main.js**: Script principal com funcionalidades de cadastro e login.
 - **assets/css/style.css**: Estilos principais do site.
 
-### Funcionalidades
+## 📌 Funcionalidades
 
 - **Formulário de Inscrição**: Permite aos usuários se inscreverem no evento fornecendo informações pessoais.
 - **Login**: Autenticação de usuários registrados.
 - **Criação de Card Personalizado**: Geração de um card personalizado em Canvas para cada inscrito.
 
-## Instalação
+## 🛠️ Instalação
 
 1. Clone o repositório:
    ```sh
@@ -37,13 +37,13 @@ Este projeto é um site desenvolvido para inscrições de participantes em um ev
    ```
 3. Abra o arquivo `index.html` no seu navegador.
 
-## Uso
+## 🔧 Uso
 
 1. Preencha os campos do formulário de inscrição.
 2. Clique em "Inscrever-se" para enviar suas informações.
 3. Faça login na plataforma para acessar seu painel administrativo e visualizar seu card personalizado.
 
-## Contribuição
+## 📜 Licença
 
 Para contribuir com esse projeto, siga os passos abaixo:
 
@@ -62,11 +62,11 @@ Para contribuir com esse projeto, siga os passos abaixo:
    ```
 5. Abra um Pull Request.
 
-## Licença
+## 📜 Licença
 
 Este projeto não possui uma licença específica.
 
-## Contato
+## 🤝 Contribuição
 
 Para dúvidas ou mais informações, você pode entrar em contato através dos seguintes links:
 
@@ -75,7 +75,8 @@ Para dúvidas ou mais informações, você pode entrar em contato através dos s
 
 ---
 
-Desenvolvido por Gustavo M. Mello
+🔗 **Autor:** [Gustavo M. Mello](https://github.com/gustavo-mmh)  
+📫 Entre em contato para colaborações e feedbacks!
 ```
 
 Você pode adicionar ou ajustar qualquer detalhe conforme necessário.
