@@ -1,5 +1,9 @@
 # Experience MTB
 
+![GitHub repo size](https://img.shields.io/github/repo-size/gustavo-mmh/experience-mtb)
+![GitHub last commit](https://img.shields.io/github/last-commit/gustavo-mmh/experience-mtb)
+![GitHub stars](https://img.shields.io/github/stars/gustavo-mmh/experience-mtb?style=social)
+
 Site desenvolvido em HTML, CSS e JS no FrontEnd, com JS no Backend, e banco de dados NoSql Firebase. Site para inscrição de participantes para um Evento, com criação de um Card personalizado em Canvas.
 
 ## 📌 Sobre o Projeto
